@@ -2,6 +2,24 @@
 
 This is a C# library for the IndY-API.
 
+## How to use
+
+```csharp
+// create host
+using IHost host = Host.CreateApplicationBuilder(args).Build();
+
+// add library
+var services = new ServiceCollection();
+services.AddIndyAuth();
+var serviceProvider = services.BuildServiceProvider();
+
+// get auth class
+var indyAuth = serviceProvider.GetRequiredService<IIndyAuth>();
+
+// get token
+var client = await indyAuth.CreateClienetAsync(username, password);
+```
+
 ## What is IndY?
 
 IndY is a project in my school, where students can freely decide what, where and with who they work on. There are 6 IndY hours all in all (2x Monday, 2x Wendsday, 2x Friday)
