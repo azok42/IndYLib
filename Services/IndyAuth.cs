@@ -13,6 +13,18 @@ public class IndyAuth : IIndyAuth
       _httpClient = httpClient;
    }
 
+   public async Task<IIndyClient> CreateClientAsync(Token token)
+   {
+      return new IndyClient(_httpClient, token);
+   }
+
+   public async Task<IIndyClient> CreateClientAsync(string username, string password)
+   {
+      Token token = await GetToken(username, password);
+
+      return await CreateClientAsync(token);
+   }
+
    public async Task<Token> GetToken(string username, string password)
    {
       var userDetails = new Dictionary<string, string>
