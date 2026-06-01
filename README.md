@@ -17,7 +17,7 @@ var serviceProvider = services.BuildServiceProvider();
 var indyAuth = serviceProvider.GetRequiredService<IIndyAuth>();
 
 // get token
-var client = await indyAuth.CreateClienetAsync(username, password);
+var client = await indyAuth.CreateClientAsync(username, password);
 ```
 
 ## What is IndY?
