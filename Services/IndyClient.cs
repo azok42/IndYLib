@@ -6,7 +6,8 @@ namespace IndYLib.Services;
 public class IndyClient : IIndyClient
 {
    private readonly HttpClient _httpClient;
-   private readonly Token _token;
+
+   public Token _token { get; }
 
    private readonly static HttpClient _staticHttpClient = new()
    {
