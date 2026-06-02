@@ -1,5 +1,6 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
 using IndYLib.Interfaces;
 using IndYLib.Models;
@@ -16,6 +17,27 @@ public class IndyClient : IIndyClient
    {
       BaseAddress = new Uri("https://indy.sz-ybbs.ac.at:8443/")
    };
+
+   public static async Task<List<SpecialIndy>> GetSpecialIndyAsync()
+   {
+      try
+      {
+         var response = await _staticHttpClient.GetFromJsonAsync<List<SpecialIndy>>("specialindy/");
+
+         if (response == null)
+            throw new InvalidOperationException("Getting Specialindy failed: response is empty");
+
+         return response;
+      }
+      catch (HttpRequestException e)
+      {
+         throw new InvalidOperationException("Getting Specialindy failed: StatusCode " + e.StatusCode); 
+      }
+      catch (JsonException e)
+      {
+         throw new InvalidOperationException("Getting Specialindy failed: Could not parse response (" + e + ")"); 
+      }
+   }
 
    public IndyClient(HttpClient httpClient, Token token)
    {
