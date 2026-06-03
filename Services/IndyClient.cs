@@ -31,11 +31,32 @@ public class IndyClient : IIndyClient
       }
       catch (HttpRequestException e)
       {
-         throw new InvalidOperationException("Getting Specialindy failed: StatusCode " + e.StatusCode); 
+         throw new InvalidOperationException("Getting Specialindy failed: Status " + e.StatusCode); 
       }
       catch (JsonException e)
       {
          throw new InvalidOperationException("Getting Specialindy failed: Could not parse response (" + e + ")"); 
+      }
+   }
+
+   public static async Task<List<StudentCount>> GetStudentCountAsync(DateOnly date)
+   {
+      try
+      {
+         var response = await _staticHttpClient.GetFromJsonAsync<List<StudentCount>>("studentcount/?indy_date=" + date.ToString("yyyy-MM-dd"));
+
+         if (response == null)
+            throw new InvalidOperationException("Getting Studentcount failed: response is empty");
+
+         return response;
+      }
+      catch (HttpRequestException e)
+      {
+         throw new InvalidOperationException("Getting Studentcount failed: Status " + e.StatusCode); 
+      }
+      catch (JsonException e)
+      {
+         throw new InvalidOperationException("Getting Studentcount failed: Could not parse response (" + e + ")"); 
       }
    }
 
