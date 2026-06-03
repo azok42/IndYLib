@@ -102,4 +102,31 @@ public class IndyClient : IIndyClient
 
       return result ?? throw new Exception("Entry creation failed");
    }
+
+   public async Task<List<Student>> GetStudentAsync()
+   {
+      var request = new HttpRequestMessage(HttpMethod.Get, "student/");
+
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+
+      var response = await _httpClient.SendAsync(request);
+      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      {
+         var errorJson = await response.Content.ReadAsStringAsync();
+         throw new Exception($"Getting student failes: {errorJson}");
+      }
+
+      List<Student>? result;
+      try
+      {
+          result = await response.Content.ReadFromJsonAsync<List<Student>>();
+      }
+      catch (Exception e)
+      {
+          var errorJson = await response.Content.ReadAsStringAsync();
+          throw new Exception($"Student parsing failed: {errorJson} {e.Message}");
+      }
+
+      return result ?? throw new Exception("Getting student failed");
+   }
 }
