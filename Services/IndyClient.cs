@@ -67,7 +67,7 @@ public class IndyClient : IIndyClient
       _token = token;
    }
 
-   public async Task<Normal> MakeEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
+   public async Task<Normal> MakeNormalEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
    {
       var parameters = new Dictionary<string, string?>
       {

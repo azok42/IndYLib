@@ -5,7 +5,7 @@ namespace IndYLib.Interfaces;
 
 public interface IIndyClient
 {
-   Task<Normal> MakeEntryAsync(DateOnly date, int hour, string tid, string subject, string activity);
+   Task<Normal> MakeNormalEntryAsync(DateOnly date, int hour, string tid, string subject, string activity);
    Task<List<ValidDay>> GetValidDaysAsync(DateOnly startDate, DateOnly endDate);
    Task<List<Student>> GetStudentAsync();
    Task<List<Teacher>> GetTeachers();
