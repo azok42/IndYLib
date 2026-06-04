@@ -4,6 +4,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
 using IndYLib.Interfaces;
 using IndYLib.Models;
+using IndYLib.Models.Entry;
 
 namespace IndYLib.Services;
 
@@ -66,7 +67,7 @@ public class IndyClient : IIndyClient
       _token = token;
    }
 
-   public async Task<Entry> MakeEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
+   public async Task<Normal> MakeEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
    {
       var parameters = new Dictionary<string, string?>
       {
@@ -88,11 +89,11 @@ public class IndyClient : IIndyClient
          throw new Exception($"Entry creation failed: {errorJson}");
       }
 
-      Entry? result;
+      Normal? result;
 
       try
       {
-         result = await response.Content.ReadFromJsonAsync<Entry>();
+         result = await response.Content.ReadFromJsonAsync<Normal>();
       }
       catch (Exception e)
       {

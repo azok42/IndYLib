@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace IndYLib.Models;
+namespace IndYLib.Models.Entry;
 
-public record Entry(
+public record Normal (
          [property: JsonPropertyName("tid")] string TeacherId,
          [property: JsonPropertyName("hour")] int Hour,
          [property: JsonPropertyName("sid")] long SchuelerId,
