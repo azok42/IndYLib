@@ -157,4 +157,37 @@ public class IndyClient : IIndyClient
 
       return result ?? throw new Exception("Getting teachers failed");
    }
+
+   public async Task<List<ValidDay>> GetValidDaysAsync(DateOnly startDate, DateOnly endDate)
+   {
+      var parameters = new Dictionary<string, string?>()
+      {
+         {"start_date", startDate.ToString("yyyy-MM-dd")},
+         {"end_date", endDate.ToString("yyyy-MM-dd")}
+      };
+
+      var uri = QueryHelpers.AddQueryString("validdays/status/", parameters);
+      var request = new HttpRequestMessage(HttpMethod.Get, uri);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+
+      var response = await _httpClient.SendAsync(request);
+      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      {
+          var errorJson = await response.Content.ReadAsStringAsync();
+          throw new Exception($"Getting ValidDays failed: {errorJson}");
+      }
+
+      List<ValidDay>? result;
+      try
+      {
+          result = await response.Content.ReadFromJsonAsync<List<ValidDay>>();
+      }
+      catch (Exception e)
+      {
+          var errorJson = await response.Content.ReadAsStringAsync();
+          throw new Exception($"ValidDays parsing failed {errorJson} {e}");
+      }
+
+      return result ?? throw new Exception("Getting ValidDays failed");
+   }
 }
