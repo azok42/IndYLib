@@ -137,6 +137,40 @@ public class IndyClient : IIndyClient
       return result ?? throw new Exception("Absence creation failed");
    }
 
+   public async Task<SchoolEvent> MakeSchoolEventEntryAsync(DateOnly date, int hour, string tid, string description)
+   {
+      var parameters = new Dictionary<string, string?>()
+      {
+         {"indy_date", date.ToString("yyyy-MM-dd")},
+         {"hour", hour.ToString()},
+         {"tid", tid},
+         {"description", description}
+      };
+
+      var uri = QueryHelpers.AddQueryString("entry/schoolevent/", parameters);
+      var request = new HttpRequestMessage(HttpMethod.Post, uri);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+
+      var response = await _httpClient.SendAsync(request);
+      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      {
+         var errorJson = await response.Content.ReadAsStringAsync();
+         throw new Exception($"SchoolEvent creation failed: {errorJson}");
+      }
+
+      SchoolEvent? result;
+      try
+      {
+          result = await response.Content.ReadFromJsonAsync<SchoolEvent>();
+      }
+      catch (Exception e)
+      {
+         var errorJson = await response.Content.ReadAsStringAsync();
+         throw new Exception($"SchoolEvent parsing failed: {errorJson} {e}");
+      }
+      return result ?? throw new Exception("SchoolEvent creation failed");
+   }
+
    public async Task<List<Student>> GetStudentAsync()
    {
       var request = new HttpRequestMessage(HttpMethod.Get, "student/");
