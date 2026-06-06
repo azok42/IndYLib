@@ -67,6 +67,16 @@ public class IndyClient : IIndyClient
       _token = token;
    }
 
+   public async Task<List<Normal>> MakeNormalEntryAsync(DateOnly date, string tid, string subject, string activity)
+   {
+      var results = new List<Normal>();
+
+      results.Add(await MakeNormalEntryAsync(date, 3, tid, subject, activity));
+      results.Add(await MakeNormalEntryAsync(date, 4, tid, subject, activity));
+
+      return results;
+   }
+
    public async Task<Normal> MakeNormalEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
    {
       var parameters = new Dictionary<string, string?>
