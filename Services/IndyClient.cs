@@ -79,6 +79,9 @@ public class IndyClient : IIndyClient
 
    public async Task<Normal> MakeNormalEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
    {
+      if (hour != 3 && hour != 4)
+         throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
+
       var parameters = new Dictionary<string, string?>
       {
          {"indy_date", date.ToString("yyyy-MM-dd")},
@@ -126,6 +129,9 @@ public class IndyClient : IIndyClient
 
    public async Task<Absence> MakeAbsenceEntryAsync(DateOnly date, int hour)
    {
+      if (hour != 3 && hour != 4)
+         throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
+
       var parameters = new Dictionary<string, string?>()
       {
          {"indy_date", date.ToString("yyyy-MM-dd")},
@@ -169,6 +175,9 @@ public class IndyClient : IIndyClient
 
    public async Task<SchoolEvent> MakeSchoolEventEntryAsync(DateOnly date, int hour, string tid, string description)
    {
+      if (hour != 3 && hour != 4)
+         throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
+
       var parameters = new Dictionary<string, string?>()
       {
          {"indy_date", date.ToString("yyyy-MM-dd")},
