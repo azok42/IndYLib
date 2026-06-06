@@ -114,6 +114,16 @@ public class IndyClient : IIndyClient
       return result ?? throw new Exception("Entry creation failed");
    }
 
+   public async Task<List<Absence>> MakeAbsenceEntryAsync(DateOnly date)
+   {
+      var results = new List<Absence>();
+
+      results.Add(await MakeAbsenceEntryAsync(date, 3));
+      results.Add(await MakeAbsenceEntryAsync(date, 4));
+
+      return results;
+   }
+
    public async Task<Absence> MakeAbsenceEntryAsync(DateOnly date, int hour)
    {
       var parameters = new Dictionary<string, string?>()
