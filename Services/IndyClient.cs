@@ -367,4 +367,30 @@ public class IndyClient : IIndyClient
 
       return result ?? throw new Exception("Getting ValidDays failed");
    }
+
+   public async Task<List<TeacherAbsence>> GetTeacherAbsencesAsync()
+   {
+      var request = new HttpRequestMessage(HttpMethod.Get, "teacher/absences/");
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+
+      var response = await _httpClient.SendAsync(request);
+      if (response.StatusCode == System.Net.HttpStatusCode.OK)
+      {
+         var errorJson = await response.Content.ReadAsStringAsync();
+         throw new HttpRequestException($"Getting Teacher absences failed: {errorJson}");
+      }
+
+      List<TeacherAbsence>? result;
+      try
+      {
+          result = await response.Content.ReadFromJsonAsync<List<TeacherAbsence>>();
+
+          return result ?? throw new Exception("Getting Teacher absences failed");
+      }
+      catch (JsonException e)
+      {
+          var errorJson = await response.Content.ReadAsStringAsync();
+          throw new JsonException($"Teacher absences parsing failed: {errorJson} {e}");
+      }
+   }
 }
