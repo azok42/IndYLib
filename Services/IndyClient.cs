@@ -19,6 +19,27 @@ public class IndyClient : IIndyClient
       BaseAddress = new Uri("https://indy.sz-ybbs.ac.at:8443/")
    };
 
+   public static async Task<List<Subject>> GetActiveSubjectsAsync()
+   {
+      try
+      {
+         var response = await _staticHttpClient.GetFromJsonAsync<List<Subject>>("subject/active");
+
+         if (response == null)
+            throw new NullReferenceException("Getting Subjects failed: response is null");
+
+         return response;
+      }
+      catch (HttpRequestException e)
+      {
+         throw new HttpRequestException($"Getting Subjects failed: status {e.StatusCode}");
+      }
+      catch (JsonException e)
+      {
+         throw new JsonException($"Getting Subjects failed: failed to parse ({e})");
+      }
+   }
+
    public static async Task<List<IndyHour>> GetIndyHoursAsync()
    {
       try
@@ -32,7 +53,7 @@ public class IndyClient : IIndyClient
       }
       catch (HttpRequestException e)
       {
-          throw new HttpRequestException("Getting Indyhours failed: status " + e.StatusCode);
+         throw new HttpRequestException("Getting Indyhours failed: status " + e.StatusCode);
       }
       catch (JsonException e)
       {
