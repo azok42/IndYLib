@@ -19,6 +19,35 @@ public class IndyClient : IIndyClient
       BaseAddress = new Uri("https://indy.sz-ybbs.ac.at:8443/")
    };
 
+   public static async Task<List<IndyDay>> GetIndyDaysAsync(DateOnly startDate, DateOnly endDate)
+   {
+      try
+      {
+         var dates = new Dictionary<string, string?>()
+         {
+            {"start_date", startDate.ToString("yyyy-MM-dd")},
+            {"end_date", endDate.ToString("yyyy-MM-dd")}
+         };
+
+         var uri = QueryHelpers.AddQueryString("validdays/", dates);
+
+         var response = await _staticHttpClient.GetFromJsonAsync<List<IndyDay>>(uri);
+
+         if (response == null)
+            throw new HttpRequestException("Getting Days failed: response is null");
+
+         return response;
+      }
+      catch (HttpRequestException e)
+      {
+         throw new HttpRequestException($"Getting Subjects failed: status {e.StatusCode}");
+      }
+      catch (JsonException e)
+      {
+         throw new JsonException($"Getting Subjects failed: failed to parse ({e})");
+      }
+   }
+
    public static async Task<List<Subject>> GetActiveSubjectsAsync()
    {
       try
@@ -306,7 +335,7 @@ public class IndyClient : IIndyClient
       return result ?? throw new Exception("Getting teachers failed");
    }
 
-   public async Task<List<ValidDay>> GetValidDaysAsync(DateOnly startDate, DateOnly endDate)
+   public async Task<List<ValidDay>> GetValidDaysStatusAsync(DateOnly startDate, DateOnly endDate)
    {
       var parameters = new Dictionary<string, string?>()
       {
