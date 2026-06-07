@@ -47,17 +47,17 @@ public class IndyClient : IIndyClient
          var response = await _staticHttpClient.GetFromJsonAsync<List<SpecialIndy>>("specialindy/");
 
          if (response == null)
-            throw new InvalidOperationException("Getting Specialindy failed: response is empty");
+            throw new NullReferenceException("Getting Specialindy failed: response is null");
 
          return response;
       }
       catch (HttpRequestException e)
       {
-         throw new InvalidOperationException("Getting Specialindy failed: Status " + e.StatusCode); 
+         throw new HttpRequestException("Getting Specialindy failed: status " + e.StatusCode); 
       }
       catch (JsonException e)
       {
-         throw new InvalidOperationException("Getting Specialindy failed: Could not parse response (" + e + ")"); 
+         throw new JsonException("Getting Specialindy failed: failed to parse (" + e + ")"); 
       }
    }
 
@@ -68,17 +68,17 @@ public class IndyClient : IIndyClient
          var response = await _staticHttpClient.GetFromJsonAsync<List<StudentCount>>("studentcount/?indy_date=" + date.ToString("yyyy-MM-dd"));
 
          if (response == null)
-            throw new InvalidOperationException("Getting Studentcount failed: response is empty");
+            throw new NullReferenceException("Getting Studentcount failed: response is null");
 
          return response;
       }
       catch (HttpRequestException e)
       {
-         throw new InvalidOperationException("Getting Studentcount failed: Status " + e.StatusCode); 
+         throw new HttpRequestException("Getting Studentcount failed: status " + e.StatusCode); 
       }
       catch (JsonException e)
       {
-         throw new InvalidOperationException("Getting Studentcount failed: Could not parse response (" + e + ")"); 
+         throw new JsonException("Getting Studentcount failed: failed to parse (" + e + ")"); 
       }
    }
 
@@ -120,7 +120,7 @@ public class IndyClient : IIndyClient
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Entry creation failed: {errorJson}");
+         throw new HttpRequestException($"Entry creation failed: {errorJson}");
       }
 
       Normal? result;
@@ -129,10 +129,10 @@ public class IndyClient : IIndyClient
       {
          result = await response.Content.ReadFromJsonAsync<Normal>();
       }
-      catch (Exception e)
+      catch (JsonException e)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Entry parsing failed: {e} \n{errorJson}");
+         throw new JsonException($"Entry parsing failed: {e} \n{errorJson}");
       }
 
       return result ?? throw new Exception("Entry creation failed");
@@ -167,7 +167,7 @@ public class IndyClient : IIndyClient
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Absence creation failed: {errorJson}");
+         throw new HttpRequestException($"Absence creation failed: {errorJson}");
       }
 
       Absence? result;
@@ -175,10 +175,10 @@ public class IndyClient : IIndyClient
       {
          result = await response.Content.ReadFromJsonAsync<Absence>();
       }
-      catch (Exception e)
+      catch (JsonException e)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Absence parsing failed: {errorJson} {e}");
+         throw new JsonException($"Absence parsing failed: {errorJson} {e}");
       }
 
       return result ?? throw new Exception("Absence creation failed");
@@ -215,7 +215,7 @@ public class IndyClient : IIndyClient
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"SchoolEvent creation failed: {errorJson}");
+         throw new HttpRequestException($"SchoolEvent creation failed: {errorJson}");
       }
 
       SchoolEvent? result;
@@ -223,10 +223,10 @@ public class IndyClient : IIndyClient
       {
          result = await response.Content.ReadFromJsonAsync<SchoolEvent>();
       }
-      catch (Exception e)
+      catch (JsonException e)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"SchoolEvent parsing failed: {errorJson} {e}");
+         throw new JsonException($"SchoolEvent parsing failed: {errorJson} {e}");
       }
       return result ?? throw new Exception("SchoolEvent creation failed");
    }
@@ -241,7 +241,7 @@ public class IndyClient : IIndyClient
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Getting student failes: {errorJson}");
+         throw new HttpRequestException($"Getting student failes: {errorJson}");
       }
 
       List<Student>? result;
@@ -249,10 +249,10 @@ public class IndyClient : IIndyClient
       {
          result = await response.Content.ReadFromJsonAsync<List<Student>>();
       }
-      catch (Exception e)
+      catch (JsonException e)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Student parsing failed: {errorJson} {e.Message}");
+         throw new JsonException($"Student parsing failed: {errorJson} {e.Message}");
       }
 
       return result ?? throw new Exception("Getting student failed");
@@ -268,7 +268,7 @@ public class IndyClient : IIndyClient
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Getting teachers failes: {errorJson}");
+         throw new HttpRequestException($"Getting teachers failes: {errorJson}");
       }
 
       List<Teacher>? result;
@@ -276,10 +276,10 @@ public class IndyClient : IIndyClient
       {
          result = await response.Content.ReadFromJsonAsync<List<Teacher>>();
       }
-      catch (Exception e)
+      catch (JsonException e)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Teachers parsing failed: {errorJson} {e.Message}");
+         throw new JsonException($"Teachers parsing failed: {errorJson} {e.Message}");
       }
 
       return result ?? throw new Exception("Getting teachers failed");
@@ -301,7 +301,7 @@ public class IndyClient : IIndyClient
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"Getting ValidDays failed: {errorJson}");
+         throw new HttpRequestException($"Getting ValidDays failed: {errorJson}");
       }
 
       List<ValidDay>? result;
@@ -309,10 +309,10 @@ public class IndyClient : IIndyClient
       {
          result = await response.Content.ReadFromJsonAsync<List<ValidDay>>();
       }
-      catch (Exception e)
+      catch (JsonException e)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
-         throw new Exception($"ValidDays parsing failed {errorJson} {e}");
+         throw new JsonException($"ValidDays parsing failed {errorJson} {e}");
       }
 
       return result ?? throw new Exception("Getting ValidDays failed");
