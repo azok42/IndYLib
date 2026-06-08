@@ -11,11 +11,3 @@ public record Normal (
          [property: JsonPropertyName("activity")] string Activity,
          [property: JsonPropertyName("subject")] string Subject
       );
-
-public record NormalReturned (
-      string TeacherId, int Hour, long StudentId, int TeacherAbsence, string Date, string Activity, string Subject,
-
-      [property: JsonPropertyName("type")] string Type,
-      [property: JsonPropertyName("signed")] int IsSigned
-
-      ) : Normal(TeacherId, Hour, StudentId, TeacherAbsence, Date, Activity, Subject);
