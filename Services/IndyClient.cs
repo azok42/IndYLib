@@ -335,7 +335,7 @@ public class IndyClient : IIndyClient
       return result ?? throw new Exception("Getting teachers failed");
    }
 
-   public async Task<List<ValidDay>> GetValidDaysStatusAsync(DateOnly startDate, DateOnly endDate)
+   public async Task<List<DayStatus>> GetDayStatusesAsync(DateOnly startDate, DateOnly endDate)
    {
       var parameters = new Dictionary<string, string?>()
       {
@@ -354,10 +354,10 @@ public class IndyClient : IIndyClient
          throw new HttpRequestException($"Getting ValidDays failed: {errorJson}");
       }
 
-      List<ValidDay>? result;
+      List<DayStatus>? result;
       try
       {
-         result = await response.Content.ReadFromJsonAsync<List<ValidDay>>();
+         result = await response.Content.ReadFromJsonAsync<List<DayStatus>>();
       }
       catch (JsonException e)
       {
