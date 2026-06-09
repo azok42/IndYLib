@@ -393,4 +393,32 @@ public class IndyClient : IIndyClient
           throw new JsonException($"Teacher absences parsing failed: {errorJson} {e}");
       }
    }
+
+   public async Task<FullRetured> GetEntriesAsync(DateOnly date)
+   {
+      var request = new HttpRequestMessage(HttpMethod.Get, "entry/date/?indy_date=" + date.ToString("yyyy-MM-dd"));
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+
+      var response = await _httpClient.SendAsync(request);
+      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      {
+         var errorJson = await response.Content.ReadAsStringAsync();
+         throw new HttpRequestException($"Getting Entries failed: {response.StatusCode} {errorJson}");
+      }
+
+      FullRetured? result;
+      try
+      {
+         var opt = new JsonSerializerOptions { AllowOutOfOrderMetadataProperties = true };
+
+         result = await response.Content.ReadFromJsonAsync<FullRetured>(opt);
+
+         return result ?? throw new Exception("Getting Entries failed");
+      }
+      catch (JsonException e)
+      {
+          var errorJson = await response.Content.ReadAsStringAsync();
+          throw new JsonException($"Entries parsing failed: {errorJson} {e}");
+      }
+   }
 }

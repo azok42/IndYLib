@@ -2,12 +2,23 @@ using System.Text.Json.Serialization;
 
 namespace IndYLib.Models.Entry;
 
+public record FullRetured (
+         [property: JsonPropertyName("3")] List<Returned> Hour3,
+         [property: JsonPropertyName("4")] List<Returned> Hour4
+      );
+
+
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
+
+[JsonDerivedType(typeof(AbsenceReturned), typeDiscriminator: "entryabsence")]
+[JsonDerivedType(typeof(NormalReturned), typeDiscriminator: "entrynormal")]
+[JsonDerivedType(typeof(SpecialReturned), typeDiscriminator: "entryspecial")]
+[JsonDerivedType(typeof(SchoolEventReturned), typeDiscriminator: "entryschoolevent")]
 public record Returned (
          [property: JsonPropertyName("hour")] int Hour,
          [property: JsonPropertyName("indy_date")] string Date,
          [property: JsonPropertyName("sid")] long StudentId,
          [property: JsonPropertyName("tid")] string TeacherId,
-         [property: JsonPropertyName("type")] string Type,
          [property: JsonPropertyName("signed")] int IsSigned
       );
 
@@ -18,7 +29,7 @@ public record AbsenceReturned (
 
          string TeacherId = ""
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, Type, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
 
 public record NormalReturned (
          int Hour, string Date, string TeacherId, long StudentId, string Type, int IsSigned,
@@ -27,14 +38,14 @@ public record NormalReturned (
          [property: JsonPropertyName("subject")] string Subject,
          [property: JsonPropertyName("room")] string Room
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, Type, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
 
 public record SchoolEventReturned (
          int Hour, string Date, string TeacherId, long StudentId, string Type, int IsSigned,
 
          [property: JsonPropertyName("description")] string Description
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, Type, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
 
 public record SpecialReturned (
          int Hour, string Date, string TeacherId, long StudentId, string Type, int IsSigned,
@@ -46,4 +57,4 @@ public record SpecialReturned (
          [property: JsonPropertyName("subject")] string Subject,
          [property: JsonPropertyName("room")] string Room
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, Type, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
