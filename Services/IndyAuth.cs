@@ -15,14 +15,14 @@ public class IndyAuth : IIndyAuth
 
    public async Task<IIndyClient> CreateClientAsync(Token token)
    {
-      return new IndyClient(_httpClient, token);
+      return new IndyClient(token);
    }
 
    public async Task<IIndyClient> CreateClientAsync(string username, string password)
    {
       Token token = await GetToken(username, password);
 
-      return await CreateClientAsync(token);
+      return new IndyClient(token);
    }
 
    public async Task<Token> GetToken(string username, string password)

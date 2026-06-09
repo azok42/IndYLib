@@ -10,11 +10,9 @@ namespace IndYLib.Services;
 
 public class IndyClient : IIndyClient
 {
-   private readonly HttpClient _httpClient;
-
    public Token _token { get; }
 
-   private readonly static HttpClient _staticHttpClient = new()
+   private readonly static HttpClient _httpClient = new()
    {
       BaseAddress = new Uri("https://indy.sz-ybbs.ac.at:8443/")
    };
@@ -31,7 +29,7 @@ public class IndyClient : IIndyClient
 
          var uri = QueryHelpers.AddQueryString("validdays/", dates);
 
-         var response = await _staticHttpClient.GetFromJsonAsync<List<IndyDay>>(uri);
+         var response = await _httpClient.GetFromJsonAsync<List<IndyDay>>(uri);
 
          if (response == null)
             throw new HttpRequestException("Getting Days failed: response is null");
@@ -52,7 +50,7 @@ public class IndyClient : IIndyClient
    {
       try
       {
-         var response = await _staticHttpClient.GetFromJsonAsync<List<Subject>>("subject/active");
+         var response = await _httpClient.GetFromJsonAsync<List<Subject>>("subject/active");
 
          if (response == null)
             throw new NullReferenceException("Getting Subjects failed: response is null");
@@ -73,7 +71,7 @@ public class IndyClient : IIndyClient
    {
       try
       {
-         var response = await _staticHttpClient.GetFromJsonAsync<List<IndyHour>>("hour/");
+         var response = await _httpClient.GetFromJsonAsync<List<IndyHour>>("hour/");
 
          if (response == null)
             throw new NullReferenceException("Getting Indyhours failed: response is null");
@@ -94,7 +92,7 @@ public class IndyClient : IIndyClient
    {
       try
       {
-         var response = await _staticHttpClient.GetFromJsonAsync<List<SpecialIndy>>("specialindy/");
+         var response = await _httpClient.GetFromJsonAsync<List<SpecialIndy>>("specialindy/");
 
          if (response == null)
             throw new NullReferenceException("Getting Specialindy failed: response is null");
@@ -115,7 +113,7 @@ public class IndyClient : IIndyClient
    {
       try
       {
-         var response = await _staticHttpClient.GetFromJsonAsync<List<StudentCount>>("studentcount/?indy_date=" + date.ToString("yyyy-MM-dd"));
+         var response = await _httpClient.GetFromJsonAsync<List<StudentCount>>("studentcount/?indy_date=" + date.ToString("yyyy-MM-dd"));
 
          if (response == null)
             throw new NullReferenceException("Getting Studentcount failed: response is null");
@@ -132,9 +130,8 @@ public class IndyClient : IIndyClient
       }
    }
 
-   public IndyClient(HttpClient httpClient, Token token)
+   public IndyClient(Token token)
    {
-      _httpClient = httpClient;
       _token = token;
    }
 
