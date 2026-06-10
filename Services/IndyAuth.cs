@@ -62,7 +62,7 @@ public class IndyAuth : IIndyAuth
       return result ?? throw new Exception("Login failed: Server returned an empty token.");
    }
 
-   public async Task<Access> RefreshTokenAsync(IndyClient client)
+   public static async Task<Access> RefreshTokenAsync(IndyClient client)
    {
       var payload = new Dictionary<string, string?>()
       {
