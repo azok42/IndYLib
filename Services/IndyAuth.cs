@@ -73,6 +73,11 @@ public class IndyAuth : IIndyAuth
 
       var result = await response.Content.ReadFromJsonAsync<Access>();
 
-      return result ?? throw new Exception("Response is null");
+      if (result == null)
+         throw new NullReferenceException("Result is null");
+
+      client.Token = new Token(result.AccessToken, client.Token.RefreshToken, client.Token.Type);
+
+      return result;
    }
 }

@@ -10,7 +10,7 @@ namespace IndYLib.Services;
 
 public class IndyClient : IIndyClient
 {
-   public Token Token { get; }
+   public Token Token { get; set; }
 
    private readonly static HttpClient _httpClient = new()
    {
