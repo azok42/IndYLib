@@ -51,7 +51,7 @@ public class IndyAuth : IIndyAuth
    {
       var payload = new Dictionary<string, string?>()
       {
-         {"refresh_token", client._token.RefreshToken}
+         {"refresh_token", client.Token.RefreshToken}
       };
 
       var response = await _httpClient.PostAsJsonAsync("refresh", payload);

@@ -10,7 +10,7 @@ namespace IndYLib.Services;
 
 public class IndyClient : IIndyClient
 {
-   public Token _token { get; }
+   public Token Token { get; }
 
    private readonly static HttpClient _httpClient = new()
    {
@@ -132,7 +132,7 @@ public class IndyClient : IIndyClient
 
    public IndyClient(Token token)
    {
-      _token = token;
+      Token = token;
    }
 
    public async Task<List<Normal>> MakeNormalEntryAsync(DateOnly date, string tid, string subject, string activity)
@@ -161,7 +161,7 @@ public class IndyClient : IIndyClient
 
       var uri = QueryHelpers.AddQueryString("entry/normal/", parameters);
       var request = new HttpRequestMessage(HttpMethod.Post, uri);
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -208,7 +208,7 @@ public class IndyClient : IIndyClient
 
       var uri = QueryHelpers.AddQueryString("entry/absence/", parameters);
       var request = new HttpRequestMessage(HttpMethod.Post, uri);
-      request.Headers.Authorization = new  AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new  AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -256,7 +256,7 @@ public class IndyClient : IIndyClient
 
       var uri = QueryHelpers.AddQueryString("entry/schoolevent/", parameters);
       var request = new HttpRequestMessage(HttpMethod.Post, uri);
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -282,7 +282,7 @@ public class IndyClient : IIndyClient
    {
       var request = new HttpRequestMessage(HttpMethod.Get, "student/");
 
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -309,7 +309,7 @@ public class IndyClient : IIndyClient
    {
       var request = new HttpRequestMessage(HttpMethod.Get, "teacher/");
 
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -342,7 +342,7 @@ public class IndyClient : IIndyClient
 
       var uri = QueryHelpers.AddQueryString("validdays/status/", parameters);
       var request = new HttpRequestMessage(HttpMethod.Get, uri);
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -368,7 +368,7 @@ public class IndyClient : IIndyClient
    public async Task<List<TeacherAbsence>> GetTeacherAbsencesAsync()
    {
       var request = new HttpRequestMessage(HttpMethod.Get, "teacher/absences/");
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -394,7 +394,7 @@ public class IndyClient : IIndyClient
    public async Task<FullRetured> GetEntriesAsync(DateOnly date)
    {
       var request = new HttpRequestMessage(HttpMethod.Get, "entry/date/?indy_date=" + date.ToString("yyyy-MM-dd"));
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token.AccessToken);
+      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
