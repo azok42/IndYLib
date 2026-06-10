@@ -18,7 +18,7 @@ public class IndyAuth : IIndyAuth
 
       set
       {
-         if (HttpClient == null) 
+         if (field == null) 
             field = value;
       }
    }
