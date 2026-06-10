@@ -46,4 +46,18 @@ public class IndyAuth : IIndyAuth
 
       return result ?? throw new Exception("Login failed: Server returned an empty token.");
    }
+
+   public async Task<Access> RefreshTokenAsync(IndyClient client)
+   {
+      var payload = new Dictionary<string, string?>()
+      {
+         {"refresh_token", client._token.RefreshToken}
+      };
+
+      var response = await _httpClient.PostAsJsonAsync("refresh", payload);
+
+      var result = await response.Content.ReadFromJsonAsync<Access>();
+
+      return result ?? throw new Exception("Response is null");
+   }
 }

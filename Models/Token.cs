@@ -7,3 +7,7 @@ public record Token(
       [property: JsonPropertyName("refresh_token")] string RefreshToken,
       [property: JsonPropertyName("token_type")] string Type
       );
+
+public record Access(
+      [property: JsonPropertyName("access_token")] string AccessToken
+      );
