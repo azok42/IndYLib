@@ -6,11 +6,26 @@ namespace IndYLib.Services;
 
 public class IndyAuth : IIndyAuth
 {
-   private readonly HttpClient _httpClient;
+   private static HttpClient HttpClient
+   {
+      get
+      {
+         if (field != null)
+            return field;
+
+         throw new NullReferenceException("HttpClient is null (have you created a instance?)");
+      }
+
+      set
+      {
+         if (HttpClient == null) 
+            field = value;
+      }
+   }
 
    public IndyAuth(HttpClient httpClient)
    {
-      _httpClient = httpClient;
+      HttpClient = httpClient;
    }
 
    public async Task<IIndyClient> CreateClientAsync(Token token)
@@ -35,7 +50,7 @@ public class IndyAuth : IIndyAuth
 
       using var content = new FormUrlEncodedContent(userDetails);
 
-      var response = await _httpClient.PostAsync("token", content);
+      var response = await HttpClient.PostAsync("token", content);
       if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
@@ -54,7 +69,7 @@ public class IndyAuth : IIndyAuth
          {"refresh_token", client.Token.RefreshToken}
       };
 
-      var response = await _httpClient.PostAsJsonAsync("refresh", payload);
+      var response = await HttpClient.PostAsJsonAsync("refresh", payload);
 
       var result = await response.Content.ReadFromJsonAsync<Access>();
 
