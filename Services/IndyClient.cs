@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using Microsoft.AspNetCore.WebUtilities;
 using IndYLib.Interfaces;
+using IndYLib.Exceptions;
 using IndYLib.Models;
 using IndYLib.Models.Entry;
 
@@ -11,6 +12,8 @@ namespace IndYLib.Services;
 public class IndyClient : IIndyClient
 {
    public Token Token { get; set; }
+
+   public Func<IndyClient, Task>? ReAuthAsync { get; set; }
 
    private readonly static HttpClient _httpClient = new()
    {
@@ -393,29 +396,36 @@ public class IndyClient : IIndyClient
 
    public async Task<FullRetured> GetEntriesAsync(DateOnly date)
    {
-      var request = new HttpRequestMessage(HttpMethod.Get, "entry/date/?indy_date=" + date.ToString("yyyy-MM-dd"));
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
-
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      return await this.TryRunAuthAsync<FullRetured>(async () => 
       {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"Getting Entries failed: {response.StatusCode} {errorJson}");
-      }
+         var request = new HttpRequestMessage(HttpMethod.Get, "entry/date/?indy_date=" + date.ToString("yyyy-MM-dd"));
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      FullRetured? result;
-      try
-      {
-         var opt = new JsonSerializerOptions { AllowOutOfOrderMetadataProperties = true };
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
 
-         result = await response.Content.ReadFromJsonAsync<FullRetured>(opt);
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
-         return result ?? throw new Exception("Getting Entries failed");
-      }
-      catch (JsonException e)
-      {
-          var errorJson = await response.Content.ReadAsStringAsync();
-          throw new JsonException($"Entries parsing failed: {errorJson} {e}");
-      }
+            throw new HttpRequestException($"Getting Entries failed: {response.StatusCode} {errorJson}");
+         }
+
+         FullRetured? result;
+         try
+         {
+            var opt = new JsonSerializerOptions { AllowOutOfOrderMetadataProperties = true };
+
+            result = await response.Content.ReadFromJsonAsync<FullRetured>(opt);
+
+            return result ?? throw new Exception("Getting Entries failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Entries parsing failed: {errorJson} {e}");
+         }
+      });
    }
 }

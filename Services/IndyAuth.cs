@@ -70,6 +70,11 @@ public class IndyAuth : IIndyAuth
       };
 
       var response = await HttpClient.PostAsJsonAsync("refresh", payload);
+      if (!response.IsSuccessStatusCode)
+      {
+         var error = await response.Content.ReadAsStringAsync();
+         throw new Exception($"Token refresh failed ({response.StatusCode}): {error}");
+      }
 
       var result = await response.Content.ReadFromJsonAsync<Access>();
 

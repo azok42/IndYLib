@@ -12,6 +12,7 @@ public interface IIndyClient
    Task<Absence> MakeAbsenceEntryAsync(DateOnly date, int hour);
    Task<SchoolEvent> MakeSchoolEventEntryAsync(DateOnly date, int hour, string tid, string description);
    Task<List<DayStatus>> GetDayStatusesAsync(DateOnly startDate, DateOnly endDate);
+   Task<FullRetured> GetEntriesAsync(DateOnly date);
    Task<List<Student>> GetStudentAsync();
    Task<List<Teacher>> GetTeachers();
 }
