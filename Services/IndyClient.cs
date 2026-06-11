@@ -371,7 +371,7 @@ public class IndyClient : IIndyClient
       request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
       var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode == System.Net.HttpStatusCode.OK)
+      if (response.StatusCode != System.Net.HttpStatusCode.OK)
       {
          var errorJson = await response.Content.ReadAsStringAsync();
          throw new HttpRequestException($"Getting Teacher absences failed: {errorJson}");
