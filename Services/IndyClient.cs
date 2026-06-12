@@ -558,4 +558,37 @@ public class IndyClient : IIndyClient
          }
       });
    }
+
+   public async Task<List<SchoolEvent>> GetAllSchoolEventEntriesAsync(long studentId)
+   {
+      return await this.TryRunAuthAsync<List<SchoolEvent>>(async () =>
+      {
+         var request = new HttpRequestMessage(HttpMethod.Get, "entry/schoolevent/" + studentId);
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
+
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Getting Entries failed: {response.StatusCode} {errorJson}");
+         }
+
+         List<SchoolEvent>? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<List<SchoolEvent>>();
+
+            return result ?? throw new Exception("getting entries failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Entries parsing failed: {errorJson} {e}");
+         }
+      });
+   }
 }
