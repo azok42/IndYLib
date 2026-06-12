@@ -150,42 +150,49 @@ public class IndyClient : IIndyClient
 
    public async Task<Normal> MakeNormalEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
    {
-      if (hour != 3 && hour != 4)
-         throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
-
-      var parameters = new Dictionary<string, string?>
+      return await this.TryRunAuthAsync<Normal>(async () =>
       {
-         {"indy_date", date.ToString("yyyy-MM-dd")},
-         {"hour", hour.ToString()},
-         {"tid", tid},
-         {"subject", subject},
-         {"activity", activity}
-      };
+         if (hour != 3 && hour != 4)
+            throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
 
-      var uri = QueryHelpers.AddQueryString("entry/normal/", parameters);
-      var request = new HttpRequestMessage(HttpMethod.Post, uri);
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
+         var parameters = new Dictionary<string, string?>
+         {
+            {"indy_date", date.ToString("yyyy-MM-dd")},
+            {"hour", hour.ToString()},
+            {"tid", tid},
+            {"subject", subject},
+            {"activity", activity}
+         };
 
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"Entry creation failed: {errorJson}");
-      }
+         var uri = QueryHelpers.AddQueryString("entry/normal/", parameters);
+         var request = new HttpRequestMessage(HttpMethod.Post, uri);
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      Normal? result;
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
 
-      try
-      {
-         result = await response.Content.ReadFromJsonAsync<Normal>();
-      }
-      catch (JsonException e)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new JsonException($"Entry parsing failed: {e} \n{errorJson}");
-      }
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
-      return result ?? throw new Exception("Entry creation failed");
+            throw new HttpRequestException($"Entry creation failed: {errorJson}");
+         }
+
+         Normal? result;
+
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<Normal>();
+
+            return result ?? throw new Exception("Entry creation failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Entry parsing failed: {e} \n{errorJson}");
+         }
+      });
    }
 
    public async Task<List<Absence>> MakeAbsenceEntryAsync(DateOnly date)
@@ -200,38 +207,45 @@ public class IndyClient : IIndyClient
 
    public async Task<Absence> MakeAbsenceEntryAsync(DateOnly date, int hour)
    {
-      if (hour != 3 && hour != 4)
-         throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
-
-      var parameters = new Dictionary<string, string?>()
+      return await this.TryRunAuthAsync<Absence>(async () =>
       {
-         {"indy_date", date.ToString("yyyy-MM-dd")},
-         {"hour", hour.ToString()}
-      };
+         if (hour != 3 && hour != 4)
+            throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
 
-      var uri = QueryHelpers.AddQueryString("entry/absence/", parameters);
-      var request = new HttpRequestMessage(HttpMethod.Post, uri);
-      request.Headers.Authorization = new  AuthenticationHeaderValue("Bearer", Token.AccessToken);
+         var parameters = new Dictionary<string, string?>()
+         {
+            {"indy_date", date.ToString("yyyy-MM-dd")},
+            {"hour", hour.ToString()}
+         };
 
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"Absence creation failed: {errorJson}");
-      }
+         var uri = QueryHelpers.AddQueryString("entry/absence/", parameters);
+         var request = new HttpRequestMessage(HttpMethod.Post, uri);
+         request.Headers.Authorization = new  AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      Absence? result;
-      try
-      {
-         result = await response.Content.ReadFromJsonAsync<Absence>();
-      }
-      catch (JsonException e)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new JsonException($"Absence parsing failed: {errorJson} {e}");
-      }
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
 
-      return result ?? throw new Exception("Absence creation failed");
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Absence creation failed: {errorJson}");
+         }
+
+         Absence? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<Absence>();
+
+            return result ?? throw new Exception("Absence creation failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Absence parsing failed: {errorJson} {e}");
+         }
+      });
    }
 
    public async Task<List<SchoolEvent>> MakeSchoolEventEntryAsync(DateOnly date, string tid, string description)
@@ -246,152 +260,188 @@ public class IndyClient : IIndyClient
 
    public async Task<SchoolEvent> MakeSchoolEventEntryAsync(DateOnly date, int hour, string tid, string description)
    {
-      if (hour != 3 && hour != 4)
-         throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
-
-      var parameters = new Dictionary<string, string?>()
+      return await this.TryRunAuthAsync<SchoolEvent>(async () =>
       {
-         {"indy_date", date.ToString("yyyy-MM-dd")},
-         {"hour", hour.ToString()},
-         {"tid", tid},
-         {"description", description}
-      };
+         if (hour != 3 && hour != 4)
+            throw new ArgumentOutOfRangeException("Parameter 'hour' may only be 3 or 4: was " + hour);
 
-      var uri = QueryHelpers.AddQueryString("entry/schoolevent/", parameters);
-      var request = new HttpRequestMessage(HttpMethod.Post, uri);
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
+         var parameters = new Dictionary<string, string?>()
+         {
+            {"indy_date", date.ToString("yyyy-MM-dd")},
+            {"hour", hour.ToString()},
+            {"tid", tid},
+            {"description", description}
+         };
 
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"SchoolEvent creation failed: {errorJson}");
-      }
+         var uri = QueryHelpers.AddQueryString("entry/schoolevent/", parameters);
+         var request = new HttpRequestMessage(HttpMethod.Post, uri);
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      SchoolEvent? result;
-      try
-      {
-         result = await response.Content.ReadFromJsonAsync<SchoolEvent>();
-      }
-      catch (JsonException e)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new JsonException($"SchoolEvent parsing failed: {errorJson} {e}");
-      }
-      return result ?? throw new Exception("SchoolEvent creation failed");
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"SchoolEvent creation failed: {errorJson}");
+         }
+
+         SchoolEvent? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<SchoolEvent>();
+
+            return result ?? throw new Exception("SchoolEvent creation failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"SchoolEvent parsing failed: {errorJson} {e}");
+         }
+      });
    }
 
    public async Task<List<Student>> GetStudentAsync()
    {
-      var request = new HttpRequestMessage(HttpMethod.Get, "student/");
-
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
-
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      return await this.TryRunAuthAsync<List<Student>>(async () =>
       {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"Getting student failes: {errorJson}");
-      }
+         var request = new HttpRequestMessage(HttpMethod.Get, "student/");
 
-      List<Student>? result;
-      try
-      {
-         result = await response.Content.ReadFromJsonAsync<List<Student>>();
-      }
-      catch (JsonException e)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new JsonException($"Student parsing failed: {errorJson} {e.Message}");
-      }
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      return result ?? throw new Exception("Getting student failed");
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Getting student failes: {errorJson}");
+         }
+
+         List<Student>? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<List<Student>>();
+
+            return result ?? throw new Exception("Getting student failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Student parsing failed: {errorJson} {e.Message}");
+         }
+      });
    }
 
    public async Task<List<Teacher>> GetTeachers()
    {
-      var request = new HttpRequestMessage(HttpMethod.Get, "teacher/");
-
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
-
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      return await this.TryRunAuthAsync<List<Teacher>>(async () => 
       {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"Getting teachers failes: {errorJson}");
-      }
+         var request = new HttpRequestMessage(HttpMethod.Get, "teacher/");
 
-      List<Teacher>? result;
-      try
-      {
-         result = await response.Content.ReadFromJsonAsync<List<Teacher>>();
-      }
-      catch (JsonException e)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new JsonException($"Teachers parsing failed: {errorJson} {e.Message}");
-      }
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      return result ?? throw new Exception("Getting teachers failed");
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Getting teachers failes: {errorJson}");
+         }
+
+         List<Teacher>? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<List<Teacher>>();
+
+            return result ?? throw new Exception("Getting teachers failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Teachers parsing failed: {errorJson} {e.Message}");
+         }
+      });
    }
 
    public async Task<List<DayStatus>> GetDayStatusesAsync(DateOnly startDate, DateOnly endDate)
    {
-      var parameters = new Dictionary<string, string?>()
+      return await this.TryRunAuthAsync<List<DayStatus>>(async () => 
       {
-         {"start_date", startDate.ToString("yyyy-MM-dd")},
-         {"end_date", endDate.ToString("yyyy-MM-dd")}
-      };
+         var parameters = new Dictionary<string, string?>()
+         {
+            {"start_date", startDate.ToString("yyyy-MM-dd")},
+            {"end_date", endDate.ToString("yyyy-MM-dd")}
+         };
 
-      var uri = QueryHelpers.AddQueryString("validdays/status/", parameters);
-      var request = new HttpRequestMessage(HttpMethod.Get, uri);
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
+         var uri = QueryHelpers.AddQueryString("validdays/status/", parameters);
+         var request = new HttpRequestMessage(HttpMethod.Get, uri);
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"Getting ValidDays failed: {errorJson}");
-      }
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
 
-      List<DayStatus>? result;
-      try
-      {
-         result = await response.Content.ReadFromJsonAsync<List<DayStatus>>();
-      }
-      catch (JsonException e)
-      {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new JsonException($"ValidDays parsing failed {errorJson} {e}");
-      }
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
-      return result ?? throw new Exception("Getting ValidDays failed");
+            throw new HttpRequestException($"Getting ValidDays failed: {errorJson}");
+         }
+
+         List<DayStatus>? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<List<DayStatus>>();
+
+            return result ?? throw new Exception("Getting ValidDays failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"ValidDays parsing failed {errorJson} {e}");
+         }
+      });
    }
 
    public async Task<List<TeacherAbsence>> GetTeacherAbsencesAsync()
    {
-      var request = new HttpRequestMessage(HttpMethod.Get, "teacher/absences/");
-      request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
-
-      var response = await _httpClient.SendAsync(request);
-      if (response.StatusCode != System.Net.HttpStatusCode.OK)
+      return await this.TryRunAuthAsync<List<TeacherAbsence>>(async () => 
       {
-         var errorJson = await response.Content.ReadAsStringAsync();
-         throw new HttpRequestException($"Getting Teacher absences failed: {errorJson}");
-      }
+         var request = new HttpRequestMessage(HttpMethod.Get, "teacher/absences/");
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
-      List<TeacherAbsence>? result;
-      try
-      {
-          result = await response.Content.ReadFromJsonAsync<List<TeacherAbsence>>();
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
 
-          return result ?? throw new Exception("Getting Teacher absences failed");
-      }
-      catch (JsonException e)
-      {
-          var errorJson = await response.Content.ReadAsStringAsync();
-          throw new JsonException($"Teacher absences parsing failed: {errorJson} {e}");
-      }
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Getting Teacher absences failed: {errorJson}");
+         }
+
+         List<TeacherAbsence>? result;
+         try
+         {
+             result = await response.Content.ReadFromJsonAsync<List<TeacherAbsence>>();
+
+             return result ?? throw new Exception("Getting Teacher absences failed");
+         }
+         catch (JsonException e)
+         {
+             var errorJson = await response.Content.ReadAsStringAsync();
+             throw new JsonException($"Teacher absences parsing failed: {errorJson} {e}");
+         }
+      });
    }
 
    public async Task<FullRetured> GetEntriesAsync(DateOnly date)
