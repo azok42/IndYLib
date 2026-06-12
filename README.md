@@ -1,4 +1,14 @@
-# IndY Lib
+<img align="left" width="130" height="130" src="./MindyLogo.png">
+
+```
+ ___           ___   __  _     _ _     
+|_ _|_ __   __| \ \ / / | |   (_) |__  
+ | || '_ \ / _` |\ V /  | |   | | '_ \ 
+ | || | | | (_| | | |   | |___| | |_) |
+|___|_| |_|\__,_| |_|   |_____|_|_.__/ 
+```
+
+---
 
 This is a C# library for the IndY-API.
 
