@@ -519,6 +519,13 @@ public class IndyClient : IIndyClient
       });
    }
 
+   public async Task<List<Absence>> GetAllAbsenceEntriesAsync()
+   {
+      var student = await GetStudentAsync();
+
+      return await GetAllAbsenceEntriesAsync(student.First().StudentId);
+   }
+
    public async Task<List<Absence>> GetAllAbsenceEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<Absence>>(async () =>
