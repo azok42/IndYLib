@@ -56,6 +56,11 @@ public class IndyClient : IIndyClient
       }
    }
 
+   /**
+    * @brief gets all subjects
+    *
+    * @return List of available school subject one can make an entry for
+    */
    public static async Task<List<Subject>> GetActiveSubjectsAsync()
    {
       try
