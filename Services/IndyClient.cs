@@ -644,7 +644,7 @@ public class IndyClient : IIndyClient
    {
       return await this.TryRunAuthAsync(async () =>
       {
-         var request = new HttpRequestMessage(HttpMethod.Get, "entry/missing/?" + studentId.ToString());
+         var request = new HttpRequestMessage(HttpMethod.Get, "missing/" + studentId.ToString());
          request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
          var response = await _httpClient.SendAsync(request);
