@@ -82,6 +82,11 @@ public class IndyClient : IIndyClient
       }
    }
 
+   /**
+    * @brief gets all possible indy hours
+    *
+    * @return List of all possible entries one can make
+    */
    public static async Task<List<IndyHour>> GetIndyHoursAsync()
    {
       try
