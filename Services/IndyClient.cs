@@ -166,6 +166,15 @@ public class IndyClient : IIndyClient
       Token = token;
    }
 
+   /**
+    * @brief make 2 new normal entry for hour 3 and 4
+    *
+    * @param date for which to create the entries
+    * @param tid TeacherId, for which teacher to create the entries
+    * @param subject the subject to set in the entries
+    * @param activity what the user is doing in the indy hours
+    * @return List of normal entries
+    */
    public async Task<List<Normal>> MakeNormalEntryAsync(DateOnly date, string tid, string subject, string activity)
    {
       var results = new List<Normal>();
@@ -176,6 +185,16 @@ public class IndyClient : IIndyClient
       return results;
    }
 
+   /**
+    * @brief make a new normal entry
+    *
+    * @param date for which to create the entry
+    * @param 3 or 4, hour for which hour the user wants the entry to be made
+    * @param tid TeacherId, for which to create the entry
+    * @param subject the subject to set in the entry 
+    * @param activity what the user is doing in the indy hour
+    * @return a normal entry record
+    */
    public async Task<Normal> MakeNormalEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
    {
       return await this.TryRunAuthAsync<Normal>(async () =>
