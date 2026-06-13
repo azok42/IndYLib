@@ -599,6 +599,13 @@ public class IndyClient : IIndyClient
       });
    }
 
+   public async Task<List<Object>> GetAllFreeroomEntries()
+   {
+      var student = await GetStudentAsync();
+      
+      return await GetAllFreeroomEntries(student.First().StudentId);
+   }
+
    public async Task<List<Object>> GetAllFreeroomEntries(long studentId)
    {
       return await this.TryRunAuthAsync<List<Object>>(async () =>
