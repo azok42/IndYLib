@@ -640,7 +640,7 @@ public class IndyClient : IIndyClient
       });
    }
 
-   public async Task<List<Object>> GetAllMissingEntries(long studentId)
+   public async Task<List<Object>> GetAllMissingEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync(async () =>
       {
