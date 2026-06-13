@@ -20,6 +20,13 @@ public class IndyClient : IIndyClient
       BaseAddress = new Uri("https://indy.sz-ybbs.ac.at:8443/")
    };
 
+   /**
+    * @brief gets all possible days for indy
+    *
+    * @param startDate sets start of range
+    * @param endDate sets end of range
+    * @return List of possible IndyDays between startDate and endDate
+    */
    public static async Task<List<IndyDay>> GetIndyDaysAsync(DateOnly startDate, DateOnly endDate)
    {
       try
