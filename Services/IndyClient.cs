@@ -108,6 +108,11 @@ public class IndyClient : IIndyClient
       }
    }
 
+   /**
+    * @brief gets all special indy's
+    *
+    * @return List of all SpecialIndy hours 
+    */
    public static async Task<List<SpecialIndy>> GetSpecialIndyAsync()
    {
       try
