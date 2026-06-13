@@ -134,6 +134,12 @@ public class IndyClient : IIndyClient
       }
    }
 
+   /**
+    * @brief gets the student counts of all possible hours
+    *
+    * @param date of which day to get the student count
+    * @return List of all StudentCount
+    */
    public static async Task<List<StudentCount>> GetStudentCountAsync(DateOnly date)
    {
       try
