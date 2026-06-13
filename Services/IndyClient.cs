@@ -639,4 +639,37 @@ public class IndyClient : IIndyClient
          }
       });
    }
+
+   public async Task<List<Object>> GetAllMissingEntries(long studentId)
+   {
+      return await this.TryRunAuthAsync(async () =>
+      {
+         var request = new HttpRequestMessage(HttpMethod.Get, "entry/missing/?" + studentId.ToString());
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
+
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Getting entries failed: {response.StatusCode} {errorJson}");
+         }
+
+         List<Object>? result;
+         try
+         {
+             result = await response.Content.ReadFromJsonAsync<List<Object>>();
+
+             return result ?? throw new Exception("Getting entries failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync(); 
+            throw new JsonException($"Entries parsing failed: {errorJson} {e}");
+         }
+      });
+   }
 }
