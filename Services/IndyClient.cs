@@ -686,6 +686,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all schoolevent entries made using the studentId correspondig token
+    *
+    * @return List of all SchoolEvent entries made
+    */
    public async Task<List<SchoolEvent>> GetAllSchoolEventEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -693,6 +698,12 @@ public class IndyClient : IIndyClient
       return await GetAllSchoolEventEntriesAsync(student.First().StudentId);
    }
 
+   /**
+    * @brief get all schoolevent entries made using the studentId corresponding to the token
+    *
+    * @param studentId of the user to get the entries for
+    * @return List of all schoolevent entries made
+    */
    public async Task<List<SchoolEvent>> GetAllSchoolEventEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<SchoolEvent>>(async () =>
