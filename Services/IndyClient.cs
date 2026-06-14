@@ -308,6 +308,14 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief make 2 new schoolevent entries
+    *
+    * @param date for which to create the entries
+    * @param tid TeacherId, for which to create the entry with
+    * @param description of the schoolevent
+    * @return List of made Schoolevent entries
+    */
    public async Task<List<SchoolEvent>> MakeSchoolEventEntryAsync(DateOnly date, string tid, string description)
    {
       var results = new List<SchoolEvent>();
@@ -318,6 +326,15 @@ public class IndyClient : IIndyClient
       return results;
    }
 
+   /**
+    * @brief make a new schooevent entry
+    *
+    * @param date for which to create the entry
+    * @param hour for which to create the enrty
+    * @param tid TeacherId, for which to create the entry with
+    * @param description of the schoolevent
+    * @return the newly made schooevent entry record
+    */
    public async Task<SchoolEvent> MakeSchoolEventEntryAsync(DateOnly date, int hour, string tid, string description)
    {
       return await this.TryRunAuthAsync<SchoolEvent>(async () =>
