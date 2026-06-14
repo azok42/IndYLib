@@ -584,6 +584,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all made normal entries using the studentId corresponding to the token
+    *
+    * @return List of all Normal entries made
+    */
    public async Task<List<Normal>> GetAllNormalEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -591,6 +596,12 @@ public class IndyClient : IIndyClient
       return await GetAllNormalEntriesAsync(student.First().StudentId);
    }
 
+   /**
+    * @brief get all made normal entries
+    *
+    * @param studentId of the user to fetch the entries
+    * @return List all Normal entries made
+    */
    public async Task<List<Normal>> GetAllNormalEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<Normal>>(async () =>
