@@ -14,5 +14,5 @@ public interface IIndyClient
    Task<List<DayStatus>> GetDayStatusesAsync(DateOnly startDate, DateOnly endDate);
    Task<FullRetured> GetEntriesAsync(DateOnly date);
    Task<List<Student>> GetStudentAsync();
-   Task<List<Teacher>> GetTeachers();
+   Task<List<Teacher>> GetTeachersAsync();
 }

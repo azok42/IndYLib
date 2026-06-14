@@ -424,7 +424,7 @@ public class IndyClient : IIndyClient
     *
     * @return List of all Teacher's
     */
-   public async Task<List<Teacher>> GetTeachers()
+   public async Task<List<Teacher>> GetTeachersAsync()
    {
       return await this.TryRunAuthAsync<List<Teacher>>(async () => 
       {
