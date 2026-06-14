@@ -789,6 +789,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all missing entries (not?) made using the studentId corresponding to the token
+    *
+    * @return List of Object (missing entry record is in progress (i dont have a sample :( ))
+    */
    public async Task<List<Object>> GetAllMissingEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -796,6 +801,12 @@ public class IndyClient : IIndyClient
       return await GetAllMissingEntriesAsync(student.First().StudentId);
    }
 
+   /**
+    * @brief get all missing entries (not?) made
+    *
+    * @param studentId of the user to fetch the missing entries for
+    * @return List of Object (missing entry record is in progress (i dont have a sample :( ))
+    */
    public async Task<List<Object>> GetAllMissingEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync(async () =>
