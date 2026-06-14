@@ -458,6 +458,13 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all indy days with status in range
+    *
+    * @param startDate sets start of range
+    * @param endDate sets end of range
+    * @return List of indy days with status
+    */
    public async Task<List<DayStatus>> GetDayStatusesAsync(DateOnly startDate, DateOnly endDate)
    {
       return await this.TryRunAuthAsync<List<DayStatus>>(async () => 
