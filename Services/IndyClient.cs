@@ -635,6 +635,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all absence entries made using the studendId corresponding to the token
+    *
+    * @return List of all Absence entries made
+    */
    public async Task<List<Absence>> GetAllAbsenceEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -642,6 +647,12 @@ public class IndyClient : IIndyClient
       return await GetAllAbsenceEntriesAsync(student.First().StudentId);
    }
 
+   /**
+    * @brief get all absence entries made
+    *
+    * @param studentId of the user to fetch the entries for
+    * @return List of all Absence entries made
+    */
    public async Task<List<Absence>> GetAllAbsenceEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<Absence>>(async () =>
