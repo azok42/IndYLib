@@ -505,6 +505,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all teacher absences
+    *
+    * @return List of teacher absences
+    */
    public async Task<List<TeacherAbsence>> GetTeacherAbsencesAsync()
    {
       return await this.TryRunAuthAsync<List<TeacherAbsence>>(async () => 
