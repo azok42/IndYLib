@@ -543,6 +543,12 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all amde entries for a specific date
+    *
+    * @param date for which to get the entry
+    * @return FullReturned object for the date
+    */
    public async Task<FullRetured> GetEntriesAsync(DateOnly date)
    {
       return await this.TryRunAuthAsync<FullRetured>(async () => 
