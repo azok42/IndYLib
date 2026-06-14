@@ -242,6 +242,12 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief make 2 new absence entries
+    *
+    * @param date for which to create the entries
+    * @return List of absence entries
+    */
    public async Task<List<Absence>> MakeAbsenceEntryAsync(DateOnly date)
    {
       var results = new List<Absence>();
@@ -252,6 +258,13 @@ public class IndyClient : IIndyClient
       return results;
    }
 
+   /**
+    * @brief make a new absence entry
+    *
+    * @param date for which to create the enty
+    * @param hour for which to create the entry
+    * @return a absence entry record
+    */
    public async Task<Absence> MakeAbsenceEntryAsync(DateOnly date, int hour)
    {
       return await this.TryRunAuthAsync<Absence>(async () =>
