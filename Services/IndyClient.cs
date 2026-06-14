@@ -380,6 +380,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get user details from the token
+    *
+    * @return List with a single student object
+    */
    public async Task<List<Student>> GetStudentAsync()
    {
       return await this.TryRunAuthAsync<List<Student>>(async () =>
