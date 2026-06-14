@@ -419,6 +419,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all teachers
+    *
+    * @return List of all Teacher's
+    */
    public async Task<List<Teacher>> GetTeachers()
    {
       return await this.TryRunAuthAsync<List<Teacher>>(async () => 
