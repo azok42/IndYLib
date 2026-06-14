@@ -742,11 +742,11 @@ public class IndyClient : IIndyClient
     *
     * @return List of Object (freeroom record is in progress (i dont have a sample :( ))
     */
-   public async Task<List<Object>> GetAllFreeroomEntries()
+   public async Task<List<Object>> GetAllFreeroomEntriesAsync()
    {
       var student = await GetStudentAsync();
       
-      return await GetAllFreeroomEntries(student.First().StudentId);
+      return await GetAllFreeroomEntriesAsync(student.First().StudentId);
    }
 
    /**
@@ -755,7 +755,7 @@ public class IndyClient : IIndyClient
     * @param studentId of the user to fetch the freeroom entries for
     * @return List of Object (freeroom record is in progress (i dont have a sample :( ))
     */
-   public async Task<List<Object>> GetAllFreeroomEntries(long studentId)
+   public async Task<List<Object>> GetAllFreeroomEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<Object>>(async () =>
       {
