@@ -794,7 +794,7 @@ public class IndyClient : IIndyClient
     *
     * @return List of Object (missing entry record is in progress (i dont have a sample :( ))
     */
-   public async Task<List<Object>> GetAllMissingEntriesAsync()
+   public async Task<List<Missing>> GetAllMissingEntriesAsync()
    {
       var student = await GetStudentAsync();
 
@@ -807,7 +807,7 @@ public class IndyClient : IIndyClient
     * @param studentId of the user to fetch the missing entries for
     * @return List of Object (missing entry record is in progress (i dont have a sample :( ))
     */
-   public async Task<List<Object>> GetAllMissingEntriesAsync(long studentId)
+   public async Task<List<Missing>> GetAllMissingEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync(async () =>
       {
@@ -825,10 +825,10 @@ public class IndyClient : IIndyClient
             throw new HttpRequestException($"Getting entries failed: {response.StatusCode} {errorJson}");
          }
 
-         List<Object>? result;
+         List<Missing>? result;
          try
          {
-             result = await response.Content.ReadFromJsonAsync<List<Object>>();
+             result = await response.Content.ReadFromJsonAsync<List<Missing>>();
 
              return result ?? throw new Exception("Getting entries failed");
          }
