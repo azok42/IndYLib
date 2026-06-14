@@ -737,6 +737,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get all freeroom entries made using the studentId corresponding to the token
+    *
+    * @return List of Object (freeroom record is in progress (i dont have a sample :( ))
+    */
    public async Task<List<Object>> GetAllFreeroomEntries()
    {
       var student = await GetStudentAsync();
@@ -744,6 +749,12 @@ public class IndyClient : IIndyClient
       return await GetAllFreeroomEntries(student.First().StudentId);
    }
 
+   /**
+    * @brief get all freeroom entries made
+    *
+    * @param studentId of the user to fetch the freeroom entries for
+    * @return List of Object (freeroom record is in progress (i dont have a sample :( ))
+    */
    public async Task<List<Object>> GetAllFreeroomEntries(long studentId)
    {
       return await this.TryRunAuthAsync<List<Object>>(async () =>
