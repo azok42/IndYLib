@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace IndYLib.Models;
 
 public record Teacher (
-         [property: JsonPropertyName("tid")] long TeacherId,
+         [property: JsonPropertyName("tid")] string TeacherId,
          [property: JsonPropertyName("firstname")] string Firstname,
          [property: JsonPropertyName("lastname")] string Lastname,
          [property: JsonPropertyName("username")] string Username,
