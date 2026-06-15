@@ -8,3 +8,8 @@ public record Absence (
          [property: JsonPropertyName("indy-date")] string Date,
          [property: JsonPropertyName("entryPastPresent")] string EntryPastPresent
       );
+
+public record AbsenceRank (
+         [property: JsonPropertyName("rank")] int Rank,
+         [property: JsonPropertyName("absence_hours")] int AbsenceCount
+      );

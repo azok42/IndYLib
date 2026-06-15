@@ -839,4 +839,42 @@ public class IndyClient : IIndyClient
          }
       });
    }
+
+   public async Task<AbsenceRank> GetAbsenceRankAsync(string name)
+   {
+      return await this.TryRunAuthAsync(async () =>
+      {
+         if (name == null)
+            throw new ArgumentNullException("Argument 'name' is null");
+
+         if (!name.Contains(' '))
+            throw new ArgumentException("Name must consists of first name and last name");
+
+         var request = new HttpRequestMessage(HttpMethod.Get, "leaderboard/absences?name=" + name.Trim());
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
+
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Getting rank failed: {response.StatusCode} {errorJson}");
+         }
+         AbsenceRank? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<AbsenceRank>();
+
+            return result ?? throw new Exception("Getting entries failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Entries parsing failed: {errorJson} {e}");
+         }
+      });   
+   }
 }
