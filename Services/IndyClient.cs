@@ -840,6 +840,12 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get the rank corresponding to the name of a student
+    *
+    * @param name of the student
+    * @return the returned absence rank object
+    */
    public async Task<AbsenceRank> GetAbsenceRankAsync(string name)
    {
       return await this.TryRunAuthAsync(async () =>
