@@ -16,14 +16,14 @@ public record FullRetured (
 [JsonDerivedType(typeof(SchoolEventReturned), typeDiscriminator: "entryschoolevent")]
 public record Returned (
          [property: JsonPropertyName("hour")] int Hour,
-         [property: JsonPropertyName("indy_date")] string Date,
+         [property: JsonPropertyName("indy_date")] DateOnly Date,
          [property: JsonPropertyName("sid")] long StudentId,
          [property: JsonPropertyName("tid")] string TeacherId,
          [property: JsonPropertyName("signed")] int IsSigned
       );
 
 public record AbsenceReturned (
-         int Hour, string Date, long StudentId, string Type, int IsSigned,
+         int Hour, DateOnly Date, long StudentId, string Type, int IsSigned,
 
          [property: JsonPropertyName("entryPastPresent")] string EntryPastPresent,
 
@@ -32,7 +32,7 @@ public record AbsenceReturned (
       ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
 
 public record NormalReturned (
-         int Hour, string Date, string TeacherId, long StudentId, string Type, int IsSigned,
+         int Hour, DateOnly Date, string TeacherId, long StudentId, string Type, int IsSigned,
 
          [property: JsonPropertyName("activity")] string Activity,
          [property: JsonPropertyName("subject")] string Subject,
@@ -41,18 +41,18 @@ public record NormalReturned (
       ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
 
 public record SchoolEventReturned (
-         int Hour, string Date, string TeacherId, long StudentId, string Type, int IsSigned,
+         int Hour, DateOnly Date, string TeacherId, long StudentId, string Type, int IsSigned,
 
          [property: JsonPropertyName("description")] string Description
 
       ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
 
 public record SpecialReturned (
-         int Hour, string Date, string TeacherId, long StudentId, string Type, int IsSigned,
+         int Hour, DateOnly Date, string TeacherId, long StudentId, string Type, int IsSigned,
 
          [property: JsonPropertyName("day")] string Day,
-         [property: JsonPropertyName("endDate")] string EndDate,
-         [property: JsonPropertyName("startDate")] string StartDate,
+         [property: JsonPropertyName("endDate")] DateOnly EndDate,
+         [property: JsonPropertyName("startDate")] DateOnly StartDate,
          [property: JsonPropertyName("activity")] string Activity,
          [property: JsonPropertyName("subject")] string Subject,
          [property: JsonPropertyName("room")] string Room
