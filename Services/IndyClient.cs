@@ -792,7 +792,7 @@ public class IndyClient : IIndyClient
    /**
     * @brief get all missing entries (not?) made using the studentId corresponding to the token
     *
-    * @return List of Object (missing entry record is in progress (i dont have a sample :( ))
+    * @return List of Missing entries
     */
    public async Task<List<Missing>> GetAllMissingEntriesAsync()
    {
@@ -805,7 +805,7 @@ public class IndyClient : IIndyClient
     * @brief get all missing entries (not?) made
     *
     * @param studentId of the user to fetch the missing entries for
-    * @return List of Object (missing entry record is in progress (i dont have a sample :( ))
+    * @return List of Missing entries
     */
    public async Task<List<Missing>> GetAllMissingEntriesAsync(long studentId)
    {
