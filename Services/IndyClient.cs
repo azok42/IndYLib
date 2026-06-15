@@ -487,7 +487,7 @@ public class IndyClient : IIndyClient
             if (errorJson.Contains("Invalid token"))
                throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
-            throw new HttpRequestException($"Getting ValidDays failed: {errorJson}");
+            throw new HttpRequestException($"Getting statuses failed: {errorJson}");
          }
 
          List<DayStatus>? result;
@@ -495,12 +495,12 @@ public class IndyClient : IIndyClient
          {
             result = await response.Content.ReadFromJsonAsync<List<DayStatus>>();
 
-            return result ?? throw new Exception("Getting ValidDays failed");
+            return result ?? throw new Exception("Getting statuses failed");
          }
          catch (JsonException e)
          {
             var errorJson = await response.Content.ReadAsStringAsync();
-            throw new JsonException($"ValidDays parsing failed {errorJson} {e}");
+            throw new JsonException($"Statuses parsing failed {errorJson} {e}");
          }
       });
    }
