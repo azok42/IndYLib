@@ -6,6 +6,7 @@ using IndYLib.Interfaces;
 using IndYLib.Exceptions;
 using IndYLib.Models;
 using IndYLib.Models.Entry;
+using IndYLib.Models.Report;
 
 namespace IndYLib.Services;
 
@@ -882,5 +883,38 @@ public class IndyClient : IIndyClient
             throw new JsonException($"Entries parsing failed: {errorJson} {e}");
          }
       });   
+   }
+
+   public async Task<Report> GetReportAsync(long studentId)
+   {
+      return await this.TryRunAuthAsync<Report>(async () =>
+      {
+         var request = new HttpRequestMessage(HttpMethod.Get, "entry/report/" + studentId.ToString());
+         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
+
+         var response = await _httpClient.SendAsync(request);
+         if (response.StatusCode != System.Net.HttpStatusCode.OK)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+
+            if (errorJson.Contains("Invalid token"))
+               throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            throw new HttpRequestException($"Getting Report failed: {response.StatusCode} {errorJson}");
+         }
+
+         Report? result;
+         try
+         {
+            result = await response.Content.ReadFromJsonAsync<Report>();
+
+            return result ?? throw new Exception("Getting Report failed");
+         }
+         catch (JsonException e)
+         {
+            var errorJson = await response.Content.ReadAsStringAsync();
+            throw new JsonException($"Report parsing failed: {errorJson} {e}");
+         }
+      });
    }
 }
