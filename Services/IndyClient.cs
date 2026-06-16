@@ -875,12 +875,12 @@ public class IndyClient : IIndyClient
          {
             result = await response.Content.ReadFromJsonAsync<AbsenceRank>();
 
-            return result ?? throw new Exception("Getting entries failed");
+            return result ?? throw new Exception("Getting rank failed");
          }
          catch (JsonException e)
          {
             var errorJson = await response.Content.ReadAsStringAsync();
-            throw new JsonException($"Entries parsing failed: {errorJson} {e}");
+            throw new JsonException($"Rank parsing failed: {errorJson} {e}");
          }
       });   
    }
