@@ -849,14 +849,14 @@ public class IndyClient : IIndyClient
     */
    public async Task<AbsenceRank> GetAbsenceRankAsync(string name)
    {
+      if (name == null)
+         throw new ArgumentNullException("Argument 'name' is null");
+
+      if (!name.Contains(' '))
+         throw new ArgumentException("Name must consists of first name and last name");
+
       return await this.TryRunAuthAsync(async () =>
       {
-         if (name == null)
-            throw new ArgumentNullException("Argument 'name' is null");
-
-         if (!name.Contains(' '))
-            throw new ArgumentException("Name must consists of first name and last name");
-
          var request = new HttpRequestMessage(HttpMethod.Get, "leaderboard/absences?name=" + name.Trim());
          request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token.AccessToken);
 
