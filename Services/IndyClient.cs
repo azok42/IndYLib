@@ -886,6 +886,11 @@ public class IndyClient : IIndyClient
       });   
    }
 
+   /**
+    * @brief get the report of the user corresponding to the token
+    *
+    * @return the returned report object
+    */
    public async Task<Report> GetReportAsync()
    {
       var student = await GetStudentAsync();
@@ -893,6 +898,12 @@ public class IndyClient : IIndyClient
       return await GetReportAsync(student.First().StudentId);
    }
 
+   /**
+    * @brief get the report of the user
+    *
+    * @param studentId of the user
+    * @return the returned report object
+    */
    public async Task<Report> GetReportAsync(long studentId)
    {
       return await this.TryRunAuthAsync<Report>(async () =>
