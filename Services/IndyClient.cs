@@ -885,6 +885,13 @@ public class IndyClient : IIndyClient
       });   
    }
 
+   public async Task<Report> GetReportAsync()
+   {
+      var student = await GetStudentAsync();
+
+      return await GetReportAsync(student.First().StudentId);
+   }
+
    public async Task<Report> GetReportAsync(long studentId)
    {
       return await this.TryRunAuthAsync<Report>(async () =>
