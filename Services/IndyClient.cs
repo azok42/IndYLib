@@ -870,6 +870,7 @@ public class IndyClient : IIndyClient
 
             throw new HttpRequestException($"Getting rank failed: {response.StatusCode} {errorJson}");
          }
+
          AbsenceRank? result;
          try
          {
