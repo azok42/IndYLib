@@ -868,6 +868,9 @@ public class IndyClient : IIndyClient
             if (errorJson.Contains("Invalid token"))
                throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
+            if (errorJson.Contains("Student"))
+               throw new StudentNotFoundException(name);
+
             throw new HttpRequestException($"Getting rank failed: {response.StatusCode} {errorJson}");
          }
 
