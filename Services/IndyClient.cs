@@ -841,6 +841,13 @@ public class IndyClient : IIndyClient
       });
    }
 
+   public async Task<AbsenceRank> GetAbsenceRankAsync()
+   {
+      var student = (await GetStudentAsync()).First();
+
+      return await GetAbsenceRankAsync(student.Firstname + " " + student.Lastname);
+   }
+
    /**
     * @brief get the rank corresponding to the name of a student
     *
