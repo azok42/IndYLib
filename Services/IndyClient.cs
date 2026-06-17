@@ -841,6 +841,11 @@ public class IndyClient : IIndyClient
       });
    }
 
+   /**
+    * @brief get the rank corresponding to the user which is logged in
+    *
+    * @return the returned absence rank object
+    */
    public async Task<AbsenceRank> GetAbsenceRankAsync()
    {
       var student = (await GetStudentAsync()).First();
