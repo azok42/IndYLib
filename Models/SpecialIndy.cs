@@ -4,7 +4,7 @@ namespace IndYLib.Models;
 
 public record SpecialIndy(
          [property: JsonPropertyName("teacher")] string TeacherId,
-         [property: JsonPropertyName("day")] DateOnly Day,
+         [property: JsonPropertyName("day")] string Day,
          [property: JsonPropertyName("hour")] int Hour,
          [property: JsonPropertyName("area_of_expertise")] string AreaOfExpertise,
          [property: JsonPropertyName("start_date")] DateOnly StartDate,
