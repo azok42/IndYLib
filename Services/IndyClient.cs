@@ -21,13 +21,12 @@ public class IndyClient : IIndyClient
       BaseAddress = new Uri("https://indy.sz-ybbs.ac.at:8443/")
    };
 
-   /**
-    * @brief gets all possible days for indy
-    *
-    * @param startDate sets start of range
-    * @param endDate sets end of range
-    * @return List of possible IndyDays between startDate and endDate
-    */
+   /// <summary>
+   /// Get all indy days in range.
+   /// </summary>
+   /// <param name="startDate">The start of the range.</param>
+   /// <param name="endDate">The end of the range.</param>
+   /// <returns>The returned list of indy days.</returns>
    public static async Task<List<IndyDay>> GetIndyDaysAsync(DateOnly startDate, DateOnly endDate)
    {
       try
@@ -57,11 +56,10 @@ public class IndyClient : IIndyClient
       }
    }
 
-   /**
-    * @brief gets all subjects
-    *
-    * @return List of available school subject one can make an entry for
-    */
+   /// <summary>
+   /// Get all valid subjects.
+   /// </summary>
+   /// <returns>The returned list of available subjects.</returns>
    public static async Task<List<Subject>> GetActiveSubjectsAsync()
    {
       try
@@ -83,11 +81,10 @@ public class IndyClient : IIndyClient
       }
    }
 
-   /**
-    * @brief gets all possible indy hours
-    *
-    * @return List of all possible entries one can make
-    */
+   /// <summary>
+   /// Get all possible entries the user can make.
+   /// </summary>
+   /// <returns>The returned list of all possible indy hours.</returns>
    public static async Task<List<IndyHour>> GetIndyHoursAsync()
    {
       try
@@ -109,11 +106,10 @@ public class IndyClient : IIndyClient
       }
    }
 
-   /**
-    * @brief gets all special indy's
-    *
-    * @return List of all SpecialIndy hours 
-    */
+   /// <summary>
+   /// Get all special indy offers.
+   /// </summary>
+   /// <returns>The returned list of special indy offers.</returns>
    public static async Task<List<SpecialIndy>> GetSpecialIndyAsync()
    {
       try
@@ -135,12 +131,11 @@ public class IndyClient : IIndyClient
       }
    }
 
-   /**
-    * @brief gets the student counts of all possible hours
-    *
-    * @param date of which day to get the student count
-    * @return List of all StudentCount
-    */
+   /// <summary>
+   /// Get the student count for each possible entry.
+   /// </summary>
+   /// <param name="date">The date of the indy day.</param>
+   /// <returns>The returned list of student count objects.</returns>
    public static async Task<List<StudentCount>> GetStudentCountAsync(DateOnly date)
    {
       try
@@ -167,15 +162,14 @@ public class IndyClient : IIndyClient
       Token = token;
    }
 
-   /**
-    * @brief make 2 new normal entry for hour 3 and 4
-    *
-    * @param date for which to create the entries
-    * @param tid TeacherId, for which teacher to create the entries
-    * @param subject the subject to set in the entries
-    * @param activity what the user is doing in the indy hours
-    * @return List of normal entries
-    */
+   /// <summary>
+   /// Make 2 new normal entries for both hours.
+   /// </summary>
+   /// <param name="date">The date of the indy day.</param>
+   /// <param name="tid">The ID of the teacher in which to make the entries.</param>
+   /// <param name="subject">The subject to set in the entry.</param>
+   /// <param name="activity">The activity of the user in this entry.</param>
+   /// <returns>A list of the 3 returned normal entries.</returns>
    public async Task<List<Normal>> MakeNormalEntryAsync(DateOnly date, string tid, string subject, string activity)
    {
       var results = new List<Normal>();
@@ -186,16 +180,15 @@ public class IndyClient : IIndyClient
       return results;
    }
 
-   /**
-    * @brief make a new normal entry
-    *
-    * @param date for which to create the entry
-    * @param 3 or 4, hour for which hour the user wants the entry to be made
-    * @param tid TeacherId, for which to create the entry
-    * @param subject the subject to set in the entry 
-    * @param activity what the user is doing in the indy hour
-    * @return a normal entry record
-    */
+   /// <summary>
+   /// Make a new normal entry.
+   /// </summary>
+   /// <param name="date">The date of the indy day.</param>
+   /// <param name="hour">The hour for which to make the entry for. Must be either 3 or 4.</param>
+   /// <param name="tid">The ID of the teacher in which to make the entry in.</param>
+   /// <param name="subject">The subject to set in the entry.</param>
+   /// <param name="activity">The activity of the user in this entry.</param>
+   /// <returns>The returned normal entry.</returns>
    public async Task<Normal> MakeNormalEntryAsync(DateOnly date, int hour, string tid, string subject, string activity)
    {
       return await this.TryRunAuthAsync<Normal>(async () =>
@@ -243,12 +236,11 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief make 2 new absence entries
-    *
-    * @param date for which to create the entries
-    * @return List of absence entries
-    */
+   /// <summary>
+   /// Make 2 new absence entries for both hours.A list of the 2 returned absence entries.
+   /// </summary>
+   /// <param name="date">The date of the indy day.</param>
+   /// <returns>A list of the 2 returned absence entries.</returns>
    public async Task<List<Absence>> MakeAbsenceEntryAsync(DateOnly date)
    {
       var results = new List<Absence>();
@@ -259,13 +251,12 @@ public class IndyClient : IIndyClient
       return results;
    }
 
-   /**
-    * @brief make a new absence entry
-    *
-    * @param date for which to create the enty
-    * @param hour for which to create the entry
-    * @return a absence entry record
-    */
+   /// <summary>
+   /// Make a new absence entry.
+   /// </summary>
+   /// <param name="date">The date of the indy day.</param>
+   /// <param name="hour">The hour for which to make the entry for. Must be either 4 or 4.</param>
+   /// <returns>The returned absence entry.</returns>
    public async Task<Absence> MakeAbsenceEntryAsync(DateOnly date, int hour)
    {
       return await this.TryRunAuthAsync<Absence>(async () =>
@@ -309,14 +300,13 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief make 2 new schoolevent entries
-    *
-    * @param date for which to create the entries
-    * @param tid TeacherId, for which to create the entry with
-    * @param description of the schoolevent
-    * @return List of made Schoolevent entries
-    */
+   /// <summary>
+   /// Make 2 new schoolevent entries for both hours instead of just 1.
+   /// </summary>
+   /// <param name="date">The date of the indy day.</param>
+   /// <param name="tid">The ID of the teacher to make the entry in.</param>
+   /// <param name="description">The description of what the user is doing.</param>
+   /// <returns>A list of the 2 returned schoolevent entries.</returns>
    public async Task<List<SchoolEvent>> MakeSchoolEventEntryAsync(DateOnly date, string tid, string description)
    {
       var results = new List<SchoolEvent>();
@@ -327,15 +317,14 @@ public class IndyClient : IIndyClient
       return results;
    }
 
-   /**
-    * @brief make a new schooevent entry
-    *
-    * @param date for which to create the entry
-    * @param hour for which to create the enrty
-    * @param tid TeacherId, for which to create the entry with
-    * @param description of the schoolevent
-    * @return the newly made schooevent entry record
-    */
+   /// <summary>
+   /// Make a new schoolevent entry.
+   /// </summary>
+   /// <param name="date">The date of the indy day.</param>
+   /// <param name="hour">The hour for which to make the entry. Must be either 3 or 4.</param>
+   /// <param name="tid">The ID of the teacher to make the entry in.</param>
+   /// <param name="description">The description of what the user is doing.</param>
+   /// <returns>The returned schoolevent entry.</returns>
    public async Task<SchoolEvent> MakeSchoolEventEntryAsync(DateOnly date, int hour, string tid, string description)
    {
       return await this.TryRunAuthAsync<SchoolEvent>(async () =>
@@ -381,11 +370,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get user details from the token
-    *
-    * @return List with a single student object
-    */
+   /// <summary>
+   /// Get all user detailes for the logged in user
+   /// </summary>
+   /// <returns>List of a single student object (**WHY IS IT A LIST??**)</returns>
    public async Task<List<Student>> GetStudentAsync()
    {
       return await this.TryRunAuthAsync<List<Student>>(async () =>
@@ -420,11 +408,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all teachers
-    *
-    * @return List of all Teacher's
-    */
+   /// <summary>
+   /// Get all teachers.
+   /// </summary>
+   /// <returns>The returned list of teachers</returns>
    public async Task<List<Teacher>> GetTeachersAsync()
    {
       return await this.TryRunAuthAsync<List<Teacher>>(async () => 
@@ -459,13 +446,12 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all indy days with status in range
-    *
-    * @param startDate sets start of range
-    * @param endDate sets end of range
-    * @return List of indy days with status
-    */
+   /// <summary>
+   /// Get the status of all indy days in range.
+   /// </summary>
+   /// <param name="startDate">The start of the range.</param>
+   /// <param name="endDate">The end of the range.</param>
+   /// <returns>The returned list of statuses.</returns>
    public async Task<List<DayStatus>> GetDayStatusesAsync(DateOnly startDate, DateOnly endDate)
    {
       return await this.TryRunAuthAsync<List<DayStatus>>(async () => 
@@ -506,11 +492,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all teacher absences
-    *
-    * @return List of teacher absences
-    */
+   /// <summary>
+   /// Get all teacher absences.
+   /// </summary>
+   /// <returns>THe returned list of the absences.</returns>
    public async Task<List<TeacherAbsence>> GetTeacherAbsencesAsync()
    {
       return await this.TryRunAuthAsync<List<TeacherAbsence>>(async () => 
@@ -544,12 +529,11 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all amde entries for a specific date
-    *
-    * @param date for which to get the entry
-    * @return FullReturned object for the date
-    */
+   /// <summary>
+   /// Get all made entries for a specific date.
+   /// </summary>
+   /// <param name="date">The date of the fetched entries.</param>
+   /// <returns>The returned object.</returns>
    public async Task<FullRetured> GetEntriesAsync(DateOnly date)
    {
       return await this.TryRunAuthAsync<FullRetured>(async () => 
@@ -585,11 +569,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all made normal entries using the studentId corresponding to the token
-    *
-    * @return List of all Normal entries made
-    */
+   /// <summary>
+   /// Get all made normal entries for the user which is logged in.
+   /// </summary>
+   /// <returns>The returned list of normal entries.</returns>
    public async Task<List<Normal>> GetAllNormalEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -597,12 +580,11 @@ public class IndyClient : IIndyClient
       return await GetAllNormalEntriesAsync(student.First().StudentId);
    }
 
-   /**
-    * @brief get all made normal entries
-    *
-    * @param studentId of the user to fetch the entries
-    * @return List all Normal entries made
-    */
+   /// <summary>
+   /// Get all normal entries made.
+   /// </summary>
+   /// <param name="studentId">The ID of the user to fetch the entries for.</param>
+   /// <returns>The returned list of normal entries.</returns>
    public async Task<List<Normal>> GetAllNormalEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<Normal>>(async () =>
@@ -636,11 +618,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all absence entries made using the studendId corresponding to the token
-    *
-    * @return List of all Absence entries made
-    */
+   /// <summary>
+   /// Get all absence entries made for the user logged in
+   /// </summary>
+   /// <returns>The returned list of absence entries.</returns>
    public async Task<List<Absence>> GetAllAbsenceEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -648,12 +629,11 @@ public class IndyClient : IIndyClient
       return await GetAllAbsenceEntriesAsync(student.First().StudentId);
    }
 
-   /**
-    * @brief get all absence entries made
-    *
-    * @param studentId of the user to fetch the entries for
-    * @return List of all Absence entries made
-    */
+   /// <summary>
+   /// Get all absence entries made.
+   /// </summary>
+   /// <param name="studentId">THe ID of the user to fetch the entries for.</param>
+   /// <returns>The returned list of absence entries.</returns>
    public async Task<List<Absence>> GetAllAbsenceEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<Absence>>(async () =>
@@ -687,11 +667,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all schoolevent entries made using the studentId correspondig token
-    *
-    * @return List of all SchoolEvent entries made
-    */
+   /// <summary>
+   /// Get all schoolevent entries made for the user which is logged in.
+   /// </summary>
+   /// <returns>The returned list of schoolevent entries.</returns>
    public async Task<List<SchoolEvent>> GetAllSchoolEventEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -699,12 +678,11 @@ public class IndyClient : IIndyClient
       return await GetAllSchoolEventEntriesAsync(student.First().StudentId);
    }
 
-   /**
-    * @brief get all schoolevent entries made using the studentId corresponding to the token
-    *
-    * @param studentId of the user to get the entries for
-    * @return List of all schoolevent entries made
-    */
+   /// <summary>
+   /// Get all schoolevent entries made.
+   /// </summary>
+   /// <param name="studentId">The ID of the user to fetch the entries for</param>
+   /// <returns>THe returned list of schoolevent entries</returns>
    public async Task<List<SchoolEvent>> GetAllSchoolEventEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<SchoolEvent>>(async () =>
@@ -738,11 +716,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all freeroom entries made using the studentId corresponding to the token
-    *
-    * @return List of Object (freeroom record is in progress (i dont have a sample :( ))
-    */
+   /// <summary>
+   /// Get all freeroom entries made for the user which is logged in
+   /// </summary>
+   /// <returns>A List of Object (freeroom record is in progress (i don't have a sample :( ))</returns>
    public async Task<List<Object>> GetAllFreeroomEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -750,12 +727,11 @@ public class IndyClient : IIndyClient
       return await GetAllFreeroomEntriesAsync(student.First().StudentId);
    }
 
-   /**
-    * @brief get all freeroom entries made
-    *
-    * @param studentId of the user to fetch the freeroom entries for
-    * @return List of Object (freeroom record is in progress (i dont have a sample :( ))
-    */
+   /// <summary>
+   /// Get all freeroom entries made.
+   /// </summary>
+   /// <param name="studentId">The ID of the user to fetch the entries for</param>
+   /// <returns>A list of Object (freeroom record is in profress (i don't have a sample :( ))</returns>
    public async Task<List<Object>> GetAllFreeroomEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync<List<Object>>(async () =>
@@ -790,11 +766,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get all missing entries (not?) made using the studentId corresponding to the token
-    *
-    * @return List of Missing entries
-    */
+   /// <summary>
+   /// Get all missing entris (not?) made for the user which is logged in.
+   /// </summary>
+   /// <returns>The returned list of missing entries.</returns>
    public async Task<List<Missing>> GetAllMissingEntriesAsync()
    {
       var student = await GetStudentAsync();
@@ -802,12 +777,11 @@ public class IndyClient : IIndyClient
       return await GetAllMissingEntriesAsync(student.First().StudentId);
    }
 
-   /**
-    * @brief get all missing entries (not?) made
-    *
-    * @param studentId of the user to fetch the missing entries for
-    * @return List of Missing entries
-    */
+   /// <summary>
+   /// Get all missing entries (not?) made.
+   /// </summary>
+   /// <param name="studentId">The ID of the user to fetch the missing entries for.</param>
+   /// <returns>The returned List of missing entries.</returns>
    public async Task<List<Missing>> GetAllMissingEntriesAsync(long studentId)
    {
       return await this.TryRunAuthAsync(async () =>
@@ -841,11 +815,10 @@ public class IndyClient : IIndyClient
       });
    }
 
-   /**
-    * @brief get the rank corresponding to the user which is logged in
-    *
-    * @return the returned absence rank object
-    */
+   /// <summary>
+   /// Get the rank corresponding to the user which is logged in.
+   /// </summary>
+   /// <returns>The returned absence rank object.</returns>
    public async Task<AbsenceRank> GetAbsenceRankAsync()
    {
       var student = (await GetStudentAsync()).First();
@@ -853,12 +826,11 @@ public class IndyClient : IIndyClient
       return await GetAbsenceRankAsync(student.Firstname + " " + student.Lastname);
    }
 
-   /**
-    * @brief get the rank corresponding to the name of a student
-    *
-    * @param name of the student
-    * @return the returned absence rank object
-    */
+   /// <summary>
+   /// Get the rank corresponding to the name of a student.
+   /// </summary>
+   /// <param name="name">The name of the student.</param>
+   /// <returns>The returned absence rank object.</returns>
    public async Task<AbsenceRank> GetAbsenceRankAsync(string name)
    {
       if (name == null)
@@ -901,11 +873,10 @@ public class IndyClient : IIndyClient
       });   
    }
 
-   /**
-    * @brief get the report of the user corresponding to the token
-    *
-    * @return the returned report object
-    */
+   /// <summary>
+   /// Get the report of the user corresponding to the token.
+   /// </summary>
+   /// <returns>The returned report object.</returns>
    public async Task<Report> GetReportAsync()
    {
       var student = await GetStudentAsync();
@@ -913,12 +884,11 @@ public class IndyClient : IIndyClient
       return await GetReportAsync(student.First().StudentId);
    }
 
-   /**
-    * @brief get the report of the user
-    *
-    * @param studentId of the user
-    * @return the returned report object
-    */
+   /// <summary>
+   /// Gets the report of the user.
+   /// </summary>
+   /// <param name="studentId">The ID of the user.</param>
+   /// <returns>The returned report object.</returns>
    public async Task<Report> GetReportAsync(long studentId)
    {
       return await this.TryRunAuthAsync<Report>(async () =>
