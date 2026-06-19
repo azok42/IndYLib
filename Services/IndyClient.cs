@@ -25,10 +25,13 @@ public class IndyClient : IIndyClient
    /// Get all indy days in range.
    /// </summary>
    /// <param name="startDate">The start of the range.</param>
-   /// <param name="endDate">The end of the range.</param>
+   /// <param name="endDate">The end of the range. Must be after <paramref name="startDate"/></param>
    /// <returns>The returned list of indy days.</returns>
    public static async Task<List<IndyDay>> GetIndyDaysAsync(DateOnly startDate, DateOnly endDate)
    {
+      if (startDate.CompareTo(endDate) >= 0)
+         throw new ArgumentOutOfRangeException("endDate must not be after startDate");
+
       try
       {
          var dates = new Dictionary<string, string?>()
@@ -450,10 +453,13 @@ public class IndyClient : IIndyClient
    /// Get the status of all indy days in range.
    /// </summary>
    /// <param name="startDate">The start of the range.</param>
-   /// <param name="endDate">The end of the range.</param>
+   /// <param name="endDate">The end of the range. Must not be after startdate.</param>
    /// <returns>The returned list of statuses.</returns>
    public async Task<List<DayStatus>> GetDayStatusesAsync(DateOnly startDate, DateOnly endDate)
    {
+      if (startDate.CompareTo(endDate) >= 0)
+         throw new ArgumentOutOfRangeException("endDate must not be after startDate");
+
       return await this.TryRunAuthAsync<List<DayStatus>>(async () => 
       {
          var parameters = new Dictionary<string, string?>()
