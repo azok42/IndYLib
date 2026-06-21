@@ -28,7 +28,7 @@ public record AbsenceReturned (
 
          string TeacherId = ""
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned) {}
 
 public record NormalReturned (
          int Hour, DateOnly Date, string TeacherId, long StudentId, string Type, int IsSigned,
@@ -37,14 +37,14 @@ public record NormalReturned (
          [property: JsonPropertyName("subject")] string Subject,
          [property: JsonPropertyName("room")] string Room
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned) {}
 
 public record SchoolEventReturned (
          int Hour, DateOnly Date, string TeacherId, long StudentId, string Type, int IsSigned,
 
          [property: JsonPropertyName("description")] string Description
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned) {}
 
 public record SpecialReturned (
          int Hour, DateOnly Date, string TeacherId, long StudentId, string Type, int IsSigned,
@@ -56,4 +56,4 @@ public record SpecialReturned (
          [property: JsonPropertyName("subject")] string Subject,
          [property: JsonPropertyName("room")] string Room
 
-      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned);
+      ) : Returned(Hour, Date, StudentId, TeacherId, IsSigned) {}
