@@ -9,7 +9,6 @@ public record FullRetured (
 
 
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
-
 [JsonDerivedType(typeof(AbsenceReturned), typeDiscriminator: "entryabsence")]
 [JsonDerivedType(typeof(NormalReturned), typeDiscriminator: "entrynormal")]
 [JsonDerivedType(typeof(SpecialReturned), typeDiscriminator: "entryspecial")]
