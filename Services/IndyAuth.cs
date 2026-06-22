@@ -4,6 +4,7 @@ using IndYLib.Models;
 
 namespace IndYLib.Services;
 
+/// <inheritdoc cref="IIndyAuth"/>
 public class IndyAuth : IIndyAuth
 {
    private static HttpClient HttpClient
