@@ -1,0 +1,28 @@
+var interfaceIndYLib_1_1Interfaces_1_1IIndyClient =
+[
+    [ "GetAbsenceRankAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a4b980e7e4af9dc15b4fdabf59430ea97", null ],
+    [ "GetAbsenceRankAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#afa66107d4c2e29a4041c6db7fb7d0aac", null ],
+    [ "GetAllAbsenceEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a5cc5a35effd6bd3e6eec484db88653c1", null ],
+    [ "GetAllAbsenceEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a7b941a88da9673fb8d8f2aeb7948f959", null ],
+    [ "GetAllFreeroomEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a90d392bd68fc4c061cdd1f72ec84f24b", null ],
+    [ "GetAllFreeroomEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#ae2adb6d7cb9938f0ae810999357627af", null ],
+    [ "GetAllMissingEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#aa9778ee79803ec920f6974c2fa903d92", null ],
+    [ "GetAllMissingEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a47ba2a7c9b5a54def030da9e0e9cee5f", null ],
+    [ "GetAllNormalEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a5cc405a2d00f139ee2bddef6d7b200f8", null ],
+    [ "GetAllNormalEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a993294965d6db814022a3adffd88d36d", null ],
+    [ "GetAllSchoolEventEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#ad0773e14749ee56a1ced99beb868f6a5", null ],
+    [ "GetAllSchoolEventEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a174712e3be3ac98c1a97240b42b1065d", null ],
+    [ "GetDayStatusesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a719497e4cf585f922c3003e31891d75d", null ],
+    [ "GetEntriesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a54098dda091732a61ebfac83974ba104", null ],
+    [ "GetReportAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a802f73cf6f5905fa1c1305c2f37e4a83", null ],
+    [ "GetReportAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#ae4264b55134b0a60719dee76c42d4b8e", null ],
+    [ "GetStudentAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#aee01774c37c12fc8636b8c32bb6f4c94", null ],
+    [ "GetTeacherAbsencesAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a68a85789e24dfa60519eb1694498bc5c", null ],
+    [ "GetTeachersAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#ae308998eee7abba8dbccedf19e317dcd", null ],
+    [ "MakeAbsenceEntryAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a1430c4c8205a1b8a496df3dbc64439ed", null ],
+    [ "MakeAbsenceEntryAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#af2d68aebe7a54992d581ab04ea0b9bb6", null ],
+    [ "MakeNormalEntryAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a1130d6f9c5678d02d0f6c40edb72530e", null ],
+    [ "MakeNormalEntryAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#af6daf12e1a8747cfa3a6cc795bd637b5", null ],
+    [ "MakeSchoolEventEntryAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a2ceaef1f67854293d61398befb6a3fc8", null ],
+    [ "MakeSchoolEventEntryAsync", "interfaceIndYLib_1_1Interfaces_1_1IIndyClient.html#a314487f42fa4e868c2c64b0a5ccdf0ab", null ]
+];
