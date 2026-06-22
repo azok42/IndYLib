@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace IndYLib.Models;
 
 public record IndyHour (
-         [property: JsonPropertyName("day")] DateOnly Day,
+         [property: JsonPropertyName("day")] string DayName,
          [property: JsonPropertyName("hour")] int Hour,
          [property: JsonPropertyName("room")] string Room,
          [property: JsonPropertyName("teacher")] string TeacherId,
