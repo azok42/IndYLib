@@ -66,6 +66,11 @@ public class IndyAuth : IIndyAuth
       return result ?? throw new Exception("Login failed: Server returned an empty token.");
    }
 
+   /// <summary>
+   /// <i>Try</i> to refresh a token using its refresh token and update the token from the provided client. As of now doesn't really work (server fault).
+   /// </summary>
+   /// <param name="client">The client to update.</param>
+   /// <returns>The new access token.</returns>
    public static async Task<Access> RefreshTokenAsync(IndyClient client)
    {
       var payload = new Dictionary<string, string?>()
