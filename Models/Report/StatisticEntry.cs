@@ -9,6 +9,7 @@ namespace IndYLib.Models.Report;
 /// <param name="Date">The date of the indy day the entry happend.</param>
 /// <param name="Hour">The hour in which the entry happend.</param>
 /// <param name="TeacherId">The ID of the teacher where the entry is in.</param>
+/// <param name="Activity">The user-specified activity of what the user did in this hour.</param>
 /// <param name="Subject">The subject specified in the entry. Is null when <paramref name="Type"/> is 'schoolevent'.</param>
 /// <param name="Type">The type of the entry. ('normal', 'schoolevent')</param>
 public record StatisticEntry (

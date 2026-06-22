@@ -41,6 +41,7 @@ public record Returned (
 /// <param name="Date">The date on which the entry happend.</param>
 /// <param name="StudentId">The ID of the student, who made the entry.</param>
 /// <param name="TeacherId">The ID of the teacher, where this entry happend.</param>
+/// <param name="Type">The type of the returned entry. ('entryabsence', 'entrynormal', 'entryspecial', 'entryschoolevent').</param>
 /// <param name="IsSigned">Boolean (1 or 0). 1 if it is already signed by the teacher.</param>
 /// <param name="EntryPastPresent">Boolean (1 or 0). 1 if the entry was made before the <paramref name="Date"/> of the entry.</param>
 public record AbsenceReturned (
@@ -59,6 +60,7 @@ public record AbsenceReturned (
 /// <param name="Date">The date on which the entry happend.</param>
 /// <param name="StudentId">The ID of the student, who made the entry.</param>
 /// <param name="TeacherId">The ID of the teacher, where this entry happend.</param>
+/// <param name="Type">The type of the returned entry. ('entryabsence', 'entrynormal', 'entryspecial', 'entryschoolevent').</param>
 /// <param name="IsSigned">Boolean (1 or 0). 1 if it is already signed by the teacher.</param>
 /// <param name="Activity">The user's description of what the user did/does in the indy hour.</param>
 /// <param name="Subject">The subject set in the entry.</param>
@@ -79,6 +81,7 @@ public record NormalReturned (
 /// <param name="Date">The date on which the entry happend.</param>
 /// <param name="StudentId">The ID of the student, who made the entry.</param>
 /// <param name="TeacherId">The ID of the teacher, where this entry happend.</param>
+/// <param name="Type">The type of the returned entry. ('entryabsence', 'entrynormal', 'entryspecial', 'entryschoolevent').</param>
 /// <param name="IsSigned">Boolean (1 or 0). 1 if it is already signed by the teacher.</param>
 /// <param name="Description">The description of what the event is about.</param>
 public record SchoolEventReturned (
@@ -95,6 +98,7 @@ public record SchoolEventReturned (
 /// <param name="Date">The date on which the entry happend.</param>
 /// <param name="StudentId">The ID of the student, who made the entry.</param>
 /// <param name="TeacherId">The ID of the teacher, where this entry happend.</param>
+/// <param name="Type">The type of the returned entry. ('entryabsence', 'entrynormal', 'entryspecial', 'entryschoolevent').</param>
 /// <param name="IsSigned">Boolean (1 or 0). 1 if it is already signed by the teacher.</param>
 /// <param name="Day">The short name of a indy day. ('Mo', 'Mi', 'Fr').</param>
 /// <param name="StartDate">The start of the range in which the special indy happens.</param>

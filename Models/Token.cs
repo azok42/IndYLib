@@ -14,6 +14,10 @@ public record Token(
       [property: JsonPropertyName("token_type")] string Type
       );
 
+/// <summary>
+/// The access token returned by the server when refreshing a token.
+/// </summary>
+/// <param name="AccessToken">The refreshed access token.</param>
 public record Access(
       [property: JsonPropertyName("access_token")] string AccessToken
       );
