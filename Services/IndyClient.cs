@@ -166,6 +166,10 @@ public class IndyClient : IIndyClient
       }
    }
 
+   /// <summary>
+   /// Initializes a new IndyClient.
+   /// </summary>
+   /// <param name="token">The token used to authenticate.</param>
    public IndyClient(Token token)
    {
       Token = token;
