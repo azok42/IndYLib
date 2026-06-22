@@ -12,8 +12,14 @@ namespace IndYLib.Services;
 
 public class IndyClient : IIndyClient
 {
+   /// <summary>
+   /// The token obtained at log in. Used to authenticate. Get and set.
+   /// </summary>
    public Token Token { get; set; }
 
+   /// <summary>
+   /// The function used to re authenticate, when refreshing the token failed. Get ans set.
+   /// </summary>
    public Func<IndyClient, Task>? ReAuthAsync { get; set; }
 
    private readonly static HttpClient _httpClient = new()
