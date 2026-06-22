@@ -1,0 +1,9 @@
+PROJECT_NAME      = "IndYLib"
+
+OUTPUT_DIRECTORY  = ./docs
+
+EXTRACT_STATIC    = YES
+
+RECURSIVE         = YES
+
+IMAGE_PATH        = .
