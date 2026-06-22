@@ -23,6 +23,10 @@ public class IndyAuth : IIndyAuth
       }
    }
 
+   /// <summary>
+   /// Init a new IndyAuth object.
+   /// </summary>
+   /// <param name="httpClient">The http client used to make calls.</param>
    public IndyAuth(HttpClient httpClient)
    {
       HttpClient = httpClient;
