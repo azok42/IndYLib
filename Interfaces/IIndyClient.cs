@@ -195,6 +195,7 @@ public interface IIndyClient
    /// </summary>
    /// <param name="name">The name of the student.</param>
    /// <exception cref="InvalidTokenExcpetion">Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.</exception>
+   /// <exception cref="StudentNotFoundException">Throw when the requested user <paramref name="name"/> does not exist.</exception>
    /// <returns>The returned absence rank object.</returns>
    Task<AbsenceRank> GetAbsenceRankAsync(string name);
 
