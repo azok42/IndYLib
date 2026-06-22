@@ -2,6 +2,9 @@ using IndYLib.Models;
 
 namespace IndYLib.Interfaces;
 
+/// <summary>
+/// A class used to authenticate at IndY.
+/// </summary>
 public interface IIndyAuth
 {
    /// <summary>
