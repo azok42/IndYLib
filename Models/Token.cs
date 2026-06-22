@@ -2,6 +2,12 @@ using System.Text.Json.Serialization;
 
 namespace IndYLib.Models;
 
+/// <summary>
+/// The token object returned from /token endpoint.
+/// </summary>
+/// <param name="AccessToken">Token used to for auth.</param>
+/// <param name="RefreshToken">Token used to refresh the <paramref name="AccessToken"/>.</param>
+/// <param name="Type">The auth type (should be "Bearer").</param>
 public record Token(
       [property: JsonPropertyName("access_token")] string AccessToken,
       [property: JsonPropertyName("refresh_token")] string RefreshToken,
