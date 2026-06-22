@@ -1,4 +1,5 @@
 using IndYLib.Models;
+using IndYLib.Exceptions;
 using IndYLib.Models.Entry;
 using IndYLib.Models.Report;
 
