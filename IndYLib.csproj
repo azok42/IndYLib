@@ -4,7 +4,28 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <PackageId>Azok42.IndYLib</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Anton Hackner</Authors>
+    <Description>This is a small REST API wrapper for the IndY-API used in the schools of SZ-Ybbs.</Description>
+    <PackageReleaseNotes>Initial release with core features.</PackageReleaseNotes>
+    <Copyright>Copyright © 2026</Copyright>
+    
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ProjectUrl>https://github.com/azok42/IndYLib</ProjectUrl>
+    <RepositoryUrl>https://github.com/azok42/IndYLib.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>api;dotnet;nuget;library;sz-ybbs;indy</PackageTags>
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="10.0.8" />
