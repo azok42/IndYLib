@@ -22,5 +22,16 @@ namespace IndYLib.Models;
 public record DayStatus (
          [property: JsonPropertyName("date")] DateOnly Date,
          [property: JsonPropertyName("day_name")] string DayName,
-         [property: JsonPropertyName("status")] int Status
+         [property: JsonPropertyName("status")] Status Status
       );
+
+public enum Status
+{
+   Open,
+   Unkown,
+   NotSigned,
+   FullySigned,
+   EntriesMissing,
+   Cancelled,
+   AbsenceEntries
+}
