@@ -54,6 +54,9 @@ public class IndyClient : IIndyClient
          if (response == null)
             throw new HttpRequestException("Getting Days failed: response is null");
 
+         if (response.Count() <= 0)
+            throw new NotFoundException("Indyday", $"IndyDays in range: {startDate.ToString()} - {endDate.ToString()}");
+
          return response;
       }
       catch (HttpRequestException e)
@@ -108,6 +111,9 @@ public class IndyClient : IIndyClient
       }
       catch (HttpRequestException e)
       {
+         if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+            throw new NotFoundException("Indyhours");
+         
          throw new HttpRequestException("Getting Indyhours failed: status " + e.StatusCode);
       }
       catch (JsonException e)
@@ -133,6 +139,9 @@ public class IndyClient : IIndyClient
       }
       catch (HttpRequestException e)
       {
+         if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+            throw new NotFoundException("Specialindy");
+          
          throw new HttpRequestException("Getting Specialindy failed: status " + e.StatusCode); 
       }
       catch (JsonException e)
@@ -154,6 +163,9 @@ public class IndyClient : IIndyClient
 
          if (response == null)
             throw new NullReferenceException("Getting Studentcount failed: response is null");
+
+         if (response.Count <= 0)
+            throw new NotFoundException("StudentCount", $"StudentCount for date: {date.ToString()}");
 
          return response;
       }
@@ -214,7 +226,13 @@ public class IndyClient : IIndyClient
             if (errorJson.Contains("Invalid token"))
                throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
-            throw new HttpRequestException($"Entry creation failed: {errorJson}");
+            if (errorJson.Contains("not a valid indy day."))
+               throw new InvalidIndyDayException(date);
+
+            if (errorJson.Contains("no hour for this teacher on this day"))
+               throw new NotFoundException($"Hour for teacher '{tid}' on day {date}");
+
+            throw new HttpRequestException($"Entry creation failed: {response.StatusCode} {errorJson}");
          }
 
          Normal? result;
@@ -268,7 +286,10 @@ public class IndyClient : IIndyClient
             if (errorJson.Contains("Invalid token"))
                throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
-            throw new HttpRequestException($"Absence creation failed: {errorJson}");
+            if (errorJson.Contains("not a valid indy day."))
+               throw new InvalidIndyDayException(date);
+
+            throw new HttpRequestException($"Absence creation failed: {response.StatusCode} {errorJson}");
          }
 
          Absence? result;
@@ -323,7 +344,10 @@ public class IndyClient : IIndyClient
             if (errorJson.Contains("Invalid token"))
                throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
-            throw new HttpRequestException($"SchoolEvent creation failed: {errorJson}");
+            if (errorJson.Contains("not a valid indy day."))
+               throw new InvalidIndyDayException(date);
+
+            throw new HttpRequestException($"SchoolEvent creation failed: {response.StatusCode} {errorJson}");
          }
 
          SchoolEvent? result;
@@ -499,6 +523,9 @@ public class IndyClient : IIndyClient
 
             if (errorJson.Contains("Invalid token"))
                throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
+
+            if (errorJson.Contains("not a valid indy day."))
+               throw new InvalidIndyDayException(date);
 
             throw new HttpRequestException($"Getting Entries failed: {response.StatusCode} {errorJson}");
          }
@@ -750,7 +777,7 @@ public class IndyClient : IIndyClient
                throw new InvalidTokenExcpetion("Parsing failed: Invalid token");
 
             if (errorJson.Contains("Student"))
-               throw new StudentNotFoundException(name);
+               throw new NotFoundException("Student", name);
 
             throw new HttpRequestException($"Getting rank failed: {response.StatusCode} {errorJson}");
          }

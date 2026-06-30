@@ -3,7 +3,7 @@ namespace IndYLib.Exceptions;
 /// <summary>
 /// The exception which is thrown when the token is invalid or expired.
 /// </summary>
-public class InvalidTokenExcpetion : Exception
+public class InvalidTokenExcpetion : IndyException
 {
    /// <summary>
    /// Initializes new instance of <see cref="InvalidTokenExcpetion"/> with default message.
