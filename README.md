@@ -1,4 +1,4 @@
-<img align="left" width="130" height="130" src="./MindyLogo.png">
+<img align="left" width="130" height="130" src="./assets/MindyLogo.png">
 
 ```
  ___           ___   __  _     _ _     
