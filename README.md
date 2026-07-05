@@ -27,6 +27,12 @@ var indyAuth = serviceProvider.GetRequiredService<IIndyAuth>();
 var client = await indyAuth.CreateClientAsync(username, password);
 ```
 
+## Showcase
+
+https://github.com/user-attachments/assets/097497a3-34c8-4149-8477-c56a213bda4c
+
+https://github.com/azok42/IndYLib/blob/readme/assets/showcase.mp4
+
 ## What is IndY?
 
 IndY is a project in my school, where students can freely decide what, where and with who they work on. There are 6 IndY hours all in all (2x Monday, 2x Wendsday, 2x Friday)
