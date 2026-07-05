@@ -15,9 +15,6 @@ This is a C# library for the IndY-API.
 ## How to use
 
 ```csharp
-// create host
-using IHost host = Host.CreateApplicationBuilder(args).Build();
-
 // add library
 var services = new ServiceCollection();
 services.AddIndyAuth();
