@@ -36,7 +36,7 @@ public class IndyClient : IIndyClient
    /// <returns>The returned list of indy days.</returns>
    public static async Task<List<IndyDay>> GetIndyDaysAsync(DateOnly startDate, DateOnly endDate)
    {
-      if (startDate.CompareTo(endDate) >= 0)
+      if (startDate.CompareTo(endDate) > 0)
          throw new ArgumentOutOfRangeException("endDate must not be after startDate");
 
       try
