@@ -1,0 +1,150 @@
+\doxysection{Ind\+YLib.\+Services.\+Indy\+Auth Class Reference}
+\hypertarget{classIndYLib_1_1Services_1_1IndyAuth}{}\label{classIndYLib_1_1Services_1_1IndyAuth}\index{IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}}
+
+
+ 
+
+
+Inheritance diagram for Ind\+YLib.\+Services.\+Indy\+Auth:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classIndYLib_1_1Services_1_1IndyAuth}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_ad7c3b68c731f6814c2687e618ad4bb35}{Indy\+Auth}} (Http\+Client http\+Client)
+\begin{DoxyCompactList}\small\item\em Init a new \doxylink{classIndYLib_1_1Services_1_1IndyAuth}{Indy\+Auth} object. \end{DoxyCompactList}\item 
+async Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_afd493828e197a3fc90ca8d9a5c420e6a}{Create\+Client\+Async}} (\doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}} token)
+\begin{DoxyCompactList}\small\item\em Create a new \doxylink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client} class using an existing token. \end{DoxyCompactList}\item 
+async Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_a96294dbaafca8c49d0b900c644f9c608}{Create\+Client\+Async}} (string username, string password)
+\begin{DoxyCompactList}\small\item\em Create a new \doxylink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client} class using the user credentials to get a new token. \end{DoxyCompactList}\item 
+async Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}} $>$ \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_adaadcb1d59f0582be85ffe3608cb7c83}{Get\+Token}} (string username, string password)
+\begin{DoxyCompactList}\small\item\em Get a token using the user credentials. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static async Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_acd59498beecaf7828ad31490edb50f94}{Access}} $>$ \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_a7a8e49cdf637b5ca34a1adb65c90119f}{Refresh\+Token\+Async}} (\doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client}} client)
+\begin{DoxyCompactList}\small\item\em {\itshape Try} to refresh a token using its refresh token and update the token from the provided client. As of now doesn\textquotesingle{}t really work (server fault). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-constructors}
+\Hypertarget{classIndYLib_1_1Services_1_1IndyAuth_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classIndYLib_1_1Services_1_1IndyAuth_ad7c3b68c731f6814c2687e618ad4bb35}\index{IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}!IndyAuth@{IndyAuth}}
+\index{IndyAuth@{IndyAuth}!IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}}
+\doxysubsubsection{\texorpdfstring{IndyAuth()}{IndyAuth()}}
+{\footnotesize\ttfamily \label{classIndYLib_1_1Services_1_1IndyAuth_ad7c3b68c731f6814c2687e618ad4bb35} 
+Ind\+YLib.\+Services.\+Indy\+Auth.\+Indy\+Auth (\begin{DoxyParamCaption}\item[{Http\+Client}]{http\+Client}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Init a new \doxylink{classIndYLib_1_1Services_1_1IndyAuth}{Indy\+Auth} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em http\+Client} & The http client used to make calls.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classIndYLib_1_1Services_1_1IndyAuth_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIndYLib_1_1Services_1_1IndyAuth_a96294dbaafca8c49d0b900c644f9c608}\index{IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}!CreateClientAsync@{CreateClientAsync}}
+\index{CreateClientAsync@{CreateClientAsync}!IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}}
+\doxysubsubsection{\texorpdfstring{CreateClientAsync()}{CreateClientAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classIndYLib_1_1Services_1_1IndyAuth_a96294dbaafca8c49d0b900c644f9c608} 
+async Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ Ind\+YLib.\+Services.\+Indy\+Auth.\+Create\+Client\+Async (\begin{DoxyParamCaption}\item[{string}]{username}{, }\item[{string}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a new \doxylink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client} class using the user credentials to get a new token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username of the user wanting to log in.\\
+\hline
+{\em password} & The password of the user wanting to log in.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A IIndy\+Client instance where the token is set.
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a5477a1b8db95824959971237de48e791}{Ind\+YLib.\+Interfaces.\+IIndy\+Auth}}.
+
+\Hypertarget{classIndYLib_1_1Services_1_1IndyAuth_afd493828e197a3fc90ca8d9a5c420e6a}\index{IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}!CreateClientAsync@{CreateClientAsync}}
+\index{CreateClientAsync@{CreateClientAsync}!IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}}
+\doxysubsubsection{\texorpdfstring{CreateClientAsync()}{CreateClientAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classIndYLib_1_1Services_1_1IndyAuth_afd493828e197a3fc90ca8d9a5c420e6a} 
+async Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ Ind\+YLib.\+Services.\+Indy\+Auth.\+Create\+Client\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}}}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a new \doxylink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client} class using an existing token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The preexisting token used to authenticate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A IIndy\+Client instance where the token is set.
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a445108a57e5b189ea12d75e259bad90b}{Ind\+YLib.\+Interfaces.\+IIndy\+Auth}}.
+
+\Hypertarget{classIndYLib_1_1Services_1_1IndyAuth_adaadcb1d59f0582be85ffe3608cb7c83}\index{IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}!GetToken@{GetToken}}
+\index{GetToken@{GetToken}!IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}}
+\doxysubsubsection{\texorpdfstring{GetToken()}{GetToken()}}
+{\footnotesize\ttfamily \label{classIndYLib_1_1Services_1_1IndyAuth_adaadcb1d59f0582be85ffe3608cb7c83} 
+async Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}} $>$ Ind\+YLib.\+Services.\+Indy\+Auth.\+Get\+Token (\begin{DoxyParamCaption}\item[{string}]{username}{, }\item[{string}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a token using the user credentials. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username of the user wanting to log in.\\
+\hline
+{\em password} & The password of the user wanting to log in.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new token object returned by the server.
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a82de6e2644d456ebd9e0cbab62b132a8}{Ind\+YLib.\+Interfaces.\+IIndy\+Auth}}.
+
+\Hypertarget{classIndYLib_1_1Services_1_1IndyAuth_a7a8e49cdf637b5ca34a1adb65c90119f}\index{IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}!RefreshTokenAsync@{RefreshTokenAsync}}
+\index{RefreshTokenAsync@{RefreshTokenAsync}!IndYLib.Services.IndyAuth@{IndYLib.Services.IndyAuth}}
+\doxysubsubsection{\texorpdfstring{RefreshTokenAsync()}{RefreshTokenAsync()}}
+{\footnotesize\ttfamily \label{classIndYLib_1_1Services_1_1IndyAuth_a7a8e49cdf637b5ca34a1adb65c90119f} 
+async Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_acd59498beecaf7828ad31490edb50f94}{Access}} $>$ Ind\+YLib.\+Services.\+Indy\+Auth.\+Refresh\+Token\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client}}}]{client}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+{\itshape Try} to refresh a token using its refresh token and update the token from the provided client. As of now doesn\textquotesingle{}t really work (server fault). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & The client to update.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new access token.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Services/\+Indy\+Auth.\+cs\end{DoxyCompactItemize}

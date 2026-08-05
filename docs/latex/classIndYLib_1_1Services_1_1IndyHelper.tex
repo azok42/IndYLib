@@ -1,0 +1,50 @@
+\doxysection{Ind\+YLib.\+Services.\+Indy\+Helper Class Reference}
+\hypertarget{classIndYLib_1_1Services_1_1IndyHelper}{}\label{classIndYLib_1_1Services_1_1IndyHelper}\index{IndYLib.Services.IndyHelper@{IndYLib.Services.IndyHelper}}
+
+
+A helper class of the indy client.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static async Task$<$ T $>$ \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyHelper_ad1cefd6494a5f03d84c9ac7687b8ed2c}{Try\+Run\+Auth\+Async$<$ T $>$}} (this \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client}} client, Func$<$ Task$<$ T $>$ $>$ action)
+\begin{DoxyCompactList}\small\item\em A wrapper function for all token-\/using functions. Automatically tries to refresh and after a fail reauths. After success reruns origin function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A helper class of the indy client. 
+
+\label{doc-func-members}
+\Hypertarget{classIndYLib_1_1Services_1_1IndyHelper_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIndYLib_1_1Services_1_1IndyHelper_ad1cefd6494a5f03d84c9ac7687b8ed2c}\index{IndYLib.Services.IndyHelper@{IndYLib.Services.IndyHelper}!TryRunAuthAsync$<$ T $>$@{TryRunAuthAsync$<$ T $>$}}
+\index{TryRunAuthAsync$<$ T $>$@{TryRunAuthAsync$<$ T $>$}!IndYLib.Services.IndyHelper@{IndYLib.Services.IndyHelper}}
+\doxysubsubsection{\texorpdfstring{TryRunAuthAsync$<$ T $>$()}{TryRunAuthAsync< T >()}}
+{\footnotesize\ttfamily \label{classIndYLib_1_1Services_1_1IndyHelper_ad1cefd6494a5f03d84c9ac7687b8ed2c} 
+async Task$<$ T $>$ Ind\+YLib.\+Services.\+Indy\+Helper.\+Try\+Run\+Auth\+Async$<$ T $>$ (\begin{DoxyParamCaption}\item[{this \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient}{Indy\+Client}}}]{client}{, }\item[{Func$<$ Task$<$ T $>$ $>$}]{action}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+A wrapper function for all token-\/using functions. Automatically tries to refresh and after a fail reauths. After success reruns origin function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & The client instance used for refreshing.\\
+\hline
+{\em action} & The wrapped function excecuted.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The returned type of the wrapped {\itshape action} .\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The value of the wrapped {\itshape action}  function.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Services/\+Indy\+Helper.\+cs\end{DoxyCompactItemize}

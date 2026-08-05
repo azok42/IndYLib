@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:abca77558d758b63aae99d73ab9080cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all user detailes for the logged in user.  <br /></td></tr>
 <tr class="memitem:a579ca6481d77c8c0195700b3f84ec879" id="r_a579ca6481d77c8c0195700b3f84ec879"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespaceIndYLib_1_1Models.html#a8e5f5d7d66bba164d1df42ccc72d1af0">Teacher</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a579ca6481d77c8c0195700b3f84ec879">GetTeachersAsync</a> ()</td></tr>
 <tr class="memdesc:a579ca6481d77c8c0195700b3f84ec879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all teachers.  <br /></td></tr>
-<tr class="memitem:afbe2ec344ef10a5ce6dc901c281ec230" id="r_afbe2ec344ef10a5ce6dc901c281ec230"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespaceIndYLib_1_1Models.html#afd36f73d57d490a8205f8feb71570391">DayStatus</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afbe2ec344ef10a5ce6dc901c281ec230">GetDayStatusesAsync</a> (DateOnly startDate, DateOnly endDate)</td></tr>
+<tr class="memitem:afbe2ec344ef10a5ce6dc901c281ec230" id="r_afbe2ec344ef10a5ce6dc901c281ec230"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespaceIndYLib_1_1Models.html#ab69ba402b916ee4fedc45fde96a72137">DayStatus</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afbe2ec344ef10a5ce6dc901c281ec230">GetDayStatusesAsync</a> (DateOnly startDate, DateOnly endDate)</td></tr>
 <tr class="memdesc:afbe2ec344ef10a5ce6dc901c281ec230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the status of all indy days in range.  <br /></td></tr>
 <tr class="memitem:abe0e6310e7171310d4f6eb4ae9dbd665" id="r_abe0e6310e7171310d4f6eb4ae9dbd665"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespaceIndYLib_1_1Models.html#a09eb7e7ebe972965f6aed8fc2cb9e0b9">TeacherAbsence</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abe0e6310e7171310d4f6eb4ae9dbd665">GetTeacherAbsencesAsync</a> ()</td></tr>
 <tr class="memdesc:abe0e6310e7171310d4f6eb4ae9dbd665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all teacher absences.  <br /></td></tr>
@@ -286,7 +286,7 @@ Func&lt; <a class="el" href="#ace87e2f23fe4a3c15cbe8efb50baeff8">IndyClient</a>,
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion.html" title="The exception which is thrown when the token is invalid or expired.">InvalidTokenExcpetion</a></td><td>Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.</td></tr>
-    <tr><td class="paramname"><a class="el" href="classIndYLib_1_1Exceptions_1_1StudentNotFoundException.html" title="The exception which is thrown when a student was requested which does not exist.">StudentNotFoundException</a></td><td>Throw when the requested user <em>name</em>  does not exist.</td></tr>
+    <tr><td class="paramname">StudentNotFoundException</td><td>Throw when the requested user <em>name</em>  does not exist.</td></tr>
   </table>
   </dd>
 </dl>
@@ -724,7 +724,7 @@ Func&lt; <a class="el" href="#ace87e2f23fe4a3c15cbe8efb50baeff8">IndyClient</a>,
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespaceIndYLib_1_1Models.html#afd36f73d57d490a8205f8feb71570391">DayStatus</a> &gt; &gt; IndYLib.Services.IndyClient.GetDayStatusesAsync </td>
+          <td class="memname">async Task&lt; List&lt; <a class="el" href="namespaceIndYLib_1_1Models.html#ab69ba402b916ee4fedc45fde96a72137">DayStatus</a> &gt; &gt; IndYLib.Services.IndyClient.GetDayStatusesAsync </td>
           <td>(</td>
           <td class="paramtype">DateOnly</td>          <td class="paramname"><span class="paramname"><em>startDate</em></span>, </td>
         </tr>

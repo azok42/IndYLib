@@ -1,0 +1,102 @@
+\doxysection{Ind\+YLib.\+Models.\+Report Namespace Reference}
+\hypertarget{namespaceIndYLib_1_1Models_1_1Report}{}\label{namespaceIndYLib_1_1Models_1_1Report}\index{IndYLib.Models.Report@{IndYLib.Models.Report}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a7714559a232f98e3471ccf19e5f3593c}{Report}} (\+[property:\+\+Json\+Property\+Name("{}entries"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_ae30db2c449cec0d3cd95bceb457ac99e}{Statistic\+Entry}} $>$ Entries, \+[property:\+\+Json\+Property\+Name("{}statistik"{})]\+ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a8566c58bcae1e691157863a96a85d3cd}{Statistic}} \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a8566c58bcae1e691157863a96a85d3cd}{Statistic}})
+\begin{DoxyCompactList}\small\item\em The full report object. The actuall returned object returned by the server, when requesting the report. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a8566c58bcae1e691157863a96a85d3cd}{Statistic}} (\+[property:\+\+Json\+Property\+Name("{}eingetragene Stunden"{})]\+ int Entries\+Made, \+[property:\+\+Json\+Property\+Name("{}mögliche Stunden (gesamt)"{})]\+ int Possible\+Entries, \+[property:\+\+Json\+Property\+Name("{}Fehlstunden"{})]\+ int Missing\+Hours, \+[property:\+\+Json\+Property\+Name("{}Fächerstatistik"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a1a68e91773c5738b9fb4c457e3b2b57b}{Subject\+Percentage}} $>$ Statistics)
+\begin{DoxyCompactList}\small\item\em The stats object used in the report. There\textquotesingle{}s a server related error somewhere in {\itshape Entries\+Made} , {\itshape Possible\+Entries}  or {\itshape Missing\+Hours} . \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_ae30db2c449cec0d3cd95bceb457ac99e}{Statistic\+Entry}} (\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long Student\+Id, \+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour, \+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}activity"{})]\+ string Activity, \+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab}{Subject}}, \+[property:\+\+Json\+Property\+Name("{}type"{})]\+ string Type)
+\begin{DoxyCompactList}\small\item\em The entry type used in the report. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a1a68e91773c5738b9fb4c457e3b2b57b}{Subject\+Percentage}} (\+[property:\+\+Json\+Property\+Name("{}Fach"{})]\+ string \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab}{Subject}}, \+[property:\+\+Json\+Property\+Name("{}Anzahl"{})]\+ int Count, \+[property:\+\+Json\+Property\+Name("{}Anteil in Prozent"{})]\+ string Percentage)
+\begin{DoxyCompactList}\small\item\em A single subject with its usage count and percentage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Report_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Report_a7714559a232f98e3471ccf19e5f3593c}\index{IndYLib.Models.Report@{IndYLib.Models.Report}!Report@{Report}}
+\index{Report@{Report}!IndYLib.Models.Report@{IndYLib.Models.Report}}
+\doxysubsubsection{\texorpdfstring{Report()}{Report()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Report_a7714559a232f98e3471ccf19e5f3593c} 
+record Ind\+YLib.\+Models.\+Report.\+Report (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}entries"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_ae30db2c449cec0d3cd95bceb457ac99e}{Statistic\+Entry}} $>$}]{Entries}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}statistik"{})]\+ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a8566c58bcae1e691157863a96a85d3cd}{Statistic}}}]{Statistic}{}\end{DoxyParamCaption})}
+
+
+
+The full report object. The actuall returned object returned by the server, when requesting the report. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entries} & A list of all normal/\+special and schoolevent entries made.\\
+\hline
+{\em Statistic} & The corresponding stats to the user.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Report_a8566c58bcae1e691157863a96a85d3cd}\index{IndYLib.Models.Report@{IndYLib.Models.Report}!Statistic@{Statistic}}
+\index{Statistic@{Statistic}!IndYLib.Models.Report@{IndYLib.Models.Report}}
+\doxysubsubsection{\texorpdfstring{Statistic()}{Statistic()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Report_a8566c58bcae1e691157863a96a85d3cd} 
+record Ind\+YLib.\+Models.\+Report.\+Statistic (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}eingetragene Stunden"{})]\+ int}]{Entries\+Made}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}mögliche Stunden (gesamt)"{})]\+ int}]{Possible\+Entries}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}\+Fehlstunden"{})]\+ int}]{Missing\+Hours}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}\+Fächerstatistik"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report_a1a68e91773c5738b9fb4c457e3b2b57b}{Subject\+Percentage}} $>$}]{Statistics}{}\end{DoxyParamCaption})}
+
+
+
+The stats object used in the report. There\textquotesingle{}s a server related error somewhere in {\itshape Entries\+Made} , {\itshape Possible\+Entries}  or {\itshape Missing\+Hours} . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entries\+Made} & The amount of entries made in total this year.\\
+\hline
+{\em Possible\+Entries} & The amount of indy hours, where entries were possible.\\
+\hline
+{\em Missing\+Hours} & The amount of missed hours.\\
+\hline
+{\em Statistics} & The list of subject stats.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Report_ae30db2c449cec0d3cd95bceb457ac99e}\index{IndYLib.Models.Report@{IndYLib.Models.Report}!StatisticEntry@{StatisticEntry}}
+\index{StatisticEntry@{StatisticEntry}!IndYLib.Models.Report@{IndYLib.Models.Report}}
+\doxysubsubsection{\texorpdfstring{StatisticEntry()}{StatisticEntry()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Report_ae30db2c449cec0d3cd95bceb457ac99e} 
+record Ind\+YLib.\+Models.\+Report.\+Statistic\+Entry (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long}]{Student\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}activity"{})]\+ string}]{Activity}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string}]{Subject}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}type"{})]\+ string}]{Type}{}\end{DoxyParamCaption})}
+
+
+
+The entry type used in the report. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Student\+Id} & The ID of the student who made the entry.\\
+\hline
+{\em Date} & The date of the indy day the entry happend.\\
+\hline
+{\em Hour} & The hour in which the entry happend.\\
+\hline
+{\em Teacher\+Id} & The ID of the teacher where the entry is in.\\
+\hline
+{\em Activity} & The user-\/specified activity of what the user did in this hour.\\
+\hline
+{\em Subject} & The subject specified in the entry. Is null when {\itshape Type}  is \textquotesingle{}schoolevent\textquotesingle{}.\\
+\hline
+{\em Type} & The type of the entry. (\textquotesingle{}normal\textquotesingle{}, \textquotesingle{}schoolevent\textquotesingle{})\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Report_a1a68e91773c5738b9fb4c457e3b2b57b}\index{IndYLib.Models.Report@{IndYLib.Models.Report}!SubjectPercentage@{SubjectPercentage}}
+\index{SubjectPercentage@{SubjectPercentage}!IndYLib.Models.Report@{IndYLib.Models.Report}}
+\doxysubsubsection{\texorpdfstring{SubjectPercentage()}{SubjectPercentage()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Report_a1a68e91773c5738b9fb4c457e3b2b57b} 
+record Ind\+YLib.\+Models.\+Report.\+Subject\+Percentage (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}\+Fach"{})]\+ string}]{Subject}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}\+Anzahl"{})]\+ int}]{Count}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}\+Anteil in Prozent"{})]\+ string}]{Percentage}{}\end{DoxyParamCaption})}
+
+
+
+A single subject with its usage count and percentage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Subject} & The shortname of the subject.\\
+\hline
+{\em Count} & The usage count of that {\itshape Subject} .\\
+\hline
+{\em Percentage} & The percentage of how often this {\itshape Subject}  was used in coparasion to the other.\\
+\hline
+\end{DoxyParams}

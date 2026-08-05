@@ -20,7 +20,7 @@ var namespaceIndYLib_1_1Models =
       [ "SubjectPercentage", "namespaceIndYLib_1_1Models_1_1Report.html#a1a68e91773c5738b9fb4c457e3b2b57b", null ]
     ] ],
     [ "Access", "namespaceIndYLib_1_1Models.html#acd59498beecaf7828ad31490edb50f94", null ],
-    [ "DayStatus", "namespaceIndYLib_1_1Models.html#afd36f73d57d490a8205f8feb71570391", null ],
+    [ "DayStatus", "namespaceIndYLib_1_1Models.html#ab69ba402b916ee4fedc45fde96a72137", null ],
     [ "IndyDay", "namespaceIndYLib_1_1Models.html#aca2c86ce8302926490006531f1bd48c2", null ],
     [ "IndyHour", "namespaceIndYLib_1_1Models.html#a3d175d351414728c82aa49cb1ca25487", null ],
     [ "SpecialIndy", "namespaceIndYLib_1_1Models.html#acf91fda9ba4ffa680537d75ab45c2413", null ],

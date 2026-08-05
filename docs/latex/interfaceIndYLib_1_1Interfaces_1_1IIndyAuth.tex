@@ -1,0 +1,105 @@
+\doxysection{Ind\+YLib.\+Interfaces.\+IIndy\+Auth Interface Reference}
+\hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth}{}\label{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth}\index{IndYLib.Interfaces.IIndyAuth@{IndYLib.Interfaces.IIndyAuth}}
+
+
+A class used to authenticate at IndY.  
+
+
+Inheritance diagram for Ind\+YLib.\+Interfaces.\+IIndy\+Auth:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a445108a57e5b189ea12d75e259bad90b}{Create\+Client\+Async}} (\doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}} token)
+\begin{DoxyCompactList}\small\item\em Create a new Indy\+Client class using an existing token. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a5477a1b8db95824959971237de48e791}{Create\+Client\+Async}} (string username, string password)
+\begin{DoxyCompactList}\small\item\em Create a new Indy\+Client class using the user credentials to get a new token. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a82de6e2644d456ebd9e0cbab62b132a8}{Get\+Token}} (string username, string password)
+\begin{DoxyCompactList}\small\item\em Get a token using the user credentials. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class used to authenticate at IndY. 
+
+\label{doc-func-members}
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a5477a1b8db95824959971237de48e791}\index{IndYLib.Interfaces.IIndyAuth@{IndYLib.Interfaces.IIndyAuth}!CreateClientAsync@{CreateClientAsync}}
+\index{CreateClientAsync@{CreateClientAsync}!IndYLib.Interfaces.IIndyAuth@{IndYLib.Interfaces.IIndyAuth}}
+\doxysubsubsection{\texorpdfstring{CreateClientAsync()}{CreateClientAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a5477a1b8db95824959971237de48e791} 
+Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Auth.\+Create\+Client\+Async (\begin{DoxyParamCaption}\item[{string}]{username}{, }\item[{string}]{password}{}\end{DoxyParamCaption})}
+
+
+
+Create a new Indy\+Client class using the user credentials to get a new token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username of the user wanting to log in.\\
+\hline
+{\em password} & The password of the user wanting to log in.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client} instance where the token is set.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_a96294dbaafca8c49d0b900c644f9c608}{Ind\+YLib.\+Services.\+Indy\+Auth}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a445108a57e5b189ea12d75e259bad90b}\index{IndYLib.Interfaces.IIndyAuth@{IndYLib.Interfaces.IIndyAuth}!CreateClientAsync@{CreateClientAsync}}
+\index{CreateClientAsync@{CreateClientAsync}!IndYLib.Interfaces.IIndyAuth@{IndYLib.Interfaces.IIndyAuth}}
+\doxysubsubsection{\texorpdfstring{CreateClientAsync()}{CreateClientAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a445108a57e5b189ea12d75e259bad90b} 
+Task$<$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Auth.\+Create\+Client\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}}}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Create a new Indy\+Client class using an existing token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The preexisting token used to authenticate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{IIndy\+Client} instance where the token is set.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_afd493828e197a3fc90ca8d9a5c420e6a}{Ind\+YLib.\+Services.\+Indy\+Auth}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a82de6e2644d456ebd9e0cbab62b132a8}\index{IndYLib.Interfaces.IIndyAuth@{IndYLib.Interfaces.IIndyAuth}!GetToken@{GetToken}}
+\index{GetToken@{GetToken}!IndYLib.Interfaces.IIndyAuth@{IndYLib.Interfaces.IIndyAuth}}
+\doxysubsubsection{\texorpdfstring{GetToken()}{GetToken()}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyAuth_a82de6e2644d456ebd9e0cbab62b132a8} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Auth.\+Get\+Token (\begin{DoxyParamCaption}\item[{string}]{username}{, }\item[{string}]{password}{}\end{DoxyParamCaption})}
+
+
+
+Get a token using the user credentials. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username of the user wanting to log in.\\
+\hline
+{\em password} & The password of the user wanting to log in.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new token object returned by the server.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyAuth_adaadcb1d59f0582be85ffe3608cb7c83}{Ind\+YLib.\+Services.\+Indy\+Auth}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Interfaces/\+IIndy\+Auth.\+cs\end{DoxyCompactItemize}

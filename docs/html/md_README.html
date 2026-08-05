@@ -91,7 +91,7 @@ $(function(){initNavTree('md_README.html','',''); });
   <div class="headertitle"><div class="title">README </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><img src="./MindyLogo.png" alt="" align="left" width="130" height="130" class="inline"/></p>
+<div class="textblock"><p><img src="./assets/MindyLogo.png" alt="" align="left" width="130" height="130" class="inline"/></p>
 <div class="fragment"><div class="line"> ___           ___   __  _     _ _     </div>
 <div class="line">|_ _|_ __   __| \ \ / / | |   (_) |__  </div>
 <div class="line"> | || &#39;_ \ / _` |\ V /  | |   | | &#39;_ \ </div>
@@ -101,10 +101,7 @@ $(function(){initNavTree('md_README.html','',''); });
 <p>This is a C# library for the IndY-API.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 How to use</h2>
-<div class="fragment"><div class="line"><span class="comment">// create host</span></div>
-<div class="line"><span class="keyword">using </span>IHost host = Host.CreateApplicationBuilder(args).Build();</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// add library</span></div>
+<div class="fragment"><div class="line"><span class="comment">// add library</span></div>
 <div class="line">var services = <span class="keyword">new</span> ServiceCollection();</div>
 <div class="line">services.AddIndyAuth();</div>
 <div class="line">var serviceProvider = services.BuildServiceProvider();</div>
@@ -115,9 +112,12 @@ How to use</h2>
 <div class="line"><span class="comment">// get token</span></div>
 <div class="line">var client = await indyAuth.CreateClientAsync(username, password);</div>
 </div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Showcase</h2>
+<p><a href="https://github.com/user-attachments/assets/097497a3-34c8-4149-8477-c56a213bda4c">https://github.com/user-attachments/assets/097497a3-34c8-4149-8477-c56a213bda4c</a></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 What is IndY?</h2>
 <p>IndY is a project in my school, where students can freely decide what, where and with who they work on. There are 6 IndY hours all in all (2x Monday, 2x Wendsday, 2x Friday)</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Why?</h2>
 <p>The IndY-team currently has a website and an android app, technically enough <b>but</b> the more the better right? My intention was to create a Discord bot using this library. </p>
 </div></div><!-- contents -->

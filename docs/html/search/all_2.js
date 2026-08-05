@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['daystatus_0',['DayStatus',['../namespaceIndYLib_1_1Models.html#afd36f73d57d490a8205f8feb71570391',1,'IndYLib::Models']]]
+  ['daystatus_0',['DayStatus',['../namespaceIndYLib_1_1Models.html#ab69ba402b916ee4fedc45fde96a72137',1,'IndYLib::Models']]]
 ];

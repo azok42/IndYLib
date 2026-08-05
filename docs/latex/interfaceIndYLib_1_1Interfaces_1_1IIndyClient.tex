@@ -1,0 +1,734 @@
+\doxysection{Ind\+YLib.\+Interfaces.\+IIndy\+Client Interface Reference}
+\hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}{}\label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+
+
+API wrapper class. Includes all known endpoints.  
+
+
+Inheritance diagram for Ind\+YLib.\+Interfaces.\+IIndy\+Client:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfaceIndYLib_1_1Interfaces_1_1IIndyClient}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_af6daf12e1a8747cfa3a6cc795bd637b5}{Make\+Normal\+Entry\+Async}} (Date\+Only date, string tid, string subject, string activity)
+\begin{DoxyCompactList}\small\item\em Make 2 new normal entries for both hours. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a1130d6f9c5678d02d0f6c40edb72530e}{Make\+Normal\+Entry\+Async}} (Date\+Only date, int hour, string tid, string subject, string activity)
+\begin{DoxyCompactList}\small\item\em Make a new normal entry. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a1430c4c8205a1b8a496df3dbc64439ed}{Make\+Absence\+Entry\+Async}} (Date\+Only date)
+\begin{DoxyCompactList}\small\item\em Make 2 new absence entries for both hours.\+A list of the 2 returned absence entries. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_af2d68aebe7a54992d581ab04ea0b9bb6}{Make\+Absence\+Entry\+Async}} (Date\+Only date, int hour)
+\begin{DoxyCompactList}\small\item\em Make a new absence entry. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a314487f42fa4e868c2c64b0a5ccdf0ab}{Make\+School\+Event\+Entry\+Async}} (Date\+Only date, string tid, string description)
+\begin{DoxyCompactList}\small\item\em Make 2 new schoolevent entries for both hours instead of just 1. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a2ceaef1f67854293d61398befb6a3fc8}{Make\+School\+Event\+Entry\+Async}} (Date\+Only date, int hour, string tid, string description)
+\begin{DoxyCompactList}\small\item\em Make a new schoolevent entry. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_aedcb992b421c94e5daabda456fc10976}{Student}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_aee01774c37c12fc8636b8c32bb6f4c94}{Get\+Student\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all user detailes for the logged in user. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8e5f5d7d66bba164d1df42ccc72d1af0}{Teacher}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae308998eee7abba8dbccedf19e317dcd}{Get\+Teachers\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all teachers. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_ab69ba402b916ee4fedc45fde96a72137}{Day\+Status}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a719497e4cf585f922c3003e31891d75d}{Get\+Day\+Statuses\+Async}} (Date\+Only start\+Date, Date\+Only end\+Date)
+\begin{DoxyCompactList}\small\item\em Get the status of all indy days in range. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a09eb7e7ebe972965f6aed8fc2cb9e0b9}{Teacher\+Absence}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a68a85789e24dfa60519eb1694498bc5c}{Get\+Teacher\+Absences\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all teacher absences. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a383727317ebe89feb1869128caaee1cd}{Full\+Retured}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a54098dda091732a61ebfac83974ba104}{Get\+Entries\+Async}} (Date\+Only date)
+\begin{DoxyCompactList}\small\item\em Get all made entries for a specific date. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a5cc405a2d00f139ee2bddef6d7b200f8}{Get\+All\+Normal\+Entries\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all made normal entries for the user which is logged in. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a993294965d6db814022a3adffd88d36d}{Get\+All\+Normal\+Entries\+Async}} (long student\+Id)
+\begin{DoxyCompactList}\small\item\em Get all normal entries made. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a5cc5a35effd6bd3e6eec484db88653c1}{Get\+All\+Absence\+Entries\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all absence entries made for the user logged in. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a7b941a88da9673fb8d8f2aeb7948f959}{Get\+All\+Absence\+Entries\+Async}} (long student\+Id)
+\begin{DoxyCompactList}\small\item\em Get all absence entries made. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ad0773e14749ee56a1ced99beb868f6a5}{Get\+All\+School\+Event\+Entries\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all schoolevent entries made for the user which is logged in. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a174712e3be3ac98c1a97240b42b1065d}{Get\+All\+School\+Event\+Entries\+Async}} (long student\+Id)
+\begin{DoxyCompactList}\small\item\em Get all schoolevent entries made. \end{DoxyCompactList}\item 
+Task$<$ List$<$ Object $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a90d392bd68fc4c061cdd1f72ec84f24b}{Get\+All\+Freeroom\+Entries\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all freeroom entries made for the user which is logged in. \end{DoxyCompactList}\item 
+Task$<$ List$<$ Object $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae2adb6d7cb9938f0ae810999357627af}{Get\+All\+Freeroom\+Entries\+Async}} (long student\+Id)
+\begin{DoxyCompactList}\small\item\em Get all freeroom entries made. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a2bfe0674edf73b9b32cbccefc82eed30}{Missing}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_aa9778ee79803ec920f6974c2fa903d92}{Get\+All\+Missing\+Entries\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get all missing entris (not?) made for the user which is logged in. \end{DoxyCompactList}\item 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a2bfe0674edf73b9b32cbccefc82eed30}{Missing}} $>$ $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a47ba2a7c9b5a54def030da9e0e9cee5f}{Get\+All\+Missing\+Entries\+Async}} (long student\+Id)
+\begin{DoxyCompactList}\small\item\em Get all missing entries (not?) made. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a631412c005b74570999fb733b5bbc15c}{Absence\+Rank}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a4b980e7e4af9dc15b4fdabf59430ea97}{Get\+Absence\+Rank\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get the rank corresponding to the user which is logged in. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a631412c005b74570999fb733b5bbc15c}{Absence\+Rank}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_afa66107d4c2e29a4041c6db7fb7d0aac}{Get\+Absence\+Rank\+Async}} (string name)
+\begin{DoxyCompactList}\small\item\em Get the rank corresponding to the name of a student. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report}{Report}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a802f73cf6f5905fa1c1305c2f37e4a83}{Get\+Report\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Get the report of the user corresponding to the token. \end{DoxyCompactList}\item 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report}{Report}} $>$ \doxymbox{\hyperlink{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae4264b55134b0a60719dee76c42d4b8e}{Get\+Report\+Async}} (long student\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the report of the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+API wrapper class. Includes all known endpoints. 
+
+\label{doc-func-members}
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a4b980e7e4af9dc15b4fdabf59430ea97}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAbsenceRankAsync@{GetAbsenceRankAsync}}
+\index{GetAbsenceRankAsync@{GetAbsenceRankAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAbsenceRankAsync()}{GetAbsenceRankAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a4b980e7e4af9dc15b4fdabf59430ea97} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a631412c005b74570999fb733b5bbc15c}{Absence\+Rank}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Absence\+Rank\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the rank corresponding to the user which is logged in. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned absence rank object.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a640633dd7680b9edcd5bce31b85fe81f}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_afa66107d4c2e29a4041c6db7fb7d0aac}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAbsenceRankAsync@{GetAbsenceRankAsync}}
+\index{GetAbsenceRankAsync@{GetAbsenceRankAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAbsenceRankAsync()}{GetAbsenceRankAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_afa66107d4c2e29a4041c6db7fb7d0aac} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a631412c005b74570999fb733b5bbc15c}{Absence\+Rank}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Absence\+Rank\+Async (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Get the rank corresponding to the name of a student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the student.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+{\em Student\+Not\+Found\+Exception} & Throw when the requested user {\itshape name}  does not exist.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned absence rank object.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_ad74637733518a5e95b5b0628cb1b75a2}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a5cc5a35effd6bd3e6eec484db88653c1}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllAbsenceEntriesAsync@{GetAllAbsenceEntriesAsync}}
+\index{GetAllAbsenceEntriesAsync@{GetAllAbsenceEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllAbsenceEntriesAsync()}{GetAllAbsenceEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a5cc5a35effd6bd3e6eec484db88653c1} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Absence\+Entries\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all absence entries made for the user logged in. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of absence entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a2187d6b2e24804785e18ce9e471ef585}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a7b941a88da9673fb8d8f2aeb7948f959}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllAbsenceEntriesAsync@{GetAllAbsenceEntriesAsync}}
+\index{GetAllAbsenceEntriesAsync@{GetAllAbsenceEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllAbsenceEntriesAsync()}{GetAllAbsenceEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a7b941a88da9673fb8d8f2aeb7948f959} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Absence\+Entries\+Async (\begin{DoxyParamCaption}\item[{long}]{student\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Get all absence entries made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & THe ID of the user to fetch the entries for.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of absence entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a719d6b911ca7b17fc157202fcc599a4c}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a90d392bd68fc4c061cdd1f72ec84f24b}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllFreeroomEntriesAsync@{GetAllFreeroomEntriesAsync}}
+\index{GetAllFreeroomEntriesAsync@{GetAllFreeroomEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllFreeroomEntriesAsync()}{GetAllFreeroomEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a90d392bd68fc4c061cdd1f72ec84f24b} 
+Task$<$ List$<$ Object $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Freeroom\+Entries\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all freeroom entries made for the user which is logged in. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A List of Object (freeroom record is in progress (i don\textquotesingle{}t have a sample :\+( ))
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_aab7054318b328ce58f2af10d11e34c97}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae2adb6d7cb9938f0ae810999357627af}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllFreeroomEntriesAsync@{GetAllFreeroomEntriesAsync}}
+\index{GetAllFreeroomEntriesAsync@{GetAllFreeroomEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllFreeroomEntriesAsync()}{GetAllFreeroomEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae2adb6d7cb9938f0ae810999357627af} 
+Task$<$ List$<$ Object $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Freeroom\+Entries\+Async (\begin{DoxyParamCaption}\item[{long}]{student\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Get all freeroom entries made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the user to fetch the entries for\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A list of Object (freeroom record is in profress (i don\textquotesingle{}t have a sample :\+( ))
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a3dfdf0433a0c4b7b61a0bed82b689f9e}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_aa9778ee79803ec920f6974c2fa903d92}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllMissingEntriesAsync@{GetAllMissingEntriesAsync}}
+\index{GetAllMissingEntriesAsync@{GetAllMissingEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllMissingEntriesAsync()}{GetAllMissingEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_aa9778ee79803ec920f6974c2fa903d92} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a2bfe0674edf73b9b32cbccefc82eed30}{Missing}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Missing\+Entries\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all missing entris (not?) made for the user which is logged in. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of missing entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a08106262ae1d16b3018a094ec6346ed3}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a47ba2a7c9b5a54def030da9e0e9cee5f}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllMissingEntriesAsync@{GetAllMissingEntriesAsync}}
+\index{GetAllMissingEntriesAsync@{GetAllMissingEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllMissingEntriesAsync()}{GetAllMissingEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a47ba2a7c9b5a54def030da9e0e9cee5f} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a2bfe0674edf73b9b32cbccefc82eed30}{Missing}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Missing\+Entries\+Async (\begin{DoxyParamCaption}\item[{long}]{student\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Get all missing entries (not?) made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the user to fetch the missing entries for.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned List of missing entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_ad671a45ca1c5ae29a49aa3425dd8bf0b}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a5cc405a2d00f139ee2bddef6d7b200f8}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllNormalEntriesAsync@{GetAllNormalEntriesAsync}}
+\index{GetAllNormalEntriesAsync@{GetAllNormalEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllNormalEntriesAsync()}{GetAllNormalEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a5cc405a2d00f139ee2bddef6d7b200f8} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Normal\+Entries\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all made normal entries for the user which is logged in. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of normal entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a0546b6f118890164b0dd5dacf400cdef}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a993294965d6db814022a3adffd88d36d}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllNormalEntriesAsync@{GetAllNormalEntriesAsync}}
+\index{GetAllNormalEntriesAsync@{GetAllNormalEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllNormalEntriesAsync()}{GetAllNormalEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a993294965d6db814022a3adffd88d36d} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+Normal\+Entries\+Async (\begin{DoxyParamCaption}\item[{long}]{student\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Get all normal entries made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the user to fetch the entries for.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of normal entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_aa20d47d993c19948b2d24cd462e9c587}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ad0773e14749ee56a1ced99beb868f6a5}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllSchoolEventEntriesAsync@{GetAllSchoolEventEntriesAsync}}
+\index{GetAllSchoolEventEntriesAsync@{GetAllSchoolEventEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllSchoolEventEntriesAsync()}{GetAllSchoolEventEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ad0773e14749ee56a1ced99beb868f6a5} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+School\+Event\+Entries\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all schoolevent entries made for the user which is logged in. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of schoolevent entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_affcdaebcb4b25a11c9e886dbd5461a58}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a174712e3be3ac98c1a97240b42b1065d}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetAllSchoolEventEntriesAsync@{GetAllSchoolEventEntriesAsync}}
+\index{GetAllSchoolEventEntriesAsync@{GetAllSchoolEventEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetAllSchoolEventEntriesAsync()}{GetAllSchoolEventEntriesAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a174712e3be3ac98c1a97240b42b1065d} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+All\+School\+Event\+Entries\+Async (\begin{DoxyParamCaption}\item[{long}]{student\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Get all schoolevent entries made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the user to fetch the entries for\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of schoolevent entries
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a85993b47cd9a4902e9d58eb133e6eda2}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a719497e4cf585f922c3003e31891d75d}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetDayStatusesAsync@{GetDayStatusesAsync}}
+\index{GetDayStatusesAsync@{GetDayStatusesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetDayStatusesAsync()}{GetDayStatusesAsync()}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a719497e4cf585f922c3003e31891d75d} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_ab69ba402b916ee4fedc45fde96a72137}{Day\+Status}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Day\+Statuses\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{start\+Date}{, }\item[{Date\+Only}]{end\+Date}{}\end{DoxyParamCaption})}
+
+
+
+Get the status of all indy days in range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Date} & The start of the range.\\
+\hline
+{\em end\+Date} & The end of the range. Must not be after startdate.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of statuses.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_afbe2ec344ef10a5ce6dc901c281ec230}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a54098dda091732a61ebfac83974ba104}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetEntriesAsync@{GetEntriesAsync}}
+\index{GetEntriesAsync@{GetEntriesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetEntriesAsync()}{GetEntriesAsync()}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a54098dda091732a61ebfac83974ba104} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a383727317ebe89feb1869128caaee1cd}{Full\+Retured}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Entries\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{date}{}\end{DoxyParamCaption})}
+
+
+
+Get all made entries for a specific date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the fetched entries.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned object.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_aaa9eaa82bcacb727d729db1da397dd59}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a802f73cf6f5905fa1c1305c2f37e4a83}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetReportAsync@{GetReportAsync}}
+\index{GetReportAsync@{GetReportAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetReportAsync()}{GetReportAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a802f73cf6f5905fa1c1305c2f37e4a83} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report}{Report}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Report\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the report of the user corresponding to the token. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned report object.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a8682bf5fff3b9c1895c7ffc2a170982f}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae4264b55134b0a60719dee76c42d4b8e}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetReportAsync@{GetReportAsync}}
+\index{GetReportAsync@{GetReportAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetReportAsync()}{GetReportAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae4264b55134b0a60719dee76c42d4b8e} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Report}{Report}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Report\+Async (\begin{DoxyParamCaption}\item[{long}]{student\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Gets the report of the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the user.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned report object.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_aaf89eeb35a930f59730ab5849a776a96}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_aee01774c37c12fc8636b8c32bb6f4c94}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetStudentAsync@{GetStudentAsync}}
+\index{GetStudentAsync@{GetStudentAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetStudentAsync()}{GetStudentAsync()}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_aee01774c37c12fc8636b8c32bb6f4c94} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_aedcb992b421c94e5daabda456fc10976}{Student}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Student\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all user detailes for the logged in user. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+List of a single student object ({\bfseries{WHY IS IT A LIST??}})
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_abca77558d758b63aae99d73ab9080cca}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a68a85789e24dfa60519eb1694498bc5c}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetTeacherAbsencesAsync@{GetTeacherAbsencesAsync}}
+\index{GetTeacherAbsencesAsync@{GetTeacherAbsencesAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetTeacherAbsencesAsync()}{GetTeacherAbsencesAsync()}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a68a85789e24dfa60519eb1694498bc5c} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a09eb7e7ebe972965f6aed8fc2cb9e0b9}{Teacher\+Absence}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Teacher\+Absences\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all teacher absences. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of the absences.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_abe0e6310e7171310d4f6eb4ae9dbd665}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae308998eee7abba8dbccedf19e317dcd}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!GetTeachersAsync@{GetTeachersAsync}}
+\index{GetTeachersAsync@{GetTeachersAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{GetTeachersAsync()}{GetTeachersAsync()}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_ae308998eee7abba8dbccedf19e317dcd} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8e5f5d7d66bba164d1df42ccc72d1af0}{Teacher}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Get\+Teachers\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get all teachers. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned list of teachers
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a579ca6481d77c8c0195700b3f84ec879}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a1430c4c8205a1b8a496df3dbc64439ed}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!MakeAbsenceEntryAsync@{MakeAbsenceEntryAsync}}
+\index{MakeAbsenceEntryAsync@{MakeAbsenceEntryAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{MakeAbsenceEntryAsync()}{MakeAbsenceEntryAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a1430c4c8205a1b8a496df3dbc64439ed} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Make\+Absence\+Entry\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{date}{}\end{DoxyParamCaption})}
+
+
+
+Make 2 new absence entries for both hours.\+A list of the 2 returned absence entries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the indy day.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A list of the 2 returned absence entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a70b74f29b7818e30b1565dba62b4a743}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_af2d68aebe7a54992d581ab04ea0b9bb6}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!MakeAbsenceEntryAsync@{MakeAbsenceEntryAsync}}
+\index{MakeAbsenceEntryAsync@{MakeAbsenceEntryAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{MakeAbsenceEntryAsync()}{MakeAbsenceEntryAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_af2d68aebe7a54992d581ab04ea0b9bb6} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Make\+Absence\+Entry\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{date}{, }\item[{int}]{hour}{}\end{DoxyParamCaption})}
+
+
+
+Make a new absence entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the indy day.\\
+\hline
+{\em hour} & The hour for which to make the entry for. Must be either 4 or 4.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned absence entry.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a666cec724f6cbbdc469cae03eb672fd6}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a1130d6f9c5678d02d0f6c40edb72530e}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!MakeNormalEntryAsync@{MakeNormalEntryAsync}}
+\index{MakeNormalEntryAsync@{MakeNormalEntryAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{MakeNormalEntryAsync()}{MakeNormalEntryAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a1130d6f9c5678d02d0f6c40edb72530e} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Make\+Normal\+Entry\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{date}{, }\item[{int}]{hour}{, }\item[{string}]{tid}{, }\item[{string}]{subject}{, }\item[{string}]{activity}{}\end{DoxyParamCaption})}
+
+
+
+Make a new normal entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the indy day.\\
+\hline
+{\em hour} & The hour for which to make the entry for. Must be either 3 or 4.\\
+\hline
+{\em tid} & The ID of the teacher in which to make the entry in.\\
+\hline
+{\em subject} & The subject to set in the entry.\\
+\hline
+{\em activity} & The activity of the user in this entry.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned normal entry.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_af6035217f0fbfa4c52bb01c1f6df3216}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_af6daf12e1a8747cfa3a6cc795bd637b5}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!MakeNormalEntryAsync@{MakeNormalEntryAsync}}
+\index{MakeNormalEntryAsync@{MakeNormalEntryAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{MakeNormalEntryAsync()}{MakeNormalEntryAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_af6daf12e1a8747cfa3a6cc795bd637b5} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Make\+Normal\+Entry\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{date}{, }\item[{string}]{tid}{, }\item[{string}]{subject}{, }\item[{string}]{activity}{}\end{DoxyParamCaption})}
+
+
+
+Make 2 new normal entries for both hours. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the indy day.\\
+\hline
+{\em tid} & The ID of the teacher in which to make the entries.\\
+\hline
+{\em subject} & The subject to set in the entry.\\
+\hline
+{\em activity} & The activity of the user in this entry.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A list of the 3 returned normal entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a955a90f98f94127a2863e33bb62314dc}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a2ceaef1f67854293d61398befb6a3fc8}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!MakeSchoolEventEntryAsync@{MakeSchoolEventEntryAsync}}
+\index{MakeSchoolEventEntryAsync@{MakeSchoolEventEntryAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{MakeSchoolEventEntryAsync()}{MakeSchoolEventEntryAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a2ceaef1f67854293d61398befb6a3fc8} 
+Task$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Make\+School\+Event\+Entry\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{date}{, }\item[{int}]{hour}{, }\item[{string}]{tid}{, }\item[{string}]{description}{}\end{DoxyParamCaption})}
+
+
+
+Make a new schoolevent entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the indy day.\\
+\hline
+{\em hour} & The hour for which to make the entry. Must be either 3 or 4.\\
+\hline
+{\em tid} & The ID of the teacher to make the entry in.\\
+\hline
+{\em description} & The description of what the user is doing.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The returned schoolevent entry.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a461a7ee8c5fb21dda81b99a5cc3350f4}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+\Hypertarget{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a314487f42fa4e868c2c64b0a5ccdf0ab}\index{IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}!MakeSchoolEventEntryAsync@{MakeSchoolEventEntryAsync}}
+\index{MakeSchoolEventEntryAsync@{MakeSchoolEventEntryAsync}!IndYLib.Interfaces.IIndyClient@{IndYLib.Interfaces.IIndyClient}}
+\doxysubsubsection{\texorpdfstring{MakeSchoolEventEntryAsync()}{MakeSchoolEventEntryAsync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{interfaceIndYLib_1_1Interfaces_1_1IIndyClient_a314487f42fa4e868c2c64b0a5ccdf0ab} 
+Task$<$ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} $>$ $>$ Ind\+YLib.\+Interfaces.\+IIndy\+Client.\+Make\+School\+Event\+Entry\+Async (\begin{DoxyParamCaption}\item[{Date\+Only}]{date}{, }\item[{string}]{tid}{, }\item[{string}]{description}{}\end{DoxyParamCaption})}
+
+
+
+Make 2 new schoolevent entries for both hours instead of just 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the indy day.\\
+\hline
+{\em tid} & The ID of the teacher to make the entry in.\\
+\hline
+{\em description} & The description of what the user is doing.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion}{Invalid\+Token\+Excpetion}} & Throw when the token is invalid or has expired, refresh failed, and reauth function has not been set.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A list of the 2 returned schoolevent entries.
+\end{DoxyReturn}
+
+
+Implemented in \doxymbox{\hyperlink{classIndYLib_1_1Services_1_1IndyClient_a9720271636210f9c1fc821bdadef2235}{Ind\+YLib.\+Services.\+Indy\+Client}}.
+
+
+
+The documentation for this interface was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Interfaces/\+IIndy\+Client.\+cs\end{DoxyCompactItemize}

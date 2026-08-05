@@ -1,0 +1,299 @@
+\doxysection{Ind\+YLib.\+Models.\+Entry Namespace Reference}
+\hypertarget{namespaceIndYLib_1_1Models_1_1Entry}{}\label{namespaceIndYLib_1_1Models_1_1Entry}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}{Absence}} (\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour, \+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long Student\+Id, \+[property:\+\+Json\+Property\+Name("{}indy-\/date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}entry\+Past\+Present"{})]\+ string Entry\+Past\+Present)
+\begin{DoxyCompactList}\small\item\em A absence entry. Returned from the server when making a new one. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a631412c005b74570999fb733b5bbc15c}{Absence\+Rank}} (\+[property:\+\+Json\+Property\+Name("{}rank"{})]\+ int Rank, \+[property:\+\+Json\+Property\+Name("{}absence\+\_\+hours"{})]\+ int Absence\+Count)
+\begin{DoxyCompactList}\small\item\em The returned value when requesting a users absence rank. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a2bfe0674edf73b9b32cbccefc82eed30}{Missing}} (\+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour)
+\begin{DoxyCompactList}\small\item\em Used to get all hours where no entries have been made. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}{Normal}} (\+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour, \+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long Student\+Id, \+[property:\+\+Json\+Property\+Name("{}lehrer\+Absenz"{})]\+ int \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a09eb7e7ebe972965f6aed8fc2cb9e0b9}{Teacher\+Absence}}, \+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}activity"{})]\+ string Activity, \+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab}{Subject}})
+\begin{DoxyCompactList}\small\item\em A normal entry. Returned by the server, when creating a new normal entry. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a383727317ebe89feb1869128caaee1cd}{Full\+Retured}} (\+[property:\+\+Json\+Property\+Name("{}3"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f5bc881048fe43d730bf54820fef478}{Returned}} $>$ Hour3, \+[property:\+\+Json\+Property\+Name("{}4"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f5bc881048fe43d730bf54820fef478}{Returned}} $>$ Hour4)
+\begin{DoxyCompactList}\small\item\em The full version of the returned object. {\bfseries{Returned}} by the server. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f5bc881048fe43d730bf54820fef478}{Returned}} (\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour, \+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long Student\+Id, \+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}signed"{})]\+ int Is\+Signed)
+\begin{DoxyCompactList}\small\item\em Base class. Has basic info about the entry returned by the server, when requesting the made entries for a day. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a22d197cc5de2c8ec3a13331b70f34155}{Absence\+Returned}} (int Hour, Date\+Only Date, long Student\+Id, string Type, int Is\+Signed, \+[property:\+\+Json\+Property\+Name("{}entry\+Past\+Present"{})]\+ string Entry\+Past\+Present, string Teacher\+Id="{}"{})
+\begin{DoxyCompactList}\small\item\em A absence entry returned by the server, when requesting the made entries for a day. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a3cdcd8c744904317e2f331474e62389d}{Normal\+Returned}} (int Hour, Date\+Only Date, string Teacher\+Id, long Student\+Id, string Type, int Is\+Signed, \+[property:\+\+Json\+Property\+Name("{}activity"{})]\+ string Activity, \+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab}{Subject}}, \+[property:\+\+Json\+Property\+Name("{}room"{})]\+ string Room)
+\begin{DoxyCompactList}\small\item\em A normal entry returned by the server, when requesting the made entries for a day. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a6c6c5d3671797830e1cbfea1ae7e5f63}{School\+Event\+Returned}} (int Hour, Date\+Only Date, string Teacher\+Id, long Student\+Id, string Type, int Is\+Signed, \+[property:\+\+Json\+Property\+Name("{}description"{})]\+ string Description)
+\begin{DoxyCompactList}\small\item\em A schoolevent entry returned by the server, when requesting the made entries for a day. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_abc56258a222b032ff084232e2bc5cab7}{Special\+Returned}} (int Hour, Date\+Only Date, string Teacher\+Id, long Student\+Id, string Type, int Is\+Signed, \+[property:\+\+Json\+Property\+Name("{}day"{})]\+ string Day, \+[property:\+\+Json\+Property\+Name("{}end\+Date"{})]\+ Date\+Only End\+Date, \+[property:\+\+Json\+Property\+Name("{}start\+Date"{})]\+ Date\+Only Start\+Date, \+[property:\+\+Json\+Property\+Name("{}activity"{})]\+ string Activity, \+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab}{Subject}}, \+[property:\+\+Json\+Property\+Name("{}room"{})]\+ string Room)
+\begin{DoxyCompactList}\small\item\em A special entry returned by the server, when requesting the made entries for a day. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}{School\+Event}} (\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long Student\+Id, \+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}description"{})]\+ string Description, \+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour)
+\begin{DoxyCompactList}\small\item\em A schoolevent entry. Returned by the server, when creating a new schoolevent entry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!Absence@{Absence}}
+\index{Absence@{Absence}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{Absence()}{Absence()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_af60717de6202a8b11cabe2c2ff27c80a} 
+record Ind\+YLib.\+Models.\+Entry.\+Absence (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long}]{Student\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}indy-\/date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}entry\+Past\+Present"{})]\+ string}]{Entry\+Past\+Present}{}\end{DoxyParamCaption})}
+
+
+
+A absence entry. Returned from the server when making a new one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hour} & The hour of the absence entry.\\
+\hline
+{\em Student\+Id} & The ID of the student the entry has been made for.\\
+\hline
+{\em Date} & The date of the indy day the entry has been made for.\\
+\hline
+{\em Entry\+Past\+Present} & Boolean (0 or 1). 1 if the entry has been made before the {\itshape Date}  of the entry.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a631412c005b74570999fb733b5bbc15c}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!AbsenceRank@{AbsenceRank}}
+\index{AbsenceRank@{AbsenceRank}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{AbsenceRank()}{AbsenceRank()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a631412c005b74570999fb733b5bbc15c} 
+record Ind\+YLib.\+Models.\+Entry.\+Absence\+Rank (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}rank"{})]\+ int}]{Rank}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}absence\+\_\+hours"{})]\+ int}]{Absence\+Count}{}\end{DoxyParamCaption})}
+
+
+
+The returned value when requesting a users absence rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rank} & The rank of the requested user.\\
+\hline
+{\em Absence\+Count} & The number of absences the requested user has.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a22d197cc5de2c8ec3a13331b70f34155}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!AbsenceReturned@{AbsenceReturned}}
+\index{AbsenceReturned@{AbsenceReturned}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{AbsenceReturned()}{AbsenceReturned()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a22d197cc5de2c8ec3a13331b70f34155} 
+record Ind\+YLib.\+Models.\+Entry.\+Absence\+Returned (\begin{DoxyParamCaption}\item[{int}]{Hour}{, }\item[{Date\+Only}]{Date}{, }\item[{long}]{Student\+Id}{, }\item[{string}]{Type}{, }\item[{int}]{Is\+Signed}{, }\item[{\+[property:\+ Json\+Property\+Name("{}entry\+Past\+Present"{})]\+ string}]{Entry\+Past\+Present}{, }\item[{string}]{Teacher\+Id}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+
+
+A absence entry returned by the server, when requesting the made entries for a day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hour} & The hour in which the entry happend. (3 or 4)\\
+\hline
+{\em Date} & The date on which the entry happend.\\
+\hline
+{\em Student\+Id} & The ID of the student, who made the entry.\\
+\hline
+{\em Teacher\+Id} & The ID of the teacher, where this entry happend.\\
+\hline
+{\em Type} & The type of the returned entry. (\textquotesingle{}entryabsence\textquotesingle{}, \textquotesingle{}entrynormal\textquotesingle{}, \textquotesingle{}entryspecial\textquotesingle{}, \textquotesingle{}entryschoolevent\textquotesingle{}).\\
+\hline
+{\em Is\+Signed} & Boolean (1 or 0). 1 if it is already signed by the teacher.\\
+\hline
+{\em Entry\+Past\+Present} & Boolean (1 or 0). 1 if the entry was made before the {\itshape Date}  of the entry.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a383727317ebe89feb1869128caaee1cd}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!FullRetured@{FullRetured}}
+\index{FullRetured@{FullRetured}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{FullRetured()}{FullRetured()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a383727317ebe89feb1869128caaee1cd} 
+record Ind\+YLib.\+Models.\+Entry.\+Full\+Retured (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}3"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f5bc881048fe43d730bf54820fef478}{Returned}} $>$}]{Hour3}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}4"{})]\+ List$<$ \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_1_1Entry_a1f5bc881048fe43d730bf54820fef478}{Returned}} $>$}]{Hour4}{}\end{DoxyParamCaption})}
+
+
+
+The full version of the returned object. {\bfseries{Returned}} by the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hour3} & Single object list with some type of \textquotesingle{}Returned\textquotesingle{} entry which was made in the 3rd hour.\\
+\hline
+{\em Hour4} & Single object list with some type of \textquotesingle{}Returned\textquotesingle{} entry which was made in the 4rd hour.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a2bfe0674edf73b9b32cbccefc82eed30}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!Missing@{Missing}}
+\index{Missing@{Missing}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{Missing()}{Missing()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a2bfe0674edf73b9b32cbccefc82eed30} 
+record Ind\+YLib.\+Models.\+Entry.\+Missing (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{}\end{DoxyParamCaption})}
+
+
+
+Used to get all hours where no entries have been made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Date} & The date of the indy day, where the entry should have been made.\\
+\hline
+{\em Hour} & The hour of the missing entry.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!Normal@{Normal}}
+\index{Normal@{Normal}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{Normal()}{Normal()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a149ce36a784e9a907c30dac07492acf5} 
+record Ind\+YLib.\+Models.\+Entry.\+Normal (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long}]{Student\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}lehrer\+Absenz"{})]\+ int}]{Teacher\+Absence}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}activity"{})]\+ string}]{Activity}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string}]{Subject}{}\end{DoxyParamCaption})}
+
+
+
+A normal entry. Returned by the server, when creating a new normal entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Teacher\+Id} & The ID of the teacher, where the entry has been made.\\
+\hline
+{\em Hour} & The hour of the entry.\\
+\hline
+{\em Student\+Id} & The ID if the student wanting to create the entry.\\
+\hline
+{\em Teacher\+Absence} & Boolean (1 or 0). 1 if the teacher is absent\\
+\hline
+{\em Date} & The date of the indy day.\\
+\hline
+{\em Activity} & The description of what the user wants to do.\\
+\hline
+{\em Subject} & The subject used in the entry.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a3cdcd8c744904317e2f331474e62389d}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!NormalReturned@{NormalReturned}}
+\index{NormalReturned@{NormalReturned}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{NormalReturned()}{NormalReturned()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a3cdcd8c744904317e2f331474e62389d} 
+record Ind\+YLib.\+Models.\+Entry.\+Normal\+Returned (\begin{DoxyParamCaption}\item[{int}]{Hour}{, }\item[{Date\+Only}]{Date}{, }\item[{string}]{Teacher\+Id}{, }\item[{long}]{Student\+Id}{, }\item[{string}]{Type}{, }\item[{int}]{Is\+Signed}{, }\item[{\+[property:\+ Json\+Property\+Name("{}activity"{})]\+ string}]{Activity}{, }\item[{\+[property:\+ Json\+Property\+Name("{}subject"{})]\+ string}]{Subject}{, }\item[{\+[property:\+ Json\+Property\+Name("{}room"{})]\+ string}]{Room}{}\end{DoxyParamCaption})}
+
+
+
+A normal entry returned by the server, when requesting the made entries for a day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hour} & The hour in which the entry happend. (3 or 4)\\
+\hline
+{\em Date} & The date on which the entry happend.\\
+\hline
+{\em Student\+Id} & The ID of the student, who made the entry.\\
+\hline
+{\em Teacher\+Id} & The ID of the teacher, where this entry happend.\\
+\hline
+{\em Type} & The type of the returned entry. (\textquotesingle{}entryabsence\textquotesingle{}, \textquotesingle{}entrynormal\textquotesingle{}, \textquotesingle{}entryspecial\textquotesingle{}, \textquotesingle{}entryschoolevent\textquotesingle{}).\\
+\hline
+{\em Is\+Signed} & Boolean (1 or 0). 1 if it is already signed by the teacher.\\
+\hline
+{\em Activity} & The user\textquotesingle{}s description of what the user did/\+does in the indy hour.\\
+\hline
+{\em Subject} & The subject set in the entry.\\
+\hline
+{\em Room} & The room in which the teacher is.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a1f5bc881048fe43d730bf54820fef478}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!Returned@{Returned}}
+\index{Returned@{Returned}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{Returned()}{Returned()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a1f5bc881048fe43d730bf54820fef478} 
+record Ind\+YLib.\+Models.\+Entry.\+Returned (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long}]{Student\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}signed"{})]\+ int}]{Is\+Signed}{}\end{DoxyParamCaption})}
+
+
+
+Base class. Has basic info about the entry returned by the server, when requesting the made entries for a day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hour} & The hour in which the entry happend. (3 or 4)\\
+\hline
+{\em Date} & The date on which the entry happend.\\
+\hline
+{\em Student\+Id} & The ID of the student, who made the entry.\\
+\hline
+{\em Teacher\+Id} & The ID of the teacher, where this entry happend.\\
+\hline
+{\em Is\+Signed} & Boolean (1 or 0). 1 if it is already signed by the teacher.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!SchoolEvent@{SchoolEvent}}
+\index{SchoolEvent@{SchoolEvent}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{SchoolEvent()}{SchoolEvent()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a1f207f04af6246d6bc7904f024125092} 
+record Ind\+YLib.\+Models.\+Entry.\+School\+Event (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long}]{Student\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}description"{})]\+ string}]{Description}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{}\end{DoxyParamCaption})}
+
+
+
+A schoolevent entry. Returned by the server, when creating a new schoolevent entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Student\+Id} & The ID of the student who created the entry.\\
+\hline
+{\em Date} & The date of the indy day the entry was created for.\\
+\hline
+{\em Description} & The description of what the schoolevent is about.\\
+\hline
+{\em Teacher\+Id} & The ID if the teacher where the schoolevent happens.\\
+\hline
+{\em Hour} & The hour of the entry. (3 or 4)\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_a6c6c5d3671797830e1cbfea1ae7e5f63}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!SchoolEventReturned@{SchoolEventReturned}}
+\index{SchoolEventReturned@{SchoolEventReturned}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{SchoolEventReturned()}{SchoolEventReturned()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_a6c6c5d3671797830e1cbfea1ae7e5f63} 
+record Ind\+YLib.\+Models.\+Entry.\+School\+Event\+Returned (\begin{DoxyParamCaption}\item[{int}]{Hour}{, }\item[{Date\+Only}]{Date}{, }\item[{string}]{Teacher\+Id}{, }\item[{long}]{Student\+Id}{, }\item[{string}]{Type}{, }\item[{int}]{Is\+Signed}{, }\item[{\+[property:\+ Json\+Property\+Name("{}description"{})]\+ string}]{Description}{}\end{DoxyParamCaption})}
+
+
+
+A schoolevent entry returned by the server, when requesting the made entries for a day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hour} & The hour in which the entry happend. (3 or 4)\\
+\hline
+{\em Date} & The date on which the entry happend.\\
+\hline
+{\em Student\+Id} & The ID of the student, who made the entry.\\
+\hline
+{\em Teacher\+Id} & The ID of the teacher, where this entry happend.\\
+\hline
+{\em Type} & The type of the returned entry. (\textquotesingle{}entryabsence\textquotesingle{}, \textquotesingle{}entrynormal\textquotesingle{}, \textquotesingle{}entryspecial\textquotesingle{}, \textquotesingle{}entryschoolevent\textquotesingle{}).\\
+\hline
+{\em Is\+Signed} & Boolean (1 or 0). 1 if it is already signed by the teacher.\\
+\hline
+{\em Description} & The description of what the event is about.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_1_1Entry_abc56258a222b032ff084232e2bc5cab7}\index{IndYLib.Models.Entry@{IndYLib.Models.Entry}!SpecialReturned@{SpecialReturned}}
+\index{SpecialReturned@{SpecialReturned}!IndYLib.Models.Entry@{IndYLib.Models.Entry}}
+\doxysubsubsection{\texorpdfstring{SpecialReturned()}{SpecialReturned()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_1_1Entry_abc56258a222b032ff084232e2bc5cab7} 
+record Ind\+YLib.\+Models.\+Entry.\+Special\+Returned (\begin{DoxyParamCaption}\item[{int}]{Hour}{, }\item[{Date\+Only}]{Date}{, }\item[{string}]{Teacher\+Id}{, }\item[{long}]{Student\+Id}{, }\item[{string}]{Type}{, }\item[{int}]{Is\+Signed}{, }\item[{\+[property:\+ Json\+Property\+Name("{}day"{})]\+ string}]{Day}{, }\item[{\+[property:\+ Json\+Property\+Name("{}end\+Date"{})]\+ Date\+Only}]{End\+Date}{, }\item[{\+[property:\+ Json\+Property\+Name("{}start\+Date"{})]\+ Date\+Only}]{Start\+Date}{, }\item[{\+[property:\+ Json\+Property\+Name("{}activity"{})]\+ string}]{Activity}{, }\item[{\+[property:\+ Json\+Property\+Name("{}subject"{})]\+ string}]{Subject}{, }\item[{\+[property:\+ Json\+Property\+Name("{}room"{})]\+ string}]{Room}{}\end{DoxyParamCaption})}
+
+
+
+A special entry returned by the server, when requesting the made entries for a day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hour} & The hour in which the entry happend. (3 or 4)\\
+\hline
+{\em Date} & The date on which the entry happend.\\
+\hline
+{\em Student\+Id} & The ID of the student, who made the entry.\\
+\hline
+{\em Teacher\+Id} & The ID of the teacher, where this entry happend.\\
+\hline
+{\em Type} & The type of the returned entry. (\textquotesingle{}entryabsence\textquotesingle{}, \textquotesingle{}entrynormal\textquotesingle{}, \textquotesingle{}entryspecial\textquotesingle{}, \textquotesingle{}entryschoolevent\textquotesingle{}).\\
+\hline
+{\em Is\+Signed} & Boolean (1 or 0). 1 if it is already signed by the teacher.\\
+\hline
+{\em Day} & The short name of a indy day. (\textquotesingle{}Mo\textquotesingle{}, \textquotesingle{}Mi\textquotesingle{}, \textquotesingle{}Fr\textquotesingle{}).\\
+\hline
+{\em Start\+Date} & The start of the range in which the special indy happens.\\
+\hline
+{\em End\+Date} & The end of the range in which the special indy happens.\\
+\hline
+{\em Activity} & The activity of what the user is doing in the special indy.\\
+\hline
+{\em Subject} & The subject of the activity of the user.\\
+\hline
+{\em Room} & The room in which the special indy happens.\\
+\hline
+\end{DoxyParams}

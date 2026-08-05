@@ -2,8 +2,10 @@ var annotated_dup =
 [
     [ "IndYLib", "namespaceIndYLib.html", [
       [ "Exceptions", "namespaceIndYLib_1_1Exceptions.html", [
+        [ "IndyException", "classIndYLib_1_1Exceptions_1_1IndyException.html", null ],
+        [ "InvalidIndyDayException", "classIndYLib_1_1Exceptions_1_1InvalidIndyDayException.html", null ],
         [ "InvalidTokenExcpetion", "classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion.html", "classIndYLib_1_1Exceptions_1_1InvalidTokenExcpetion" ],
-        [ "StudentNotFoundException", "classIndYLib_1_1Exceptions_1_1StudentNotFoundException.html", "classIndYLib_1_1Exceptions_1_1StudentNotFoundException" ]
+        [ "NotFoundException", "classIndYLib_1_1Exceptions_1_1NotFoundException.html", null ]
       ] ],
       [ "Extensions", "namespaceIndYLib_1_1Extensions.html", [
         [ "ServiceCollectionExtensions", "classIndYLib_1_1Extensions_1_1ServiceCollectionExtensions.html", "classIndYLib_1_1Extensions_1_1ServiceCollectionExtensions" ]

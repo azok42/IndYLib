@@ -1,0 +1,293 @@
+\doxysection{Ind\+YLib.\+Models Namespace Reference}
+\hypertarget{namespaceIndYLib_1_1Models}{}\label{namespaceIndYLib_1_1Models}\index{IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceIndYLib_1_1Models_a32009070bd936c7190176581ff6b86d2}\label{namespaceIndYLib_1_1Models_a32009070bd936c7190176581ff6b86d2} 
+enum {\bfseries Status} \{ \newline
+{\bfseries Open}
+, {\bfseries Unkown}
+, {\bfseries Not\+Signed}
+, {\bfseries Fully\+Signed}
+, \newline
+{\bfseries Entries\+Missing}
+, {\bfseries Cancelled}
+, {\bfseries Absence\+Entries}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_ab69ba402b916ee4fedc45fde96a72137}{Day\+Status}} (\+[property:\+\+Json\+Property\+Name("{}date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}day\+\_\+name"{})]\+ string Day\+Name, \+[property:\+\+Json\+Property\+Name("{}status"{})]\+ Status Status)
+\begin{DoxyCompactList}\small\item\em The status of a indy day. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_aca2c86ce8302926490006531f1bd48c2}{Indy\+Day}} (\+[property:\+\+Json\+Property\+Name("{}date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}day\+\_\+name"{})]\+ string Day\+Name)
+\begin{DoxyCompactList}\small\item\em Represents a day on which indy happens. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a3d175d351414728c82aa49cb1ca25487}{Indy\+Hour}} (\+[property:\+\+Json\+Property\+Name("{}day"{})]\+ string Day\+Name, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour, \+[property:\+\+Json\+Property\+Name("{}room"{})]\+ string Room, \+[property:\+\+Json\+Property\+Name("{}teacher"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}consultation"{})]\+ int Consultation, \+[property:\+\+Json\+Property\+Name("{}slimit"{})]\+ int Student\+Limit, \+[property:\+\+Json\+Property\+Name("{}fullname"{})]\+ string Teacher\+Name, \+[property:\+\+Json\+Property\+Name("{}area\+\_\+of\+\_\+expertise"{})]\+ string Area\+Of\+Expertise)
+\begin{DoxyCompactList}\small\item\em Represents a indy hour in which can a entry can be made. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_acf91fda9ba4ffa680537d75ab45c2413}{Special\+Indy}} (\+[property:\+\+Json\+Property\+Name("{}teacher"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}day"{})]\+ string Day, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour, \+[property:\+\+Json\+Property\+Name("{}area\+\_\+of\+\_\+expertise"{})]\+ string Area\+Of\+Expertise, \+[property:\+\+Json\+Property\+Name("{}start\+\_\+date"{})]\+ Date\+Only Start\+Date, \+[property:\+\+Json\+Property\+Name("{}end\+\_\+date"{})]\+ Date\+Only End\+Date, \+[property:\+\+Json\+Property\+Name("{}slimit"{})]\+ int Student\+Limit, \+[property:\+\+Json\+Property\+Name("{}room"{})]\+ string Room, \+[property:\+\+Json\+Property\+Name("{}fullname"{})]\+ string Teacher\+Fullname)
+\begin{DoxyCompactList}\small\item\em A special indy hour with all infos to it. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_aedcb992b421c94e5daabda456fc10976}{Student}} (\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long Student\+Id, \+[property:\+\+Json\+Property\+Name("{}firstname"{})]\+ string Firstname, \+[property:\+\+Json\+Property\+Name("{}lastname"{})]\+ string Lastname, \+[property:\+\+Json\+Property\+Name("{}username"{})]\+ string Username, \+[property:\+\+Json\+Property\+Name("{}email"{})]\+ string EMail, \+[property:\+\+Json\+Property\+Name("{}class"{})]\+ string Class)
+\begin{DoxyCompactList}\small\item\em Contains details to a student. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a38b208f2b426648e986f20915c8ca285}{Student\+Count}} (\+[property:\+\+Json\+Property\+Name("{}teacher\+\_\+id"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour, \+[property:\+\+Json\+Property\+Name("{}student\+\_\+count"{})]\+ int Count)
+\begin{DoxyCompactList}\small\item\em Combination of {\itshape Teacher\+Id}  and the amount of students who made an entry there today. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab}{Subject}} (\+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string Subject\+Id, \+[property:\+\+Json\+Property\+Name("{}longname"{})]\+ string Subject\+Long, \+[property:\+\+Json\+Property\+Name("{}active"{})]\+ int Is\+Active)
+\begin{DoxyCompactList}\small\item\em A school subject. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8e5f5d7d66bba164d1df42ccc72d1af0}{Teacher}} (\+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}firstname"{})]\+ string Firstname, \+[property:\+\+Json\+Property\+Name("{}lastname"{})]\+ string Lastname, \+[property:\+\+Json\+Property\+Name("{}username"{})]\+ string Username, \+[property:\+\+Json\+Property\+Name("{}email"{})]\+ string EMail, \+[property:\+\+Json\+Property\+Name("{}areaofexpertise"{})]\+ string Expertises)
+\begin{DoxyCompactList}\small\item\em Represents a teacher. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a09eb7e7ebe972965f6aed8fc2cb9e0b9}{Teacher\+Absence}} (\+[property:\+\+Json\+Property\+Name("{}teacher"{})]\+ string Teacher\+Id, \+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only Date, \+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int Hour)
+\begin{DoxyCompactList}\small\item\em A teacher absence. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}{Token}} (\+[property:\+\+Json\+Property\+Name("{}access\+\_\+token"{})]\+ string Access\+Token, \+[property:\+\+Json\+Property\+Name("{}refresh\+\_\+token"{})]\+ string Refresh\+Token, \+[property:\+\+Json\+Property\+Name("{}token\+\_\+type"{})]\+ string Type)
+\begin{DoxyCompactList}\small\item\em The token object returned from /\+token endpoint. \end{DoxyCompactList}\item 
+record \doxymbox{\hyperlink{namespaceIndYLib_1_1Models_acd59498beecaf7828ad31490edb50f94}{Access}} (\+[property:\+\+Json\+Property\+Name("{}access\+\_\+token"{})]\+ string Access\+Token)
+\begin{DoxyCompactList}\small\item\em The access token returned by the server when refreshing a token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceIndYLib_1_1Models_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceIndYLib_1_1Models_acd59498beecaf7828ad31490edb50f94}\index{IndYLib.Models@{IndYLib.Models}!Access@{Access}}
+\index{Access@{Access}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{Access()}{Access()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_acd59498beecaf7828ad31490edb50f94} 
+record Ind\+YLib.\+Models.\+Access (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}access\+\_\+token"{})]\+ string}]{Access\+Token}{}\end{DoxyParamCaption})}
+
+
+
+The access token returned by the server when refreshing a token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Access\+Token} & The refreshed access token.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_ab69ba402b916ee4fedc45fde96a72137}\index{IndYLib.Models@{IndYLib.Models}!DayStatus@{DayStatus}}
+\index{DayStatus@{DayStatus}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{DayStatus()}{DayStatus()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_ab69ba402b916ee4fedc45fde96a72137} 
+record Ind\+YLib.\+Models.\+Day\+Status (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}day\+\_\+name"{})]\+ string}]{Day\+Name}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}status"{})]\+ Status}]{Status}{}\end{DoxyParamCaption})}
+
+
+
+The status of a indy day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Date} & The date of the indy day.\\
+\hline
+{\em Day\+Name} & The name of the indy day. (\textquotesingle{}Mo\textquotesingle{}, \textquotesingle{}Mi\textquotesingle{}, \textquotesingle{}Fr\textquotesingle{})\\
+\hline
+{\em Status} & The actual status. 
+\begin{DoxyItemize}
+\item {\ttfamily 0}:\+ No entries have been made yet, can still be made. 
+\item {\ttfamily 1}:\+ idk (i haven\textquotesingle{}t found a 1 status yet). 
+\item {\ttfamily 2}:\+ At least 1 entry has been made, but not signed yet. 
+\item {\ttfamily 3}:\+ Both Entries have been made and signed. 
+\item {\ttfamily 4}:\+ At least 1 entry has not been made and cannot be still made. Or teacher is absent. 
+\item {\ttfamily 5}:\+ New special indy has been made for this teacher and thus the entry has been cancelled. 
+\item {\ttfamily 6}:\+ Absence entries have been made. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_aca2c86ce8302926490006531f1bd48c2}\index{IndYLib.Models@{IndYLib.Models}!IndyDay@{IndyDay}}
+\index{IndyDay@{IndyDay}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{IndyDay()}{IndyDay()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_aca2c86ce8302926490006531f1bd48c2} 
+record Ind\+YLib.\+Models.\+Indy\+Day (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}day\+\_\+name"{})]\+ string}]{Day\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Represents a day on which indy happens. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Date} & The date of the indy day.\\
+\hline
+{\em Day\+Name} & The name of the day. (\textquotesingle{}Mo\textquotesingle{}, \textquotesingle{}Mi\textquotesingle{}, \textquotesingle{}Fr\textquotesingle{})\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_a3d175d351414728c82aa49cb1ca25487}\index{IndYLib.Models@{IndYLib.Models}!IndyHour@{IndyHour}}
+\index{IndyHour@{IndyHour}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{IndyHour()}{IndyHour()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_a3d175d351414728c82aa49cb1ca25487} 
+record Ind\+YLib.\+Models.\+Indy\+Hour (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}day"{})]\+ string}]{Day\+Name}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}room"{})]\+ string}]{Room}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}teacher"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}consultation"{})]\+ int}]{Consultation}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}slimit"{})]\+ int}]{Student\+Limit}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}fullname"{})]\+ string}]{Teacher\+Name}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}area\+\_\+of\+\_\+expertise"{})]\+ string}]{Area\+Of\+Expertise}{}\end{DoxyParamCaption})}
+
+
+
+Represents a indy hour in which can a entry can be made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Day\+Name} & The shortname of the indy day. (\textquotesingle{}Mo\textquotesingle{}, \textquotesingle{}Mi\textquotesingle{}, \textquotesingle{}Fr\textquotesingle{})\\
+\hline
+{\em Hour} & The hour where the indy hour happens.\\
+\hline
+{\em Room} & The room in which the hour happens.\\
+\hline
+{\em Teacher\+Id} & The ID if the teacher whose indy hour this is.\\
+\hline
+{\em Consultation} & Boolean (0 or 1). Whether it is a consultation hour or not.\\
+\hline
+{\em Student\+Limit} & The amount of students which can make an entry for this hour.\\
+\hline
+{\em Teacher\+Name} & The name of the teacher holding this indy hour.\\
+\hline
+{\em Area\+Of\+Expertise} & The expertises of the teacher.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_acf91fda9ba4ffa680537d75ab45c2413}\index{IndYLib.Models@{IndYLib.Models}!SpecialIndy@{SpecialIndy}}
+\index{SpecialIndy@{SpecialIndy}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{SpecialIndy()}{SpecialIndy()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_acf91fda9ba4ffa680537d75ab45c2413} 
+record Ind\+YLib.\+Models.\+Special\+Indy (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}teacher"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}day"{})]\+ string}]{Day}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}area\+\_\+of\+\_\+expertise"{})]\+ string}]{Area\+Of\+Expertise}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}start\+\_\+date"{})]\+ Date\+Only}]{Start\+Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}end\+\_\+date"{})]\+ Date\+Only}]{End\+Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}slimit"{})]\+ int}]{Student\+Limit}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}room"{})]\+ string}]{Room}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}fullname"{})]\+ string}]{Teacher\+Fullname}{}\end{DoxyParamCaption})}
+
+
+
+A special indy hour with all infos to it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Teacher\+Id} & The ID of the teacher offering the special indy.\\
+\hline
+{\em Day} & The day name of the indy day. (\textquotesingle{}Mo\textquotesingle{}, \textquotesingle{}Mi\textquotesingle{}, \textquotesingle{}Fr\textquotesingle{})\\
+\hline
+{\em Hour} & The hour of the special indy. (3 or 4)\\
+\hline
+{\em Area\+Of\+Expertise} & The activity of the special indy. Aka why it is special.\\
+\hline
+{\em Start\+Date} & The start of the range.\\
+\hline
+{\em End\+Date} & The end of the range.\\
+\hline
+{\em Student\+Limit} & The amount of students which can attend this special indy.\\
+\hline
+{\em Room} & The room in which the special indy happens.\\
+\hline
+{\em Teacher\+Fullname} & The full name of the teacher offering the special indy.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_aedcb992b421c94e5daabda456fc10976}\index{IndYLib.Models@{IndYLib.Models}!Student@{Student}}
+\index{Student@{Student}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{Student()}{Student()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_aedcb992b421c94e5daabda456fc10976} 
+record Ind\+YLib.\+Models.\+Student (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}sid"{})]\+ long}]{Student\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}firstname"{})]\+ string}]{Firstname}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}lastname"{})]\+ string}]{Lastname}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}username"{})]\+ string}]{Username}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}email"{})]\+ string}]{EMail}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}class"{})]\+ string}]{Class}{}\end{DoxyParamCaption})}
+
+
+
+Contains details to a student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Student\+Id} & The ID of the user.\\
+\hline
+{\em Firstname} & The firstname of the user.\\
+\hline
+{\em Lastname} & The lastname of the user.\\
+\hline
+{\em Username} & The username of the user. Format:\+ {\itshape Firstname} .{\itshape Lastname} \\
+\hline
+{\em EMail} & The E-\/\+Mail of the user.\\
+\hline
+{\em Class} & The class of the user.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_a38b208f2b426648e986f20915c8ca285}\index{IndYLib.Models@{IndYLib.Models}!StudentCount@{StudentCount}}
+\index{StudentCount@{StudentCount}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{StudentCount()}{StudentCount()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_a38b208f2b426648e986f20915c8ca285} 
+record Ind\+YLib.\+Models.\+Student\+Count (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}teacher\+\_\+id"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}student\+\_\+count"{})]\+ int}]{Count}{}\end{DoxyParamCaption})}
+
+
+
+Combination of {\itshape Teacher\+Id}  and the amount of students who made an entry there today. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Teacher\+Id} & The ID of the teacher.\\
+\hline
+{\em Hour} & The hour of todays indy day.\\
+\hline
+{\em Count} & The amount of students present.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab}\index{IndYLib.Models@{IndYLib.Models}!Subject@{Subject}}
+\index{Subject@{Subject}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{Subject()}{Subject()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_a46d015ae621746bb4cc97dce4dbe9eab} 
+record Ind\+YLib.\+Models.\+Subject (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}subject"{})]\+ string}]{Subject\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}longname"{})]\+ string}]{Subject\+Long}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}active"{})]\+ int}]{Is\+Active}{}\end{DoxyParamCaption})}
+
+
+
+A school subject. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Subject\+Id} & The ID or shortname of the subject.\\
+\hline
+{\em Subject\+Long} & The fullname of the subject.\\
+\hline
+{\em Is\+Active} & Boolean (0 or 1). Basically always 1 but idk (fuck indy) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_a8e5f5d7d66bba164d1df42ccc72d1af0}\index{IndYLib.Models@{IndYLib.Models}!Teacher@{Teacher}}
+\index{Teacher@{Teacher}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{Teacher()}{Teacher()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_a8e5f5d7d66bba164d1df42ccc72d1af0} 
+record Ind\+YLib.\+Models.\+Teacher (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}tid"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}firstname"{})]\+ string}]{Firstname}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}lastname"{})]\+ string}]{Lastname}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}username"{})]\+ string}]{Username}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}email"{})]\+ string}]{EMail}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}areaofexpertise"{})]\+ string}]{Expertises}{}\end{DoxyParamCaption})}
+
+
+
+Represents a teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Teacher\+Id} & The Id of the teacher.\\
+\hline
+{\em Firstname} & The firstname of the teacher.\\
+\hline
+{\em Lastname} & The lastname of the teacher.\\
+\hline
+{\em Username} & The username of the teacher. Format:\+ {\itshape Firstname} .{\itshape Lastname} \\
+\hline
+{\em EMail} & The E-\/\+Mail of the teacher.\\
+\hline
+{\em Expertises} & The expertises of the teacher. Format:\+ no format\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_a09eb7e7ebe972965f6aed8fc2cb9e0b9}\index{IndYLib.Models@{IndYLib.Models}!TeacherAbsence@{TeacherAbsence}}
+\index{TeacherAbsence@{TeacherAbsence}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{TeacherAbsence()}{TeacherAbsence()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_a09eb7e7ebe972965f6aed8fc2cb9e0b9} 
+record Ind\+YLib.\+Models.\+Teacher\+Absence (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}teacher"{})]\+ string}]{Teacher\+Id}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}indy\+\_\+date"{})]\+ Date\+Only}]{Date}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}hour"{})]\+ int}]{Hour}{}\end{DoxyParamCaption})}
+
+
+
+A teacher absence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Teacher\+Id} & The ID of the teacher.\\
+\hline
+{\em Date} & The date of the indy day.\\
+\hline
+{\em Hour} & The hour on which the teacher is missing.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401}\index{IndYLib.Models@{IndYLib.Models}!Token@{Token}}
+\index{Token@{Token}!IndYLib.Models@{IndYLib.Models}}
+\doxysubsubsection{\texorpdfstring{Token()}{Token()}}
+{\footnotesize\ttfamily \label{namespaceIndYLib_1_1Models_a8771eb43fdd44a3e2645013e2fad0401} 
+record Ind\+YLib.\+Models.\+Token (\begin{DoxyParamCaption}\item[{\+[property:\+\+Json\+Property\+Name("{}access\+\_\+token"{})]\+ string}]{Access\+Token}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}refresh\+\_\+token"{})]\+ string}]{Refresh\+Token}{, }\item[{\+[property:\+\+Json\+Property\+Name("{}token\+\_\+type"{})]\+ string}]{Type}{}\end{DoxyParamCaption})}
+
+
+
+The token object returned from /\+token endpoint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Access\+Token} & Token used to for auth.\\
+\hline
+{\em Refresh\+Token} & Token used to refresh the {\itshape Access\+Token} .\\
+\hline
+{\em Type} & The auth type (should be "{}\+Bearer"{}).\\
+\hline
+\end{DoxyParams}

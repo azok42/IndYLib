@@ -8,7 +8,6 @@ var searchData=
   ['statisticentry_5',['StatisticEntry',['../namespaceIndYLib_1_1Models_1_1Report.html#ae30db2c449cec0d3cd95bceb457ac99e',1,'IndYLib::Models::Report']]],
   ['student_6',['Student',['../namespaceIndYLib_1_1Models.html#aedcb992b421c94e5daabda456fc10976',1,'IndYLib::Models']]],
   ['studentcount_7',['StudentCount',['../namespaceIndYLib_1_1Models.html#a38b208f2b426648e986f20915c8ca285',1,'IndYLib::Models']]],
-  ['studentnotfoundexception_8',['StudentNotFoundException',['../classIndYLib_1_1Exceptions_1_1StudentNotFoundException.html#a69679e51c8bf79363f11c88f1d844683',1,'IndYLib.Exceptions.StudentNotFoundException.StudentNotFoundException()'],['../classIndYLib_1_1Exceptions_1_1StudentNotFoundException.html#a6cbdb1c603bca1532d3768f3d1145512',1,'IndYLib.Exceptions.StudentNotFoundException.StudentNotFoundException(string name)'],['../classIndYLib_1_1Exceptions_1_1StudentNotFoundException.html#a33a3223c50e43e7b400d9f96455bba9a',1,'IndYLib.Exceptions.StudentNotFoundException.StudentNotFoundException(string name, Exception innerException)']]],
-  ['subject_9',['Subject',['../namespaceIndYLib_1_1Models.html#a46d015ae621746bb4cc97dce4dbe9eab',1,'IndYLib::Models']]],
-  ['subjectpercentage_10',['SubjectPercentage',['../namespaceIndYLib_1_1Models_1_1Report.html#a1a68e91773c5738b9fb4c457e3b2b57b',1,'IndYLib::Models::Report']]]
+  ['subject_8',['Subject',['../namespaceIndYLib_1_1Models.html#a46d015ae621746bb4cc97dce4dbe9eab',1,'IndYLib::Models']]],
+  ['subjectpercentage_9',['SubjectPercentage',['../namespaceIndYLib_1_1Models_1_1Report.html#a1a68e91773c5738b9fb4c457e3b2b57b',1,'IndYLib::Models::Report']]]
 ];

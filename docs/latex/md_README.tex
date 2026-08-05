@@ -1,0 +1,37 @@
+\chapter{README }
+\hypertarget{md_README}{}\label{md_README}\index{README@{README}}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \_\_\_\ \ \ \ \ \ \ \ \ \ \ \_\_\_\ \ \ \_\_\ \ \_\ \ \ \ \ \_\ \_\ \ \ \ \ }
+\DoxyCodeLine{|\_\ \_|\_\ \_\_\ \ \ \_\_|\ \(\backslash\)\ \(\backslash\)\ /\ /\ |\ |\ \ \ (\_)\ |\_\_\ \ }
+\DoxyCodeLine{\ |\ ||\ '\_\ \(\backslash\)\ /\ \_`\ |\(\backslash\)\ V\ /\ \ |\ |\ \ \ |\ |\ '\_\ \(\backslash\)\ }
+\DoxyCodeLine{\ |\ ||\ |\ |\ |\ (\_|\ |\ |\ |\ \ \ |\ |\_\_\_|\ |\ |\_)\ |}
+\DoxyCodeLine{|\_\_\_|\_|\ |\_|\(\backslash\)\_\_,\_|\ |\_|\ \ \ |\_\_\_\_\_|\_|\_.\_\_/\ }
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+This is a C\# library for the Ind\+Y-\/\+API.\hypertarget{md_README_autotoc_md1}{}\doxysubsection{\texorpdfstring{How to use}{How to use}}\label{md_README_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ library}}
+\DoxyCodeLine{var\ services\ =\ \textcolor{keyword}{new}\ ServiceCollection();}
+\DoxyCodeLine{services.AddIndyAuth();}
+\DoxyCodeLine{var\ serviceProvider\ =\ services.BuildServiceProvider();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ get\ auth\ class}}
+\DoxyCodeLine{var\ indyAuth\ =\ serviceProvider.GetRequiredService<IIndyAuth>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ get\ token}}
+\DoxyCodeLine{var\ client\ =\ await\ indyAuth.CreateClientAsync(username,\ password);}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md2}{}\doxysubsection{\texorpdfstring{Showcase}{Showcase}}\label{md_README_autotoc_md2}
+\href{https://github.com/user-attachments/assets/097497a3-34c8-4149-8477-c56a213bda4c}{\texttt{https:\+/\+/\+github.\+com/\+user-\/attachments/\+assets/\+097497a3-\/34c8-\/4149-\/8477-\/c56a213bda4c}}\hypertarget{md_README_autotoc_md3}{}\doxysubsection{\texorpdfstring{What is IndY?}{What is IndY?}}\label{md_README_autotoc_md3}
+IndY is a project in my school, where students can freely decide what, where and with who they work on. There are 6 IndY hours all in all (2x Monday, 2x Wendsday, 2x Friday)\hypertarget{md_README_autotoc_md4}{}\doxysubsection{\texorpdfstring{Why?}{Why?}}\label{md_README_autotoc_md4}
+The Ind\+Y-\/team currently has a website and an android app, technically enough {\bfseries{but}} the more the better right? My intention was to create a Discord bot using this library. 
